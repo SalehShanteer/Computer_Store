@@ -1,0 +1,15 @@
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\bin\Debug\net8.0\Validation.deps.json
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\bin\Debug\net8.0\Validation.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\bin\Debug\net8.0\Validation.pdb
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\bin\Debug\net8.0\DTOs.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\bin\Debug\net8.0\DTOs.pdb
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.csproj.AssemblyReference.cache
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.AssemblyInfoInputs.cache
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.AssemblyInfo.cs
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.csproj.CoreCompileInputs.cache
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.csproj.Up2Date
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\refint\Validation.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.pdb
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\ref\Validation.dll

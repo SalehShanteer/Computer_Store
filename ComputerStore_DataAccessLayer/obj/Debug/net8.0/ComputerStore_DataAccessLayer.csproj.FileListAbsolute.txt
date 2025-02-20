@@ -1,0 +1,15 @@
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.AssemblyInfo.cs
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\bin\Debug\net8.0\ComputerStore_DataAccessLayer.deps.json
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\bin\Debug\net8.0\ComputerStore_DataAccessLayer.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\bin\Debug\net8.0\ComputerStore_DataAccessLayer.pdb
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\bin\Debug\net8.0\DTOs.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\bin\Debug\net8.0\DTOs.pdb
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\Computer.C7040E06.Up2Date
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\refint\ComputerStore_DataAccessLayer.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.pdb
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ref\ComputerStore_DataAccessLayer.dll
