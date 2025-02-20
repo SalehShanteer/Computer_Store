@@ -30,7 +30,8 @@ namespace ComputerStore_BusinessLayer
 
         private bool _AddNewLoginRecord()
         {
-            return clsLoginRecordData.AddNewLoginRecord(this.UserID, this.LoginStatus, this.FailureReason) != null;
+            this.ID = clsLoginRecordData.AddNewLoginRecord(this.loginRecordDto);
+            return this.ID is not null;
         }
 
         public bool Save()

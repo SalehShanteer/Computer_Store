@@ -233,7 +233,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsUtility.cs" />
     <Compile Include="frmCreateNewAccount.cs">
       <SubType>Form</SubType>
     </Compile>

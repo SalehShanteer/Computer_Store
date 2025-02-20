@@ -22,12 +22,12 @@ namespace Computer_Store
             InitializeComponent();
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
+        private async void frmLogin_Load(object sender, EventArgs e)
         {
-           _RetrieveSavedUser();
+           await _RetrieveSavedUser();
         }
 
-        private void _RetrieveSavedUser()
+        private async Task _RetrieveSavedUser()
         {
 
             if (clsUtility.ReadFromRegistry("SavedEmail") != string.Empty)
@@ -36,13 +36,17 @@ namespace Computer_Store
                 var SavedEmailTask = Task.Run(() => clsUtility.ReadFromRegistry("SavedEmail"));
                 var SavedPasswordTask = Task.Run(() => clsUtility.ReadFromRegistry("SavedPassword"));
 
-                Task.WaitAll(SavedEmailTask, SavedPasswordTask);
+                await Task.WhenAll(SavedEmailTask, SavedPasswordTask);
 
                 string SavedEmail = SavedEmailTask.Result.ToString();   
                 string SavedPassword = SavedPasswordTask.Result.ToString();
 
-                txtEmail.Text = SavedEmail;
-                txtPassword.Text = clsUtility.Decrypt(SavedPassword);
+                // Update UI on the main thread
+                this.Invoke((MethodInvoker)delegate
+                {
+                    txtEmail.Text = SavedEmail;
+                    txtPassword.Text = clsUtility.Decrypt(SavedPassword);
+                });
             }
         }
 
@@ -91,8 +95,10 @@ namespace Computer_Store
 
         private void _EnterMainScreen()
         {
+            //this.Hide(); // Hide the login form
             frmMain frm = new frmMain();
-            frm.ShowDialog();
+            frm.ShowDialog(); // Block until the main form closes
+            //this.Close(); // Close the login form after the main form is closed
         }
 
         private async Task<(bool success, string errorMessage)> _RegisterCurrentUser(UserDto User)
@@ -118,17 +124,15 @@ namespace Computer_Store
 
         private async Task _SaveUserToRegistryAsync(UserDto user)
         {
-            string SavedEmailName = "SavedEmail";
             string SavedEmailData = user.Email;
-
-            string SavedPasswordName = "SavedPassword";
             string SavedPasswordData = clsUtility.Encrypt(txtPassword.Text);
 
-            // Save the user to the registry
-            Task SaveUsernameTask = Task.Run(() => clsUtility.WriteToRegistry(SavedEmailName, SavedEmailData));
-            Task SavePasswordTask = Task.Run(() => clsUtility.WriteToRegistry(SavedPasswordName, SavedPasswordData));
-
-            await Task.WhenAll(SaveUsernameTask, SavePasswordTask);
+            // Write to registry asynchronously
+            await Task.Run(() =>
+            {
+                clsUtility.WriteToRegistry("SavedEmail", SavedEmailData);
+                clsUtility.WriteToRegistry("SavedPassword", SavedPasswordData);
+            });
         }
 
         private async Task _SetSavedUserAsync(UserDto user)
@@ -141,30 +145,33 @@ namespace Computer_Store
 
         private async Task _SignInAsync()
         {
-            Task<UserDto> GetCurrentUserTask = _UsersClient.FindAsync(txtEmail.Text);
-            LoginRecordDto LoginRecord = new LoginRecordDto();
-
-            UserDto CurrentUser = await GetCurrentUserTask;
-
-            // Check the login process
-            var CheckLogin = await _CheckLoginProccess(CurrentUser, LoginRecord);
-            if (CheckLogin.success)
+            try
             {
-                CheckLogin = await _RegisterCurrentUser(CurrentUser);
-                // Register the current user
+                UserDto CurrentUser = await _UsersClient.FindAsync(txtEmail.Text);
+                LoginRecordDto LoginRecord = new LoginRecordDto();
+
+                var CheckLogin = await _CheckLoginProccess(CurrentUser, LoginRecord);
                 if (CheckLogin.success)
                 {
-                    await _SetSavedUserAsync(CurrentUser);
-                    _EnterMainScreen();
+                    CheckLogin = await _RegisterCurrentUser(CurrentUser);
+                    if (CheckLogin.success)
+                    {
+                        await _SetSavedUserAsync(CurrentUser);
+                        _EnterMainScreen(); // This will close the login form
+                    }
+                    else
+                    {
+                        MessageBox.Show(CheckLogin.errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
                     MessageBox.Show(CheckLogin.errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(CheckLogin.errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -172,7 +179,7 @@ namespace Computer_Store
         private void _CreateNewAccount()
         {
             frmCreateNewAccount frm = new frmCreateNewAccount(null, enRole.Customer);
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void lnkCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -182,7 +189,7 @@ namespace Computer_Store
 
         private void pbExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void pbShowHidePassword_Click_1(object sender, EventArgs e)

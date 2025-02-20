@@ -28,7 +28,7 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<LoginRecordDto>(request, _httpClient);
         }
 
-        public async Task<bool> AddNewLoginRecordAsync(LoginRecordDto loginRecordDto)
+        public async Task<LoginRecordDto> AddNewLoginRecordAsync(LoginRecordDto loginRecordDto)
         {
             if (loginRecordDto == null)
             {
@@ -40,7 +40,7 @@ namespace ApiClients
                 Content = new StringContent(JsonConvert.SerializeObject(loginRecordDto), Encoding.UTF8, "application/json")
             };
 
-            var result = await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+            var result = await GenericClientMethods.SendRequestAsync<LoginRecordDto>(request, _httpClient);
             return result;
         }
 

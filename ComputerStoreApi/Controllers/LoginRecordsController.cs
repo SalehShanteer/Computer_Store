@@ -37,7 +37,7 @@ namespace ComputerStoreApi.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<bool> AddNewLoginRecord(LoginRecordDto loginRecordDto)
+        public ActionResult<LoginRecordDto> AddNewLoginRecord(LoginRecordDto loginRecordDto)
         {
             if (!LoginRecordValidation.ValidateLoginRecord(loginRecordDto))
             {
@@ -51,7 +51,9 @@ namespace ComputerStoreApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while saving the login record");
             }
 
-            return CreatedAtRoute("FindLoginRecord", new { id = loginRecordDto.ID }, loginRecord);
+            loginRecordDto.ID = loginRecord.ID;
+
+            return CreatedAtRoute("FindLoginRecord", new { id = loginRecordDto.ID }, loginRecordDto);
         }
 
 

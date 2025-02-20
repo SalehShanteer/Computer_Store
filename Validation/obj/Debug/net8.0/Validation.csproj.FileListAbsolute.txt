@@ -13,3 +13,4 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\refint\Validation.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.pdb
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\ref\Validation.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\Validation\obj\Debug\net8.0\Validation.sourcelink.json

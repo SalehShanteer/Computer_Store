@@ -104,3 +104,4 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\bin\
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\ComputerStoreApi.sourcelink.json

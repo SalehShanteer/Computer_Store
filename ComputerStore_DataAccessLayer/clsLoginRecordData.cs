@@ -47,7 +47,7 @@ namespace ComputerStore_DataAccessLayer
             return loginRecord;
         }
 
-        public static int? AddNewLoginRecord(int? UserID, bool LoginStatus, string? FailureReason)
+        public static int? AddNewLoginRecord(LoginRecordDto loginRecord)
         {
             int? ID = null;
 
@@ -58,9 +58,9 @@ namespace ComputerStore_DataAccessLayer
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add the parameters
-                    command.Parameters.AddWithValue("@UserID", UserID);
-                    command.Parameters.AddWithValue("@LoginStatus", LoginStatus);
-                    command.Parameters.AddWithValue("@FailureReason", FailureReason != string.Empty ? FailureReason : (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@UserID", loginRecord.UserID);
+                    command.Parameters.AddWithValue("@LoginStatus", loginRecord.LoginStatus);
+                    command.Parameters.AddWithValue("@FailureReason", loginRecord.FailureReason != string.Empty ? loginRecord.FailureReason : (object)DBNull.Value);
 
                     try
                     {

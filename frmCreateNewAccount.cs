@@ -43,7 +43,7 @@ namespace Computer_Store
             txtPhone.KeyPress += TextBox_KeyPress;
         }
 
-        private void frmCreateNewAccount_Load(object sender, EventArgs e)
+        private async void frmCreateNewAccount_Load(object sender, EventArgs e)
         {
             if (_Mode == enMode.AddNew)
             {
@@ -56,7 +56,7 @@ namespace Computer_Store
                 lblTitle.Text = "Update Your Account";
                 btnSignIn.Text = "Save";
 
-                _LoadUserInfo().Wait();
+                await _LoadUserInfo();
             }
 
             if (_Role == enRole.Admin)
@@ -86,31 +86,41 @@ namespace Computer_Store
             _User.Role = _Role;
         }
 
-        private void _SaveUser()
+        private async Task _SaveUserAsync()
         {
-            _SetUserInfo();
-
-            if (_UsersClient.Save(_User) != null)
+            try
             {
-                MessageBox.Show(gvMessages.saveMessage("User"), gvMessages.saveTitle("User")
-                    , MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _SetUserInfo();
 
-                // Close the form after create or update the account
-                this.Close();
+                var savedUser = await _UsersClient.Save(_User);
+
+                if (savedUser != null)
+                {
+                    MessageBox.Show(gvMessages.saveMessage("User"), gvMessages.saveTitle("User"),
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //this.Close(); // Close only on confirmed success
+                }
+                else
+                {
+                    MessageBox.Show(gvMessages.errorSaveMessage, gvMessages.errorSaveTitle,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(gvMessages.errorSaveMessage, gvMessages.errorSaveTitle
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Save failed: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
-        private void btnSignIn_Click(object sender, EventArgs e)
+
+        private async void btnSignIn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(gvMessages.askForSaveMessage("User"), "Save"
-                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+            if (MessageBox.Show(gvMessages.askForSaveMessage("User"), "Save",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _SaveUser();
+                await _SaveUserAsync();
             }
         }
 

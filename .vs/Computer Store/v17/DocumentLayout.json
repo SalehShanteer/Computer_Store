@@ -3,40 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\apiclients\\genericclientmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\genericclientmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\apiclients\\clientdtos\\usersettingsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\clientdtos\\usersettingsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\apiclients\\genericclientmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\genericclientmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\apiclients\\usersapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\usersapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\apiclients\\loginrecordsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\loginrecordsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\apiclients\\usersettingapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\usersettingapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmcreatenewaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmcreatenewaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmcreatenewaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmcreatenewaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmcreatenewaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\apiclients\\usersapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\usersapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,114 +38,96 @@
       "DocumentGroups": [
         {
           "DockedHeight": 573,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserSettingsDto.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\ClientDtos\\UserSettingsDto.cs",
-              "RelativeDocumentMoniker": "ApiClients\\ClientDtos\\UserSettingsDto.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\ClientDtos\\UserSettingsDto.cs",
-              "RelativeToolTip": "ApiClients\\ClientDtos\\UserSettingsDto.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAxwBMAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T06:13:35.913Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "GenericClientMethods.cs",
               "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\GenericClientMethods.cs",
               "RelativeDocumentMoniker": "ApiClients\\GenericClientMethods.cs",
               "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\GenericClientMethods.cs",
               "RelativeToolTip": "ApiClients\\GenericClientMethods.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T05:51:24.153Z"
+              "WhenOpened": "2025-02-20T12:33:01.971Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoginRecordsApiClient.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\LoginRecordsApiClient.cs",
-              "RelativeDocumentMoniker": "ApiClients\\LoginRecordsApiClient.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\LoginRecordsApiClient.cs",
-              "RelativeToolTip": "ApiClients\\LoginRecordsApiClient.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAIBDwBsAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T05:16:38.896Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmCreateNewAccount.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs",
-              "RelativeDocumentMoniker": "frmCreateNewAccount.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs",
-              "RelativeToolTip": "frmCreateNewAccount.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:39:01.141Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmCreateNewAccount.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs",
-              "RelativeDocumentMoniker": "frmCreateNewAccount.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs [Design]",
-              "RelativeToolTip": "frmCreateNewAccount.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T04:08:06.149Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserSettingApiClient.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\UserSettingApiClient.cs",
-              "RelativeDocumentMoniker": "ApiClients\\UserSettingApiClient.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\UserSettingApiClient.cs",
-              "RelativeToolTip": "ApiClients\\UserSettingApiClient.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:29:48.016Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsersApiClient.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\UsersApiClient.cs",
-              "RelativeDocumentMoniker": "ApiClients\\UsersApiClient.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\UsersApiClient.cs",
-              "RelativeToolTip": "ApiClients\\UsersApiClient.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAA4wD8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:07:23.057Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmLogin.cs",
               "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
               "RelativeDocumentMoniker": "frmLogin.cs",
               "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
               "RelativeToolTip": "frmLogin.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAgwI8AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAIwGQAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:05:09.291Z",
+              "WhenOpened": "2025-02-20T16:21:43.98Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "frmLogin.cs [Design]",
               "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
               "RelativeDocumentMoniker": "frmLogin.cs",
               "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs [Design]",
               "RelativeToolTip": "frmLogin.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:05:07.248Z"
+              "WhenOpened": "2025-02-20T16:21:41.498Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "ComputerStoreApi\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAiwFMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T15:27:58.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UsersApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\UsersApiClient.cs",
+              "RelativeDocumentMoniker": "ApiClients\\UsersApiClient.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\UsersApiClient.cs",
+              "RelativeToolTip": "ApiClients\\UsersApiClient.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAvwEQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T13:14:12.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmCreateNewAccount.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs",
+              "RelativeDocumentMoniker": "frmCreateNewAccount.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs",
+              "RelativeToolTip": "frmCreateNewAccount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T20:39:01.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmCreateNewAccount.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs",
+              "RelativeDocumentMoniker": "frmCreateNewAccount.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmCreateNewAccount.cs [Design]",
+              "RelativeToolTip": "frmCreateNewAccount.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T04:08:06.149Z",
+              "EditorCaption": " [Design]"
             }
           ]
         },

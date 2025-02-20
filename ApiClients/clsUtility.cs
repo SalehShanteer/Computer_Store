@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 
-namespace Computer_Store
+namespace ApiClients
 {
     public class clsUtility
     {
@@ -17,7 +17,7 @@ namespace Computer_Store
         private static readonly string iv = ConfigurationManager.AppSettings["iv"];// IV Key 
 
         private static readonly string keyPath = ConfigurationManager.AppSettings["KeyPath"];
-        private static readonly string sourceName = ConfigurationManager.AppSettings["SourceName"];
+        public static readonly string sourceName = ConfigurationManager.AppSettings["SourceName"];
 
         public static string Encrypt(string Text)
         {

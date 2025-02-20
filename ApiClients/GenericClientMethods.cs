@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ApiClients
@@ -12,28 +10,41 @@ namespace ApiClients
     {
         public static async Task<T> SendRequestAsync<T>(HttpRequestMessage request, HttpClient httpClient)
         {
-            var response = await httpClient.SendAsync(request);
+            try
+            {
+                var response = await httpClient.SendAsync(request); // The form exactly closes here
 
-            if (response.IsSuccessStatusCode)
-            {
-                var jsonString = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<T>(jsonString);
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
-            {
-                throw new ArgumentException("Invalid request data");
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-            {
-                throw new InvalidOperationException("Resource not found");
-            }
-            else if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
-            {
-                throw new Exception("An error occurred on the server");
-            }
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<T>(jsonString);
+                }
+                else
+                {
+                    // Log the response for debugging purposes
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    var statusCode = response.StatusCode;
 
-            response.EnsureSuccessStatusCode();
-            throw new Exception("Unexpected response from the server");
+                    // Log the exception to the event log
+                    EventLog.WriteEntry(clsUtility.sourceName,
+                        $"HTTP Error: {statusCode}. Response: {errorContent}",
+                        EventLogEntryType.Error);
+
+                    return default(T);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception to the event log
+                EventLog.WriteEntry(clsUtility.sourceName,
+                    $"An unexpected error occurred: {ex.Message}",
+                    EventLogEntryType.Error);
+
+                // Rethrow the exception to propagate it to the caller
+                throw;
+            }
         }
+
+
     }
 }

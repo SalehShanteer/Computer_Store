@@ -13,3 +13,4 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAcc
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\refint\ComputerStore_DataAccessLayer.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.pdb
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ref\ComputerStore_DataAccessLayer.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_DataAccessLayer\obj\Debug\net8.0\ComputerStore_DataAccessLayer.sourcelink.json

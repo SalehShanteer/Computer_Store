@@ -15,3 +15,4 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_Busines
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_BusinessLayer\obj\Debug\net8.0\refint\ComputerStore_BusinessLayer.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_BusinessLayer\obj\Debug\net8.0\ComputerStore_BusinessLayer.pdb
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_BusinessLayer\obj\Debug\net8.0\ref\ComputerStore_BusinessLayer.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStore_BusinessLayer\obj\Debug\net8.0\ComputerStore_BusinessLayer.sourcelink.json
