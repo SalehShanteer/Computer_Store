@@ -63,8 +63,17 @@ CREATE TABLE Shippings
 CREATE TABLE Categories
 (
 	CategoryID INT PRIMARY KEY IDENTITY(1, 1),
-	Name NVARCHAR(50) NOT NULL UNIQUE
+	Name NVARCHAR(255) NOT NULL UNIQUE
 )
+
+--------------------
+
+CREATE TABLE Subcategories (
+    SubcategoryID INT PRIMARY KEY IDENTITY(1, 1),
+    Name VARCHAR(50) NOT NULL,
+    CategoryID INT,
+    FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID)
+);
 --------------------
 
 CREATE TABLE Brands
@@ -83,11 +92,13 @@ CREATE TABLE Products
 	Price SMALLMONEY NOT NULL,
 	QuantityInStock SmallInt NOT NULL,
 	CategoryID int NOT NULL,
+	SubcategoryID INT NULL,
 	BrandID int NULL,
 	Rating DECIMAL(3, 2) NULL,
 	ReleaseDate DATETIME NULL
 
 	FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID),
+	FOREIGN KEY (SubcategoryID) REFERENCES Subcategories(SubcategoryID),
 	FOREIGN KEY (BrandID) REFERENCES Brands(BrandID)
 )
 ---------------------
@@ -130,3 +141,15 @@ CREATE TABLE LoginRecords
 
 	FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
+----------------------
+
+CREATE TABLE ProductImages
+(
+	ID INT PRIMARY KEY IDENTITY(1,1),
+	ImagePath NVARCHAR(500) NOT NULL,
+	ProductID INT NOT NULL,
+	ImageOrder TINYINT NOT NULL
+
+	FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+)
+

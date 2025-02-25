@@ -55,7 +55,7 @@ namespace ComputerStore_DataAccessLayer
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@Title", userSettings.Title);
-                    command.Parameters.AddWithValue("@UserID", userSettings.UserID != null ? userSettings.UserID : (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@UserID", userSettings.UserID is not null ? userSettings.UserID : (object)DBNull.Value);
 
                     try
                     {
@@ -100,7 +100,6 @@ namespace ComputerStore_DataAccessLayer
                     }
                 }
             }
-
             return id;
         }
     }

@@ -178,7 +178,7 @@ namespace Computer_Store
 
         private void _CreateNewAccount()
         {
-            frmCreateNewAccount frm = new frmCreateNewAccount(null, enRole.Customer);
+            frmCreateNewAccount frm = new frmCreateNewAccount(null, enRole.Customer, 0);
             frm.Show();
         }
 

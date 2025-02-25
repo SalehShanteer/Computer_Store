@@ -33,6 +33,7 @@ namespace ApiClients
             {
                 throw new ArgumentNullException(nameof(userSettingsDto));
             }
+            userSettingsDto.UserInfo = new UserDto();
 
             var request = new HttpRequestMessage(HttpMethod.Put, "Update")
             {

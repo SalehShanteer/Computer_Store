@@ -121,3 +121,4 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\bin\Debug\ru\Microsof
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\bin\Debug\tr\Microsoft.Data.SqlClient.resources.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.ctrlProduct.resources

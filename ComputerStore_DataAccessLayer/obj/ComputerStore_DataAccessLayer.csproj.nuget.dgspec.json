@@ -78,6 +78,10 @@
               "target": "Package",
               "version": "[4.9.0, )"
             },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "System.Net.Http": {
               "target": "Package",
               "version": "[4.3.4, )"
@@ -85,6 +89,10 @@
             "System.Net.Http.Formatting.Extension": {
               "target": "Package",
               "version": "[5.2.3, )"
+            },
+            "System.Threading.Tasks.Extensions": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             }
           },
           "imports": [
@@ -173,6 +181,10 @@
               "target": "Package",
               "version": "[4.9.0, )"
             },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
             "System.Net.Http": {
               "target": "Package",
               "version": "[4.3.4, )"
@@ -180,6 +192,10 @@
             "System.Net.Http.Formatting.Extension": {
               "target": "Package",
               "version": "[5.2.3, )"
+            },
+            "System.Threading.Tasks.Extensions": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             }
           },
           "imports": [

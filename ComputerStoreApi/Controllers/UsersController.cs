@@ -80,7 +80,7 @@ namespace ComputerStoreApi.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<UserDto> AddNewStudent(UserDto UserDto)
+        public ActionResult<UserDto> AddNewUser(UserDto UserDto)
         {
             if (!UserValidation.ValidateUser(UserDto))
             {
@@ -108,14 +108,14 @@ namespace ComputerStoreApi.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<UserDto> UpdateUser(UserDto UserDto)
         {
-            if (!UserValidation.ValidateUser(UserDto))
+            if (!UserValidation.ValidateUserForUpdate(UserDto))
             {
                 return BadRequest("Invalid user data");
             }
 
             clsUser user = new clsUser(UserDto, clsUser.enMode.Update);
 
-            if (user is null)
+            if (!clsUser.IsExistByEmail(user.Email))
             {
                 return NotFound($"The user not found");
             }
@@ -130,29 +130,29 @@ namespace ComputerStoreApi.Controllers
         }
         
 
-        [HttpPut("ChangePassword")]
+        [HttpPatch("ChangePassword", Name = "ChangePassword")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<bool> ChangePassword(string email, string Password)
+        public ActionResult<bool> ChangePassword(UserChangePasswordDto request)
         {
-            if (!UserValidation.ValidateEmail(email))
+            if (!UserValidation.ValidateEmail(request.Email))
             {
                 return BadRequest("The email is not valid");
             }
 
-            if (!UserValidation.ValidatePassword(Password))
+            if (!UserValidation.ValidatePassword(request.Password))
             {
                 return BadRequest("The password is not valid");
             }
 
-            if (!clsUser.IsExistByEmail(email))
+            if (!clsUser.IsExistByEmail(request.Email))
             {
                 return NotFound("The user is not found");
             }
 
-            bool IsPasswordChanged = clsUser.ChangeUserPassword(email, Password);
+            bool IsPasswordChanged = clsUser.ChangeUserPassword(request.Email, request.Password);
 
             if (!IsPasswordChanged)
             {

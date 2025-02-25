@@ -86,5 +86,10 @@ namespace Validation
                 && ValidateStandard(user.Phone) && ValidateEmail(user.Email) && ValidatePassword(user.Password); 
         }
 
+        public static bool ValidateUserForUpdate(UserDto user)
+        {
+            return user is not null && ValidateStandard(user.FirstName) && ValidateStandard(user.LastName)
+                && ValidateStandard(user.Phone) && ValidateEmail(user.Email);
+        }
     }
 }

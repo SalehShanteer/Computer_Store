@@ -18,7 +18,7 @@ namespace ApiClients
 
         public async Task<UserDto> FindAsync(int? id)
         {
-            if (id == null)
+            if (!id.HasValue)
             {
                 throw new ArgumentNullException(nameof(id));
             }
@@ -49,21 +49,22 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }
 
-        public async Task<bool> ChangeUserPasswordAsync(string email, string password)
+        public async Task<bool> ChangeUserPasswordAsync(UserChangePasswordDto changePasswordRequest)
         {
-            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(changePasswordRequest.Email) || string.IsNullOrWhiteSpace(changePasswordRequest.Password))
             {
                 throw new ArgumentException("Email and password cannot be null or empty");
             }
 
-            var content = new { Email = email, Password = password };
-            var request = new HttpRequestMessage(HttpMethod.Put, "ChangePassword")
+            var request = new HttpRequestMessage(new HttpMethod("PATCH"), "ChangePassword")
             {
-                Content = new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json")
+                Content = new StringContent(JsonConvert.SerializeObject(changePasswordRequest), Encoding.UTF8, "application/json")
             };
 
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }
+
+
 
         public async Task<UserDto> Save(UserDto userDto)
         {

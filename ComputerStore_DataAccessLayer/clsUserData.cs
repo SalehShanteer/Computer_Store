@@ -21,7 +21,7 @@ namespace ComputerStore_DataAccessLayer
                     command.CommandType = CommandType.StoredProcedure;
 
                     // Add the ID parameter
-                    command.Parameters.AddWithValue("@ID", id != null ? id : (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@ID", id.HasValue ? id : (object)DBNull.Value);
 
                     try
                     {

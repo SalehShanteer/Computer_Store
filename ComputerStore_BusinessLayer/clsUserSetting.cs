@@ -6,13 +6,15 @@ namespace ComputerStore_BusinessLayer
 {
     public class clsUserSetting
     {
-
-        public string Title { get; set; }
+        public string? Title { get; set; }
         public int? UserID { get; set; }
         public clsUser UserInfo { get; }
         public UserSettingsDto userSettingsDto
         {
-            get { return new(this.Title, this.UserID); }
+            get
+            {       
+                return new(this.Title, this.UserID, this.UserInfo?.userDto); 
+            }
         }
 
         public clsUserSetting(UserSettingsDto userSettingsDto)

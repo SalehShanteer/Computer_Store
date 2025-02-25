@@ -44,19 +44,19 @@ namespace ComputerStoreApi.Controllers
                 return BadRequest("Invalid information.");
             }
 
-            clsUserSetting user = new clsUserSetting(UserSettingDto);
+            clsUserSetting userSettings = new clsUserSetting(UserSettingDto);
 
-            if (user is null)
+            if (userSettings is null)
             {
                 return NotFound("User setting not found.");
             }
 
-            if (!user.Save())
+            if (!userSettings.Save())
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
-            return Ok(user.userSettingsDto);
+            return Ok(userSettings.userSettingsDto);
         }
 
     }

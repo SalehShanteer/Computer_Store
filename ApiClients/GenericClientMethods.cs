@@ -12,7 +12,7 @@ namespace ApiClients
         {
             try
             {
-                var response = await httpClient.SendAsync(request); // The form exactly closes here
+                var response = await httpClient.SendAsync(request);
 
                 if (response.IsSuccessStatusCode)
                 {
