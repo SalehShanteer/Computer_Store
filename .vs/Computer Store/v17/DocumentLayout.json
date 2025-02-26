@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\brandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\brandscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4756A78-8C0A-4263-8E37-6BF8541CCBBF}|DTOs\\DTOs.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\dtos\\branddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4756A78-8C0A-4263-8E37-6BF8541CCBBF}|DTOs\\DTOs.csproj|solutionrelative:dtos\\branddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstore_dataaccesslayer\\clsproductdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|solutionrelative:computerstore_dataaccesslayer\\clsproductdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstore_dataaccesslayer\\clssubcategorydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|solutionrelative:computerstore_dataaccesslayer\\clssubcategorydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +22,43 @@
       "DocumentGroups": [
         {
           "DockedHeight": 573,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAABQAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "clsSubcategoryData.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
+              "RelativeDocumentMoniker": "ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
+              "RelativeToolTip": "ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAywKMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T20:41:51.723Z",
+              "WhenOpened": "2025-02-26T07:33:59.537Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BrandsController.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\BrandsController.cs",
-              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\BrandsController.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\BrandsController.cs",
-              "RelativeToolTip": "ComputerStoreApi\\Controllers\\BrandsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
+              "Title": "clsProductData.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsProductData.cs",
+              "RelativeDocumentMoniker": "ComputerStore_DataAccessLayer\\clsProductData.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsProductData.cs",
+              "RelativeToolTip": "ComputerStore_DataAccessLayer\\clsProductData.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAA3wMkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T20:39:51.26Z",
+              "WhenOpened": "2025-02-26T07:03:38.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BrandDto.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\DTOs\\BrandDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\BrandDto.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\DTOs\\BrandDto.cs",
-              "RelativeToolTip": "DTOs\\BrandDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T20:37:37.221Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\ProductsController.cs",
               "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ProductsController.cs",
               "RelativeToolTip": "ComputerStoreApi\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAA1wK8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAywHYAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T19:55:43.585Z",
               "EditorCaption": ""

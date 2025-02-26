@@ -111,12 +111,12 @@ namespace ComputerStore_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        IsExists = (bool)command.ExecuteScalar();
+                        IsExists = Convert.ToBoolean(command.ExecuteScalar());
                     }
                     catch (Exception ex)
                     {
                         // Log the exception to the event log
-                        System.Diagnostics.EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, System.Diagnostics.EventLogEntryType.Error);
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
                     }
                 }
             }
@@ -136,12 +136,12 @@ namespace ComputerStore_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        IsBelongsToCategory = (bool)command.ExecuteScalar();
+                        IsBelongsToCategory = Convert.ToBoolean(command.ExecuteScalar());
                     }
                     catch (Exception ex)
                     {
                         // Log the exception to the event log
-                        System.Diagnostics.EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, System.Diagnostics.EventLogEntryType.Error);
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
                     }
                 }
             }
@@ -188,7 +188,7 @@ namespace ComputerStore_DataAccessLayer
                             while (reader.Read())
                             {
                                 SubcategoryDto subcategory = new();
-                                subcategory.ID = reader["ID"] as int?;
+                                subcategory.ID = reader["SubcategoryID"] as int?;
                                 subcategory.Name = reader["Name"] as string;
                                 subcategory.CategoryID = reader["CategoryID"] as int?;
                                 subcategories.Add(subcategory);

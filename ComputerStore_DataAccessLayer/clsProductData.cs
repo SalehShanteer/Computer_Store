@@ -34,7 +34,7 @@ namespace ComputerStore_DataAccessLayer
                                     Price = reader["Price"] as decimal?,
                                     QuantityInStock = reader["QuantityInStock"] as short?,
                                     CategoryID = reader["CategoryID"] as int?,
-                                    SubcategoryID = reader["Subcategory"] as int?,
+                                    SubcategoryID = reader["SubcategoryID"] as int?,
                                     BrandID = reader["BrandID"] as int?,
                                     Rating = reader["Rating"] as decimal?,
                                     ReleaseDate = reader["ReleaseDate"] as DateTime?
@@ -103,7 +103,7 @@ namespace ComputerStore_DataAccessLayer
 
             using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
             {
-                using (SqlCommand command = new SqlCommand("SP_IsProductExist", connection))
+                using (SqlCommand command = new SqlCommand("SP_IsProductExistByID", connection))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     // Add the ID parameter
@@ -111,10 +111,10 @@ namespace ComputerStore_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        IsExist = (bool)command.ExecuteScalar();
+                        IsExist = Convert.ToBoolean(command.ExecuteScalar());
                     }
                     catch (Exception ex)
-                    {
+                    {   
                         // Log the exception to the event log
                         EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
                     }
@@ -244,13 +244,13 @@ namespace ComputerStore_DataAccessLayer
                             {
                                 ProductDto product = new ProductDto
                                 {
-                                    ID = reader["ID"] as int?,
+                                    ID = reader["ProductID"] as int?,
                                     Name = reader["Name"] as string,
                                     Description = reader["Description"] as string,
                                     Price = reader["Price"] as decimal?,
                                     QuantityInStock = reader["QuantityInStock"] as short?,
                                     CategoryID = reader["CategoryID"] as int?,
-                                    SubcategoryID = reader["Subcategory"] as int?,
+                                    SubcategoryID = reader["SubcategoryID"] as int?,
                                     BrandID = reader["BrandID"] as int?,
                                     Rating = reader["Rating"] as decimal?,
                                     ReleaseDate = reader["ReleaseDate"] as DateTime?

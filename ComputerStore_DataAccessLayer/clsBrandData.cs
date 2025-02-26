@@ -112,7 +112,7 @@ namespace ComputerStore_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        IsExists = (bool)command.ExecuteScalar();
+                        IsExists = Convert.ToBoolean(command.ExecuteScalar());
                     }
                     catch (Exception ex)
                     {
@@ -165,7 +165,7 @@ namespace ComputerStore_DataAccessLayer
                             while (reader.Read())
                             {
                                 BrandDto brand = new BrandDto();
-                                brand.ID = reader["ID"] as int?;
+                                brand.ID = reader["BrandID"] as int?;
                                 brand.Name = reader["Name"] as string;
                                 brand.ImagePath = reader["ImagePath"] != DBNull.Value ? reader["ImagePath"] as string : null;
                                 brands.Add(brand);
@@ -175,7 +175,7 @@ namespace ComputerStore_DataAccessLayer
                     catch (Exception ex)
                     {
                         // Log the exception to the event log
-                        System.Diagnostics.EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, System.Diagnostics.EventLogEntryType.Error);
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
                     }
                 }
             }

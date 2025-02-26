@@ -111,7 +111,7 @@ namespace ComputerStore_DataAccessLayer
                     try
                     {
                         connection.Open();
-                        IsExists = (bool)command.ExecuteScalar();
+                        IsExists = Convert.ToBoolean(command.ExecuteScalar());
                     }
                     catch (Exception ex)
                     {
@@ -164,7 +164,7 @@ namespace ComputerStore_DataAccessLayer
                             while (reader.Read())
                             {
                                 CategoryDto category = new CategoryDto();
-                                category.ID = reader["ID"] as int?;
+                                category.ID = reader["CategoryID"] as int?;
                                 category.Name = reader["Name"] as string;
                                 categories.Add(category);
                             }
