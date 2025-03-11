@@ -15,5 +15,9 @@ namespace ApiClients.Api_URLs
 
         public static readonly string LoginRecordsURL = "https://localhost:7173/api/LoginRecordsApi/";
 
+        public static readonly string ProductsURL = "https://localhost:7173/api/ProductsApi/";
+
+        public static readonly string ProductImagesURL = "https://localhost:7173/api/ProductImagesApi/";
+
     }
 }

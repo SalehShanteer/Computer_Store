@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\apiclients\\api clients\\productimageapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\api clients\\productimageapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\productimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\productimagescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstore_dataaccesslayer\\clsproductdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|solutionrelative:computerstore_dataaccesslayer\\clsproductdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstore_dataaccesslayer\\clssubcategorydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|solutionrelative:computerstore_dataaccesslayer\\clssubcategorydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,46 +26,58 @@
       "DocumentGroups": [
         {
           "DockedHeight": 573,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "clsSubcategoryData.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "RelativeDocumentMoniker": "ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "RelativeToolTip": "ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAywKMAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T07:33:59.537Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "clsProductData.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsProductData.cs",
-              "RelativeDocumentMoniker": "ComputerStore_DataAccessLayer\\clsProductData.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsProductData.cs",
-              "RelativeToolTip": "ComputerStore_DataAccessLayer\\clsProductData.cs",
-              "ViewState": "AgIAALQAAAAAAAAAAAA3wMkAAAAIAAAAAAAAAA==",
+              "Title": "ProductImagesController.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ProductImagesController.cs",
+              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\ProductImagesController.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ProductImagesController.cs",
+              "RelativeToolTip": "ComputerStoreApi\\Controllers\\ProductImagesController.cs",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAAwOsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T07:03:38.53Z",
+              "WhenOpened": "2025-03-09T20:46:56.182Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ProductImageApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\Api Clients\\ProductImageApiClient.cs",
+              "RelativeDocumentMoniker": "ApiClients\\Api Clients\\ProductImageApiClient.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\Api Clients\\ProductImageApiClient.cs",
+              "RelativeToolTip": "ApiClients\\Api Clients\\ProductImageApiClient.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAA/wLMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T11:46:04.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\ProductsController.cs",
               "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ProductsController.cs",
               "RelativeToolTip": "ComputerStoreApi\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAywHYAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAiwHUAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T19:55:43.585Z",
+              "WhenOpened": "2025-03-11T13:05:59.131Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
+              "RelativeToolTip": "frmLogin.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA2wAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T19:21:49.623Z"
             }
           ]
         },

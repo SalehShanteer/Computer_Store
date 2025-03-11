@@ -119,7 +119,7 @@ namespace ComputerStoreApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult DeleteProduct(int id)
+        public ActionResult<bool> DeleteProduct(int id)
         {
             if (id < 1)
             {
@@ -131,11 +131,12 @@ namespace ComputerStoreApi.Controllers
                 return NotFound($"Product with ID = {id} not found");
             }
 
-            if (!clsProduct.Delete(id))
+            bool IsDeleted = clsProduct.Delete(id);
+            if (!IsDeleted)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Failed to delete product");
             }
-            return Ok($"Product with ID = {id} deleted successfully");
+            return Ok(IsDeleted);
         }
 
         [HttpGet("IsExist/{id}", Name = "IsExistProduct")]

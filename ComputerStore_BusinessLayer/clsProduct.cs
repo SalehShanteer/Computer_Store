@@ -119,7 +119,7 @@ namespace ComputerStore_BusinessLayer
             return null;
         }
 
-        public static bool IsExist(int id)
+        public static bool IsExist(int? id)
         {
             return clsProductData.IsProductExistID(id);
         }

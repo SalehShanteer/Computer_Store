@@ -125,7 +125,7 @@ namespace ComputerStore_DataAccessLayer
 
         public static int? AddNewProduct(ProductDto product)
         {
-            int? newID = 0;
+            int? newID = null;
 
             using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
             {
