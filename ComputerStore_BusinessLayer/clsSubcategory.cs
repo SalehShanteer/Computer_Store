@@ -97,5 +97,10 @@ namespace ComputerStore_BusinessLayer
             return clsSubcategoryData.GetAllSubcategories();
         }
 
+        public static List<SubcategoryDto> GetSubcategoriesByCategoryID(int? categoryID)
+        {
+            return clsSubcategoryData.GetSubcategoriesByCategoryID(categoryID);
+        }
+
     }
 }

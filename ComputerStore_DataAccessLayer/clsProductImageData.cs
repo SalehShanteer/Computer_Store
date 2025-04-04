@@ -50,6 +50,43 @@ namespace ComputerStore_DataAccessLayer
             return productImage;
         }
 
+        public static ProductImageDto GetFirstProductImageByProductID(int? ProductId)
+        {
+            ProductImageDto productImage = null;
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_GetFirstProductImageByProductID", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@ProductID", ProductId ?? (object)DBNull.Value);
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                productImage = new ProductImageDto
+                                {
+                                    ID = reader["ProductImageID"] as int?,
+                                    ImagePath = reader["ImagePath"] as string,
+                                    ProductID = reader["ProductID"] as int?,
+                                    ImageOrder = reader["ImageOrder"] as byte?
+                                };
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+            return productImage;
+        }
+
         public static ProductImageDto GetProductImageByImagePath(string? imagePath)
         {
             ProductImageDto productImage = null;
@@ -150,6 +187,7 @@ namespace ComputerStore_DataAccessLayer
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ImagePath", productImage.ImagePath);
                     command.Parameters.AddWithValue("@ProductID", productImage.ProductID);
+                    command.Parameters.AddWithValue("@ImageOrder", productImage.ImageOrder);
 
                     // Add the output parameter to capture the new ID
                     SqlParameter outputIdParam = new SqlParameter("@NewID", SqlDbType.Int)
@@ -233,6 +271,49 @@ namespace ComputerStore_DataAccessLayer
                         isDeleted = rowsAffected > 0;
 
                         File.Delete(imagePath);
+                    }
+                    catch (Exception ex)
+                    {
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+
+            return isDeleted;
+        }
+
+        public static bool DeleteAllProductImagesRelated(int? productID, bool deleteFile = false)
+        {
+            bool isDeleted = false;
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_DeleteAllProductImagesRelated", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ProductID", productID);
+
+                    try
+                    {
+                        connection.Open();
+                        
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                isDeleted = true;
+
+                                if (deleteFile)
+                                {
+                                    string imagePath = reader.GetString(reader.GetOrdinal("ImagePath"));
+                                    File.Delete(imagePath);
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {

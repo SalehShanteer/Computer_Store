@@ -3,9 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using ComputerStore_BusinessLayer;
 using Validation;
 using DTOs;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Identity.Client;
 
 namespace ComputerStoreApi.Controllers
 {
@@ -13,6 +10,14 @@ namespace ComputerStoreApi.Controllers
     [ApiController]
     public class ProductImagesController : ControllerBase
     {
+
+        //private readonly DirectoryPaths _directoryPaths;
+
+        //public ProductImagesController(DirectoryPaths directoryPaths)
+        //{
+        //    _directoryPaths = directoryPaths;
+        //}
+
         [HttpGet("Find/{id}", Name = "FindProductImageByID")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -50,6 +55,27 @@ namespace ComputerStoreApi.Controllers
             if (productImage is null)
             {
                 return NotFound($"Product image with path {imagePath} not found");
+            }
+
+            return Ok(productImage.ProductImageDto);
+        }
+
+        [HttpGet("FindFirstImage/{productId}", Name = "FindFirstImageByProductID")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<ProductImageDto> FindFirstImage(int productId)
+        {
+            if (productId < 1)
+            {
+                return BadRequest($"Not accepted ID {productId}");
+            }
+
+            var productImage = clsProductImage.FindFirstImageByProductID(productId);
+
+            if (productImage is null)
+            {
+                return NotFound($"Product image with ID {productId} not found");
             }
 
             return Ok(productImage.ProductImageDto);
@@ -169,6 +195,44 @@ namespace ComputerStoreApi.Controllers
             return Ok(isDeleted);
         }
 
+        [HttpDelete("DeleteAll/{productID}", Name = "DeleteAllProductImagesRelated")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<bool> DeleteAllProductImagesRelated(int productID)
+        {
+            if (productID < 1)
+            {
+                return BadRequest($"Not accepted Product ID = {productID}");
+            }
+            bool isDeleted = clsProductImage.DeleteAllProductImagesRelated(productID);
+            
+            if (!isDeleted)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Failed to delete product images");
+            }
+            return Ok(isDeleted);
+        }
+
+        [HttpDelete("DeleteAllWithFiles/{productID}", Name = "DeleteAllProductImagesRelatedWithFiles")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public ActionResult<bool> DeleteAllProductImagesRelatedWithFiles(int productID)
+        {
+            if (productID < 1)
+            {
+                return BadRequest($"Not accepted Product ID = {productID}");
+            }
+            bool isDeleted = clsProductImage.DeleteAllProductImagesRelatedWithFiles(productID);
+
+            if (!isDeleted)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Failed to delete product images");
+            }
+            return Ok(isDeleted);
+        }
+
         [HttpGet("IsExist/{id}", Name = "IsExistProductImageByID")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -229,37 +293,42 @@ namespace ComputerStoreApi.Controllers
         [HttpPost("Upload", Name = "UploadProductImage")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> UploadProductImage(IFormFile imageFile)
         {
-            if (imageFile is null)
-            {
-                return BadRequest("Image file cannot be null");
-            }
-            if (imageFile.Length == 0)
-            {
-                return BadRequest("Image file is empty");
-            }
-            if (!imageFile.ContentType.Contains("image"))
-            {
-                return BadRequest("Invalid image file type");
-            }
+            if (imageFile is null || imageFile.Length == 0)
+                return BadRequest("Image file is invalid or empty.");
 
-            var uploadDirectory = DirectoryPaths.GetProductImagesDirectory();
+            if (!imageFile.ContentType.StartsWith("image/"))
+                return BadRequest("Invalid image file type.");
 
-            if (!Directory.Exists(uploadDirectory))
+            try
             {
-                Directory.CreateDirectory(uploadDirectory);
+                var uploadDirectory = Path.Combine(
+                    "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Images\\Server\\Product"
+                );
+
+                if (!Directory.Exists(uploadDirectory))
+                    Directory.CreateDirectory(uploadDirectory);
+
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(imageFile.FileName)}";
+                var filePath = Path.Combine(uploadDirectory, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                    await imageFile.CopyToAsync(stream);
+
+                // Return a relative path or filename, not the server's absolute path
+                return Ok(new { fileName });
             }
-
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(imageFile.FileName);
-            var filePath = Path.Combine(uploadDirectory, fileName);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            catch (Exception ex) when (
+                ex is UnauthorizedAccessException
+                or IOException
+                or PathTooLongException
+            )
             {
-                await imageFile.CopyToAsync(stream);
+                // Log the exception here (e.g., ILogger)
+                return StatusCode(StatusCodes.Status500InternalServerError, "Failed to upload image.");
             }
-
-            return Ok(new { filePath });
         }
 
         [HttpGet("GetImage/{fileName}", Name = "GetProductImage")]
@@ -267,7 +336,9 @@ namespace ComputerStoreApi.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetProductImage(string fileName)
         {
-            var fileDirectory = DirectoryPaths.GetProductImagesDirectory();
+            //var fileDirectory = _directoryPaths.GetProductImagesDirectory();
+            var fileDirectory = "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Images\\Server\\Product";
+
             var filePath = Path.Combine(fileDirectory, fileName);
             if (!System.IO.File.Exists(filePath))
             {

@@ -86,9 +86,29 @@ namespace ComputerStore_BusinessLayer
             return clsProductImageData.DeleteProductImageByImagePath(imagePath);
         }
 
+        public static bool DeleteAllProductImagesRelated(int productID)
+        {
+            return clsProductImageData.DeleteAllProductImagesRelated(productID);
+        }
+
+        public static bool DeleteAllProductImagesRelatedWithFiles(int productID)
+        {
+            return clsProductImageData.DeleteAllProductImagesRelated(productID, true);
+        }
+
         public static clsProductImage Find(int id)
         {
             ProductImageDto productImageDto = clsProductImageData.GetProductImageByID(id);
+            if (productImageDto is not null)
+            {
+                return new clsProductImage(productImageDto, enMode.Update);
+            }
+            return null;
+        }
+
+        public static clsProductImage FindFirstImageByProductID(int productID)
+        {
+            ProductImageDto productImageDto = clsProductImageData.GetFirstProductImageByProductID(productID);
             if (productImageDto is not null)
             {
                 return new clsProductImage(productImageDto, enMode.Update);

@@ -233,6 +233,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrlPageNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlPageNavigator.Designer.cs">
+      <DependentUpon>ctrlPageNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUpdateProduct.Designer.cs">
+      <DependentUpon>frmAddUpdateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageProducts.Designer.cs">
+      <DependentUpon>frmManageProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Products\ctrlProduct.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -260,6 +278,15 @@
     <Compile Include="gvMessages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrlPageNavigator.resx">
+      <DependentUpon>ctrlPageNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUpdateProduct.resx">
+      <DependentUpon>frmAddUpdateProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageProducts.resx">
+      <DependentUpon>frmManageProducts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Products\ctrlProduct.resx">
       <DependentUpon>ctrlProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +337,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\addImage.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\products.png" />
     <None Include="Resources\FullStar.png" />
     <None Include="Resources\EmptyStar.png" />
     <None Include="Resources\star.png" />

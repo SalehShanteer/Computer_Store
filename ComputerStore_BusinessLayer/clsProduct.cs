@@ -129,5 +129,10 @@ namespace ComputerStore_BusinessLayer
             return clsProductData.GetAllProducts();
         }
 
+        public static List<ProductDetailsDto> GetAllProductsDetails()
+        {
+            return clsProductData.GetAllProductsDetails();
+        }
+
     }
 }

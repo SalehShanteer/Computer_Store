@@ -122,3 +122,6 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\bin\Debug\tr\Microsof
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.ctrlProduct.resources
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.ctrlPageNavigator.resources
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.frmManageProducts.resources
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.frmAddUpdateProduct.resources

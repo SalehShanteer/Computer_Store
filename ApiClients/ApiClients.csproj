@@ -214,9 +214,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api URLs\ApiUrls.cs" />
+    <Compile Include="Api Clients\CategoriesApiClient.cs" />
+    <Compile Include="Api Clients\BrandsApiClient.cs" />
+    <Compile Include="ClientDtos\BrandDto.cs" />
+    <Compile Include="ClientDtos\CategoryDto.cs" />
+    <Compile Include="ClientDtos\ProductDetailsDto.cs" />
     <Compile Include="ClientDtos\LoginRecordDtos\LoginRecordDto.cs" />
     <Compile Include="ClientDtos\ProductImageDto.cs" />
     <Compile Include="ClientDtos\ProductsDtos\ProductDto.cs" />
+    <Compile Include="ClientDtos\SubcategoryDto.cs" />
     <Compile Include="ClientDtos\UsersDtos\UserChangePasswordDto.cs" />
     <Compile Include="ClientDtos\UsersDtos\UserDto.cs" />
     <Compile Include="ClientDtos\UserSettingsDtos\UserSettingsDto.cs" />
@@ -228,6 +234,7 @@
     <Compile Include="Api Clients\ProductImageApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Api Clients\UserSettingApiClient.cs" />
+    <Compile Include="Api Clients\SubcategoriesApiClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

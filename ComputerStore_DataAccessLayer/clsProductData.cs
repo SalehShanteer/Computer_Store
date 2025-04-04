@@ -1,5 +1,6 @@
 ﻿using DTOs;
 using Microsoft.Data.SqlClient;
+using System.Data;
 using System.Diagnostics;
 
 namespace ComputerStore_DataAccessLayer
@@ -8,7 +9,7 @@ namespace ComputerStore_DataAccessLayer
     {
 
         public static ProductDto GetProductByID(int? id)
-        {  
+        {
             ProductDto product = null;
 
             using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
@@ -114,7 +115,7 @@ namespace ComputerStore_DataAccessLayer
                         IsExist = Convert.ToBoolean(command.ExecuteScalar());
                     }
                     catch (Exception ex)
-                    {   
+                    {
                         // Log the exception to the event log
                         EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
                     }
@@ -140,7 +141,7 @@ namespace ComputerStore_DataAccessLayer
                     command.Parameters.AddWithValue("@CategoryID", product.CategoryID);
                     command.Parameters.AddWithValue("@SubcategoryID", product.SubcategoryID ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@BrandID", product.BrandID ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@ReleaseDate", product.ReleaseDate ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@ReleaseDate", product.ReleaseDate);
 
                     // Add the output parameter to capture the new ID
                     SqlParameter outputIdParam = new SqlParameter("@NewID", System.Data.SqlDbType.Int)
@@ -184,7 +185,7 @@ namespace ComputerStore_DataAccessLayer
                     command.Parameters.AddWithValue("@CategoryID", product.CategoryID);
                     command.Parameters.AddWithValue("@SubcategoryID", product.SubcategoryID ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@BrandID", product.BrandID ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@ReleaseDate", product.ReleaseDate ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@ReleaseDate", product.ReleaseDate);
 
                     try
                     {
@@ -269,7 +270,48 @@ namespace ComputerStore_DataAccessLayer
             return products;
         }
 
+        public static List<ProductDetailsDto> GetAllProductsDetails()
+        {
+            List<ProductDetailsDto> products = new List<ProductDetailsDto>();
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_GetAllProductsDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ProductDetailsDto product = new ProductDetailsDto
+                                {
+                                    ID = reader["ProductID"] as int?,
+                                    Name = reader["Name"] as string,
+                                    Description = reader["Description"] as string,
+                                    Price = reader["Price"] as decimal?,
+                                    QuantityInStock = reader["QuantityInStock"] as short?,
+                                    Category = reader["Category"] as string,
+                                    Subcategory = reader["Subcategory"] as string,
+                                    Brand = reader["Brand"] as string,
+                                    Rating = reader["Rating"] as decimal?,
+                                    ReleaseDate = reader["ReleaseDate"] as DateTime?
+                                };
+                                products.Add(product);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log the exception to the event log
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+            return products;
 
+        }
     }
 }
         

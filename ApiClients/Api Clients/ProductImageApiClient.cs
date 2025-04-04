@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.IO;
 using System.Net.Http.Headers;
-using Microsoft.Graph;
-using Amazon.Glacier.Transfer;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -34,6 +32,12 @@ namespace ApiClients
 
             var request = new HttpRequestMessage(HttpMethod.Get, $"Find/{id}");
 
+            return await GenericClientMethods.SendRequestAsync<ProductImageDto>(request, _httpClient);
+        }
+
+        public async Task<ProductImageDto> FindFirstImageByProductIdAsync(int productId)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, $"FindFirstImage/{productId}");
             return await GenericClientMethods.SendRequestAsync<ProductImageDto>(request, _httpClient);
         }
 
@@ -175,6 +179,18 @@ namespace ApiClients
 
             var request = new HttpRequestMessage(HttpMethod.Delete, $"DeleteByImagePath?imagePath={imagePath}");
 
+            return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+        }
+
+        public async Task<bool> DeleteAllByProductIdAsync(int productId)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, $"DeleteAll/{productId}");
+            return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+        }
+
+        public async Task<bool> DeleteAllByProductIdWithFilesAsync(int productId)
+        {
+            var request = new HttpRequestMessage(HttpMethod.Delete, $"DeleteAllWithFiles/{productId}");
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }
 

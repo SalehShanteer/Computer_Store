@@ -37,12 +37,22 @@
             this.tsbAccessories = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbHeadset = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbAdminSettings = new System.Windows.Forms.ToolStripDropDownButton();
+            this.manageProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbAccount = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbLogoutSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbBasket = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ctrlPageNavigator1 = new Computer_Store.ctrlPageNavigator();
+            this.ctrlProduct5 = new Computer_Store.ctrlProduct();
+            this.ctrlProduct6 = new Computer_Store.ctrlProduct();
+            this.ctrlProduct7 = new Computer_Store.ctrlProduct();
+            this.ctrlProduct8 = new Computer_Store.ctrlProduct();
+            this.ctrlProduct4 = new Computer_Store.ctrlProduct();
+            this.ctrlProduct3 = new Computer_Store.ctrlProduct();
+            this.ctrlProduct2 = new Computer_Store.ctrlProduct();
+            this.ctrlProduct1 = new Computer_Store.ctrlProduct();
             this.tsMainBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -141,6 +151,8 @@
             // tsbAdminSettings
             // 
             this.tsbAdminSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbAdminSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageProductsToolStripMenuItem});
             this.tsbAdminSettings.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.tsbAdminSettings.Image = global::Computer_Store.Properties.Resources.system_administration;
             this.tsbAdminSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -149,6 +161,14 @@
             this.tsbAdminSettings.Size = new System.Drawing.Size(233, 85);
             this.tsbAdminSettings.Text = "Admin Settings";
             this.tsbAdminSettings.Visible = false;
+            // 
+            // manageProductsToolStripMenuItem
+            // 
+            this.manageProductsToolStripMenuItem.Image = global::Computer_Store.Properties.Resources.products;
+            this.manageProductsToolStripMenuItem.Name = "manageProductsToolStripMenuItem";
+            this.manageProductsToolStripMenuItem.Size = new System.Drawing.Size(306, 88);
+            this.manageProductsToolStripMenuItem.Text = "Manage Products";
+            this.manageProductsToolStripMenuItem.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
             // 
             // tsbAccount
             // 
@@ -169,7 +189,7 @@
             // 
             this.tsbLogoutSettings.Image = global::Computer_Store.Properties.Resources.account_settings;
             this.tsbLogoutSettings.Name = "tsbLogoutSettings";
-            this.tsbLogoutSettings.Size = new System.Drawing.Size(306, 88);
+            this.tsbLogoutSettings.Size = new System.Drawing.Size(241, 30);
             this.tsbLogoutSettings.Text = "Account Settings";
             this.tsbLogoutSettings.Click += new System.EventHandler(this.tsbLogoutSettings_Click);
             // 
@@ -177,7 +197,7 @@
             // 
             this.tsbChangePassword.Image = global::Computer_Store.Properties.Resources.Change_Password;
             this.tsbChangePassword.Name = "tsbChangePassword";
-            this.tsbChangePassword.Size = new System.Drawing.Size(306, 88);
+            this.tsbChangePassword.Size = new System.Drawing.Size(241, 30);
             this.tsbChangePassword.Text = "Change Password";
             this.tsbChangePassword.Click += new System.EventHandler(this.tsbChangePassword_Click);
             // 
@@ -185,7 +205,7 @@
             // 
             this.tsbLogout.Image = global::Computer_Store.Properties.Resources.Logout;
             this.tsbLogout.Name = "tsbLogout";
-            this.tsbLogout.Size = new System.Drawing.Size(306, 88);
+            this.tsbLogout.Size = new System.Drawing.Size(241, 30);
             this.tsbLogout.Text = "Logout";
             this.tsbLogout.Click += new System.EventHandler(this.tsbLogout_Click);
             // 
@@ -207,12 +227,114 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 88);
             // 
+            // ctrlPageNavigator1
+            // 
+            this.ctrlPageNavigator1.CurrentPage = 0;
+            this.ctrlPageNavigator1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ctrlPageNavigator1.Location = new System.Drawing.Point(742, 935);
+            this.ctrlPageNavigator1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlPageNavigator1.Name = "ctrlPageNavigator1";
+            this.ctrlPageNavigator1.NumberOfItemsInPage = 8;
+            this.ctrlPageNavigator1.NumberOfPages = 0;
+            this.ctrlPageNavigator1.Size = new System.Drawing.Size(421, 70);
+            this.ctrlPageNavigator1.TabIndex = 9;
+            this.ctrlPageNavigator1.OnPageChange += new Computer_Store.ctrlPageNavigator.OnPageChangeEventHandler(this.ctrlPageNavigator1_OnPageChange);
+            // 
+            // ctrlProduct5
+            // 
+            this.ctrlProduct5.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct5.Location = new System.Drawing.Point(109, 519);
+            this.ctrlProduct5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct5.Name = "ctrlProduct5";
+            this.ctrlProduct5.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct5.TabIndex = 8;
+            // 
+            // ctrlProduct6
+            // 
+            this.ctrlProduct6.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct6.Location = new System.Drawing.Point(526, 519);
+            this.ctrlProduct6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct6.Name = "ctrlProduct6";
+            this.ctrlProduct6.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct6.TabIndex = 7;
+            // 
+            // ctrlProduct7
+            // 
+            this.ctrlProduct7.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct7.Location = new System.Drawing.Point(952, 519);
+            this.ctrlProduct7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct7.Name = "ctrlProduct7";
+            this.ctrlProduct7.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct7.TabIndex = 6;
+            // 
+            // ctrlProduct8
+            // 
+            this.ctrlProduct8.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct8.Location = new System.Drawing.Point(1369, 519);
+            this.ctrlProduct8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct8.Name = "ctrlProduct8";
+            this.ctrlProduct8.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct8.TabIndex = 5;
+            // 
+            // ctrlProduct4
+            // 
+            this.ctrlProduct4.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct4.Location = new System.Drawing.Point(1369, 113);
+            this.ctrlProduct4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct4.Name = "ctrlProduct4";
+            this.ctrlProduct4.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct4.TabIndex = 4;
+            // 
+            // ctrlProduct3
+            // 
+            this.ctrlProduct3.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct3.Location = new System.Drawing.Point(952, 113);
+            this.ctrlProduct3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct3.Name = "ctrlProduct3";
+            this.ctrlProduct3.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct3.TabIndex = 3;
+            // 
+            // ctrlProduct2
+            // 
+            this.ctrlProduct2.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct2.Location = new System.Drawing.Point(535, 113);
+            this.ctrlProduct2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct2.Name = "ctrlProduct2";
+            this.ctrlProduct2.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct2.TabIndex = 2;
+            // 
+            // ctrlProduct1
+            // 
+            this.ctrlProduct1.BackColor = System.Drawing.Color.White;
+            this.ctrlProduct1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlProduct1.Location = new System.Drawing.Point(118, 113);
+            this.ctrlProduct1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlProduct1.Name = "ctrlProduct1";
+            this.ctrlProduct1.Size = new System.Drawing.Size(409, 364);
+            this.ctrlProduct1.TabIndex = 1;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 1036);
+            this.Controls.Add(this.ctrlPageNavigator1);
+            this.Controls.Add(this.ctrlProduct5);
+            this.Controls.Add(this.ctrlProduct6);
+            this.Controls.Add(this.ctrlProduct7);
+            this.Controls.Add(this.ctrlProduct8);
+            this.Controls.Add(this.ctrlProduct4);
+            this.Controls.Add(this.ctrlProduct3);
+            this.Controls.Add(this.ctrlProduct2);
+            this.Controls.Add(this.ctrlProduct1);
             this.Controls.Add(this.tsMainBar);
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -246,5 +368,15 @@
         private System.Windows.Forms.ToolStripMenuItem tsbLogoutSettings;
         private System.Windows.Forms.ToolStripMenuItem tsbLogout;
         private System.Windows.Forms.ToolStripMenuItem tsbChangePassword;
+        private ctrlProduct ctrlProduct1;
+        private ctrlProduct ctrlProduct2;
+        private ctrlProduct ctrlProduct3;
+        private ctrlProduct ctrlProduct4;
+        private ctrlProduct ctrlProduct5;
+        private ctrlProduct ctrlProduct6;
+        private ctrlProduct ctrlProduct7;
+        private ctrlProduct ctrlProduct8;
+        private ctrlPageNavigator ctrlPageNavigator1;
+        private System.Windows.Forms.ToolStripMenuItem manageProductsToolStripMenuItem;
     }
 }

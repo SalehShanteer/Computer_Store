@@ -31,7 +31,6 @@ namespace ComputerStoreApi.Controllers
             return Ok(subcategory.subcategoryDto);
         }
 
-
         [HttpPost("Add", Name = "AddNewSubcategory")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -145,7 +144,7 @@ namespace ComputerStoreApi.Controllers
             {
                 return BadRequest("Invalid subcategory or category ID");
             }
-         
+
             bool belongs = clsSubcategory.IsSubcategoryBelongsToCategory(subcategoryID, categoryID);
 
             if (!belongs)
@@ -168,6 +167,23 @@ namespace ComputerStoreApi.Controllers
                 return NotFound("No subcategories found");
             }
 
+            return Ok(subcategories);
+        }
+
+        [HttpGet("GetSubcategoriesByCategoryID/{categoryID}", Name = "GetSubcategoriesByCategoryID")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<SubcategoryDto>> GetSubcategoriesByCategoryID(int? categoryID)
+        {
+            if (categoryID is null || categoryID < 1)
+            {
+                return BadRequest($"Invalid Category ID: {categoryID}");
+            }
+            var subcategories = clsSubcategory.GetSubcategoriesByCategoryID(categoryID);
+            if (!subcategories.Any())
+            {
+                return NotFound($"No subcategories found for category ID {categoryID}");
+            }
             return Ok(subcategories);
         }
     }

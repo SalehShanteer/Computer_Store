@@ -205,6 +205,38 @@ namespace ComputerStore_DataAccessLayer
             return subcategories;
         }
 
-
+        public static List<SubcategoryDto> GetSubcategoriesByCategoryID(int? categoryID)
+        {
+            List<SubcategoryDto> subcategories = new();
+            using (SqlConnection connetion = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_GetSubcategoriesByCategoryID", connetion))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@CategoryID", categoryID);
+                    try
+                    {
+                        connetion.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                SubcategoryDto subcategory = new();
+                                subcategory.ID = reader["SubcategoryID"] as int?;
+                                subcategory.Name = reader["Name"] as string;
+                                subcategory.CategoryID = reader["CategoryID"] as int?;
+                                subcategories.Add(subcategory);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log the exception to the event log
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+            return subcategories;
+        }
     }
 }

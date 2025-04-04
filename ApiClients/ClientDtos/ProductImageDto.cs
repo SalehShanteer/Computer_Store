@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace ApiClients.ClientDtos
 {
     public class ProductImageDto
     {
-        public int? ID;
-        public string ImagePath;
-        public int? ProductID;
-        public byte? ImageOrder;
+        public int? ID { get; set; }
+        public string ImagePath { get; set; }
+        public int? ProductID { get; set; }
+        public byte? ImageOrder { get; set; }
 
         public ProductImageDto()
         {

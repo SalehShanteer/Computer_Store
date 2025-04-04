@@ -172,5 +172,20 @@ namespace ComputerStoreApi.Controllers
             return Ok(Products);
         }
 
+        [HttpGet("GetAllDetails", Name = "GetAllProductsDetails")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<ProductDetailsDto>> GetAllProductsDetails()
+        {
+            var Products = clsProduct.GetAllProductsDetails();
+
+            if (!Products.Any())
+            {
+                return NotFound("No products found");
+            }
+
+            return Ok(Products);
+        }
+
     }
 }

@@ -88,5 +88,12 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<IEnumerable<ProductDto>>(request, _httpClient);
         }
 
+        public async Task<IEnumerable<ProductDetailsDto>> GetAllDetailsAsync()
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "GetAllDetails");
+
+            return await GenericClientMethods.SendRequestAsync<IEnumerable<ProductDetailsDto>>(request, _httpClient);
+        }
+
     }
 }
