@@ -67,10 +67,7 @@ namespace ComputerStore_BusinessLayer
             return this.ID is not null;
         }
 
-        private bool UpdateProduct()
-        {
-            return clsProductData.UpdateProduct(this.ProductDto);
-        }
+        private bool UpdateProduct() => clsProductData.UpdateProduct(this.ProductDto);
 
         public bool Save()
         {
@@ -94,10 +91,7 @@ namespace ComputerStore_BusinessLayer
             return false;
         }
 
-        public static bool Delete(int id)
-        {
-            return clsProductData.DeleteProduct(id);
-        }
+        public static bool Delete(int id) => clsProductData.DeleteProduct(id);
 
         public static clsProduct Find(int id)
         {
@@ -109,6 +103,9 @@ namespace ComputerStore_BusinessLayer
             return null;
         }
 
+        public static ProductDetailsDto FindWithDetails(int id) => clsProductData.GetProductDetailsByID(id); 
+        
+
         public static clsProduct Find(string name)
         {
             ProductDto productDto = clsProductData.GetProductByName(name);
@@ -119,20 +116,13 @@ namespace ComputerStore_BusinessLayer
             return null;
         }
 
-        public static bool IsExist(int? id)
-        {
-            return clsProductData.IsProductExistID(id);
-        }
-
-        public static List<ProductDto> GetAllProducts()
-        {
-            return clsProductData.GetAllProducts();
-        }
-
-        public static List<ProductDetailsDto> GetAllProductsDetails()
-        {
-            return clsProductData.GetAllProductsDetails();
-        }
-
+        public static bool IsExist(int? id) => clsProductData.IsProductExistID(id);
+       
+        public static List<ProductDto> GetAllProducts() => clsProductData.GetAllProducts();
+       
+        public static List<ProductDto> GetAllFilteredProduct(ProductFilterDto filter) => clsProductData.GetAllFilteredProduct(filter);
+       
+        public static List<ProductDetailsDto> GetAllProductsDetails() => clsProductData.GetAllProductsDetails();
+        
     }
 }

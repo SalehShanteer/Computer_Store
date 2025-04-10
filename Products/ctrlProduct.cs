@@ -15,6 +15,17 @@ namespace Computer_Store
         private ProductDto _Product;
         private ProductImagesApiClient _ProductImagesClient = new ProductImagesApiClient(ApiUrls.ProductImagesURL);
 
+        public int? ProductID
+        {
+            get
+            {
+                if (_Product == null)
+                {
+                    return null;
+                }
+                return _Product.ID;
+            }
+        }
 
         public ctrlProduct()
         {
@@ -58,27 +69,6 @@ namespace Computer_Store
             }           
         }
 
-        private void _DisplayRating()
-        {
-            if (_Product.Rating is null) return;
-
-            float rating = (float)_Product.Rating;
-
-            PictureBox[] starControls = { pbStar1, pbStar2, pbStar3, pbStar4, pbStar5 };
-
-            for (int i = 0; i < starControls.Length; i++)
-            {
-                if (rating >= i + 0.5f)
-                {
-                    starControls[i].Image = Resources.FullStar;
-                }
-                else
-                {
-                    starControls[i].Image = Resources.EmptyStar;
-                }
-            }
-        }
-
         private async Task _DisplayProductImage()
         {
             int? productID = _Product.ID;
@@ -93,10 +83,9 @@ namespace Computer_Store
                     string imagePath = productImage.ImagePath;
                     if (imagePath != null)
                     {
-                        pbProductImage.Image = Image.FromFile(imagePath);
+                        pbProductImage.ImageLocation = imagePath;
                     }
                 }
-
             }
         }
 
@@ -106,10 +95,13 @@ namespace Computer_Store
             lblProductName.Text = _Product.Name;
             lblProductPrice.Text = (_Product.Price?.ToString("F2") ?? "0.00") + "$";
             _DisplayProductQuantity();
-            _DisplayRating();
+
+            // Display product rating 
+            ctrlStarsRating.DisplayRating(_Product.Rating);
+
             await _DisplayProductImage();
         }
 
-       
+      
     }
 }

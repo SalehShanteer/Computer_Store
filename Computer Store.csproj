@@ -239,16 +239,28 @@
     <Compile Include="ctrlPageNavigator.Designer.cs">
       <DependentUpon>ctrlPageNavigator.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAddUpdateProduct.cs">
+    <Compile Include="ctrlStarsRating.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlStarsRating.Designer.cs">
+      <DependentUpon>ctrlStarsRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddUpdateProduct.Designer.cs">
+    <Compile Include="frmProductViewer.Designer.cs">
+      <DependentUpon>frmProductViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\frmAddUpdateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\frmAddUpdateProduct.Designer.cs">
       <DependentUpon>frmAddUpdateProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManageProducts.cs">
+    <Compile Include="Products\frmManageProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageProducts.Designer.cs">
+    <Compile Include="Products\frmManageProducts.Designer.cs">
       <DependentUpon>frmManageProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\ctrlProduct.cs">
@@ -281,10 +293,16 @@
     <EmbeddedResource Include="ctrlPageNavigator.resx">
       <DependentUpon>ctrlPageNavigator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddUpdateProduct.resx">
+    <EmbeddedResource Include="ctrlStarsRating.resx">
+      <DependentUpon>ctrlStarsRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductViewer.resx">
+      <DependentUpon>frmProductViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\frmAddUpdateProduct.resx">
       <DependentUpon>frmAddUpdateProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManageProducts.resx">
+    <EmbeddedResource Include="Products\frmManageProducts.resx">
       <DependentUpon>frmManageProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\ctrlProduct.resx">
@@ -337,6 +355,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\right-arrow.png" />
+    <None Include="Resources\left-arrow.png" />
     <None Include="Resources\addImage.png" />
     <None Include="Resources\add.png" />
     <None Include="Resources\products.png" />

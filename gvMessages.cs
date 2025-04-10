@@ -43,8 +43,12 @@ namespace ComputerStore_Business
 
         public static string errorDeleteTitle = "Delete error";
 
-        public static string deleteMessage(string entity, int ID)
+        public static string deleteMessage(string entity, int ID = -1)
         {
+            if (ID == -1)
+            {
+                return $"The {entity} has been deleted successfully.";
+            }
             return $"The {entity} with ID = ({ID}) has been Deleted successfully.";
         }
 
@@ -53,8 +57,12 @@ namespace ComputerStore_Business
             return $"{entity} Deleted";
         }
 
-        public static string askForDeleteMessage(string entity, int ID)
+        public static string askForDeleteMessage(string entity, int ID = -1)
         {
+            if (ID == -1)
+            {
+                return $"Are you sure you want to delete {entity}?";
+            }
             return $"Are you sure you want to delete {entity} with ID = ({ID})?";
         }
 

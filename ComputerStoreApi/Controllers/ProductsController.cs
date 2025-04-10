@@ -30,6 +30,24 @@ namespace ComputerStoreApi.Controllers
             return Ok(Product.ProductDto);
         }
 
+        [HttpGet("FindWithDetails/{id}", Name = "FindProductDetails")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<ProductDetailsDto> FindWithDetails(int id)
+        {
+            if (id < 1)
+            {
+                return BadRequest($"Not accepted ID {id}");
+            }
+            var Product = clsProduct.FindWithDetails(id);
+            if (Product is null)
+            {
+                return NotFound($"Product with ID {id} not found");
+            }
+            return Ok(Product);
+        }
+
         [HttpGet("Find", Name = "FindProductByName")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -169,6 +187,25 @@ namespace ComputerStoreApi.Controllers
                 return NotFound("No products found");
             }
 
+            return Ok(Products);
+        }
+
+        [HttpPost("GetAllFiltered", Name = "GetAllFilteredProducts")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<IEnumerable<ProductDto>> GetAllFilteredProducts( ProductFilterDto productFilter)
+        {
+            if (productFilter is null)
+            {
+                return BadRequest("Product filter cannot be null");
+            }
+
+            var Products = clsProduct.GetAllFilteredProduct(productFilter);
+            if (!Products.Any())
+            {
+                return NotFound("No products found");
+            }
             return Ok(Products);
         }
 

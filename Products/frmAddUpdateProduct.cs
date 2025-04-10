@@ -38,6 +38,11 @@ namespace Computer_Store
         private List<ProductImageDto> _ProductImages = new List<ProductImageDto>();
         private int? _ProductID;
 
+        private CategoryDto _Category;
+        private SubcategoryDto _Subcategory;
+        private BrandDto _Brand;
+
+
         public frmAddUpdateProduct(int? ProductID)
         {
             InitializeComponent();
@@ -113,12 +118,17 @@ namespace Computer_Store
         private async Task _DisplayBrandCategorySubcategory()
         {
             // Display the selected brand, category, and subcategory
-            cbxBrand.SelectedItem = await _BrandsClient.FindAsync(_ProductDto.BrandID);
-            cbxCategory.SelectedItem = await _CategoriesClient.FindAsync(_ProductDto.CategoryID);
+            BrandDto brand = await _BrandsClient.FindAsync(_ProductDto.BrandID);
+            cbxBrand.SelectedIndex = cbxBrand.FindStringExact(brand.Name);
+
+            CategoryDto category = await _CategoriesClient.FindAsync(_ProductDto.CategoryID);
+            cbxCategory.SelectedIndex = cbxCategory.FindStringExact(category.Name);
+
             if (_ProductDto.SubcategoryID != null)
             {
                 await _LoadSubcategoryCombobox(_ProductDto.CategoryID);
-                cbxSubcategory.SelectedItem = await _SubcategoriesClient.FindAsync(_ProductDto.SubcategoryID);
+                SubcategoryDto subcategory = await _SubcategoriesClient.FindAsync(_ProductDto.SubcategoryID);
+                cbxSubcategory.SelectedIndex = cbxSubcategory.FindStringExact(subcategory.Name);
             }
             else
             {
@@ -247,7 +257,7 @@ namespace Computer_Store
         private void _ChooseImageFromFile()
         {
             // Prepare openFileDialog
-            openFileDialogForImage.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif";
+            openFileDialogForImage.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.webp";
             openFileDialogForImage.FilterIndex = 1;
             openFileDialogForImage.RestoreDirectory = true;// Save last directorty
 
@@ -341,6 +351,270 @@ namespace Computer_Store
             _DisplayProductImages();
         }
 
+        private void _ShowCategoryUI()
+        {
+            lblCategoryName.Visible = true;
+            txtCategoryName.Visible = true;
+            btnSaveCategory.Visible = true;
+            btnCancelCategory.Visible = true;
+
+        }
+
+        private void _ShowSubcategoryUI()
+        {
+            lblSubcategoryName.Visible = true;
+            txtSubcategoryName.Visible = true;
+            btnSaveSubcategory.Visible = true;
+            btnCancelSubcategory.Visible = true;
+        }
+
+        private void _ShowBrandUI()
+        {
+            lblBrandName.Visible = true;
+            txtBrandName.Visible = true;
+            btnSaveBrand.Visible = true;
+            btnCancelBrand.Visible = true;
+        }
+
+        private void _HideCategoryUI()
+        {
+            lblCategoryName.Visible = false;
+            txtCategoryName.Visible = false;
+            btnSaveCategory.Visible = false;
+            btnCancelCategory.Visible = false;
+
+            txtCategoryName.Clear();
+        }
+
+        private void _HideSubcategoryUI()
+        {
+            lblSubcategoryName.Visible = false;
+            txtSubcategoryName.Visible = false;
+            btnSaveSubcategory.Visible = false;
+            btnCancelSubcategory.Visible = false;
+
+            txtSubcategoryName.Clear();
+
+        }
+
+        private void _HideBrandUI()
+        {
+            lblBrandName.Visible = false;
+            txtBrandName.Visible= false;
+            btnSaveBrand.Visible = false;
+            btnCancelBrand.Visible = false;
+
+            txtBrandName.Clear();
+        }
+
+        private void _AddNewCategory()
+        {
+            _ShowCategoryUI();
+            _Category = new CategoryDto();
+        }
+
+        private void _AddNewSubcategory()
+        {
+            _ShowSubcategoryUI();
+            _Subcategory = new SubcategoryDto();
+        }
+
+        private void _AddNewBrand()
+        {
+            _ShowBrandUI();
+            _Brand = new BrandDto();
+        }
+
+        private async Task _UpdateCategory()
+        {
+            _ShowCategoryUI();
+
+            CategoryDto selectedCategory = (CategoryDto)cbxCategory.SelectedItem;
+            int selectedCategoryID = (int)selectedCategory.ID;
+
+            _Category = await _CategoriesClient.FindAsync(selectedCategoryID);
+
+            // Display the selected category name in the text box
+            txtCategoryName.Text = _Category.Name;
+        }
+
+        private async Task _UpdateSubcategory()
+        {
+            _ShowSubcategoryUI();
+
+            SubcategoryDto selectedSubcategory = (SubcategoryDto)cbxSubcategory.SelectedItem;
+            int selectedSubcategoryID = (int)selectedSubcategory.ID;
+
+            _Subcategory = await _SubcategoriesClient.FindAsync(selectedSubcategoryID);
+
+            // Display the selected subcategory name in the text box
+            txtSubcategoryName.Text = _Subcategory.Name;
+        }
+
+        private async Task _UpdateBrand()
+        {
+            _ShowBrandUI();
+            BrandDto selectedBrand = (BrandDto)cbxBrand.SelectedItem;
+            int selectedBrandID = (int)selectedBrand.ID;
+
+            _Brand = await _BrandsClient.FindAsync(selectedBrandID);
+
+            // Display the selected brand name in the text box
+            txtBrandName.Text = _Brand.Name;
+        }
+
+        private async Task _DeleteCategory()
+        {
+            CategoryDto selectedCategory = (CategoryDto)cbxCategory.SelectedItem;
+            int selectedCategoryID = (int)selectedCategory.ID;
+
+            if (MessageBox.Show(gvMessages.askForDeleteMessage("category"), "Delete?"
+               , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var result = await _CategoriesClient.DeleteAsync(selectedCategoryID);
+                if (result)
+                {
+                    // Category deleted successfully
+                    MessageBox.Show(gvMessages.deleteMessage("category"), "Deleted successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await _LoadCategoriesCombobox();
+                }
+                else
+                {
+                    // Handle error in deleting category
+                    MessageBox.Show(gvMessages.errorDeleteMessage + " Or there are related with existing product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async Task _DeleteSubcategory()
+        {
+            SubcategoryDto selectedSubcategory = (SubcategoryDto)cbxSubcategory.SelectedItem;
+            int selectedSubcategoryID = (int)selectedSubcategory.ID;
+            if (MessageBox.Show(gvMessages.askForDeleteMessage("subcategory"), "Delete?"
+               , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var result = await _SubcategoriesClient.DeleteAsync(selectedSubcategoryID);
+                if (result)
+                {
+                    // Subcategory deleted successfully
+                    MessageBox.Show(gvMessages.deleteMessage("subcategory"), "Deleted successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await _LoadSubcategoryCombobox(selectedSubcategory.CategoryID);
+                }
+                else
+                {
+                    // Handle error in deleting subcategory
+                    MessageBox.Show(gvMessages.errorDeleteMessage + " Or there are related with existing product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async Task _DeleteBrand()
+        {
+            BrandDto selectedBrand = (BrandDto)cbxBrand.SelectedItem;
+            int selectedBrandID = (int)selectedBrand.ID;
+            if (MessageBox.Show(gvMessages.askForDeleteMessage("brand"), "Delete?"
+               , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                var result = await _BrandsClient.DeleteAsync(selectedBrandID);
+                if (result)
+                {
+                    // Brand deleted successfully
+                    MessageBox.Show(gvMessages.deleteMessage("brand"), "Deleted successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await _LoadBrandsCombobox();
+                }
+                else
+                {
+                    // Handle error in deleting brand
+                    MessageBox.Show(gvMessages.errorDeleteMessage + " Or there are related with existing product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private async Task _SaveCategory()
+        {
+            if (string.IsNullOrEmpty(txtCategoryName.Text))
+            {
+                MessageBox.Show("Please enter a category name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Set the category name
+            _Category.Name = txtCategoryName.Text;
+            var category = await _CategoriesClient.SaveAsync(_Category);
+            if (category is null)
+            {
+                // Handle error in saving category
+                MessageBox.Show(gvMessages.errorSaveMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                // Category saved successfully
+                MessageBox.Show(gvMessages.saveMessage("category"), "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                await _LoadCategoriesCombobox();
+
+                _HideCategoryUI();
+            }
+        }
+
+        private async Task _SaveSubcategory()
+        {
+            if (string.IsNullOrEmpty(txtSubcategoryName.Text))
+            {
+                MessageBox.Show("Please enter a subcategory name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Set the subcategory name and category ID
+            _Subcategory.Name = txtSubcategoryName.Text;
+            CategoryDto selectedCategory = (CategoryDto)cbxCategory.SelectedItem;
+
+            _Subcategory.CategoryID = selectedCategory.ID;
+            var subcategory = await _SubcategoriesClient.SaveAsync(_Subcategory);
+            if (subcategory is null)
+            {
+                // Handle error in saving subcategory
+                MessageBox.Show(gvMessages.errorSaveMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                // Subcategory saved successfully
+                MessageBox.Show(gvMessages.saveMessage("subcategory"), "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                await _LoadSubcategoryCombobox(_Subcategory.CategoryID);
+
+                _HideSubcategoryUI();
+            }
+        }
+
+        private async Task _SaveBrand()
+        {
+            if (string.IsNullOrEmpty(txtBrandName.Text))
+            {
+                MessageBox.Show("Please enter a brand name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Set the brand name
+            _Brand.Name = txtBrandName.Text;
+            var brand = await _BrandsClient.SaveAsync(_Brand);
+            if (brand is null)
+            {
+                // Handle error in saving brand
+                MessageBox.Show(gvMessages.errorSaveMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                // Brand saved successfully
+                MessageBox.Show(gvMessages.saveMessage("brand"), "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                await _LoadBrandsCombobox();
+
+                _HideBrandUI();
+            }
+        }
+
         private async void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             CategoryDto selectedCategory = (CategoryDto)cbxCategory.SelectedItem;
@@ -390,6 +664,93 @@ namespace Computer_Store
         private void btnAddImage_Click(object sender, EventArgs e)
         {
             _ChooseImageFromFile();
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            _AddNewCategory();
+        }
+
+        private async void btnSaveCategory_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(gvMessages.askForSaveMessage("category"), "Save?"
+               , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                await _SaveCategory();
+            }
+        }
+
+        private void btnAddSubcategory_Click(object sender, EventArgs e)
+        {
+            _AddNewSubcategory();
+        }
+
+        private void btnAddBrand_Click(object sender, EventArgs e)
+        {
+            _AddNewBrand();
+        }
+
+        private async void btnSaveSubcategory_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(gvMessages.askForSaveMessage("subcategory"), "Save?"
+               , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                await _SaveSubcategory();
+            }
+        }
+
+        private async void btnSaveBrand_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(gvMessages.askForSaveMessage("brand"), "Save?"
+               , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                await _SaveBrand();
+            }
+        }
+
+        private void btnCancelCategory_Click(object sender, EventArgs e)
+        {
+            _HideCategoryUI();
+        }
+
+        private void btnCancelSubcategory_Click(object sender, EventArgs e)
+        {
+            _HideSubcategoryUI();
+        }
+
+        private void btnCancelBrand_Click(object sender, EventArgs e)
+        {
+            _HideBrandUI();
+        }
+
+        private async void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            await _UpdateCategory();
+        }
+
+        private async void btnEditSubcategory_Click(object sender, EventArgs e)
+        {
+            await _UpdateSubcategory();
+        }
+
+        private async void btnEditBrand_Click(object sender, EventArgs e)
+        {
+            await _UpdateBrand();
+        }
+
+        private async void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            await _DeleteCategory();
+        }
+
+        private async void btnDeleteSubcategory_Click(object sender, EventArgs e)
+        {
+            await _DeleteSubcategory();
+        }
+
+        private async void btnDeleteBrand_Click(object sender, EventArgs e)
+        {
+            await _DeleteBrand();
         }
     }
 }

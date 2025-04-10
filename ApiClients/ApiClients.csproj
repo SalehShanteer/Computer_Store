@@ -218,7 +218,8 @@
     <Compile Include="Api Clients\BrandsApiClient.cs" />
     <Compile Include="ClientDtos\BrandDto.cs" />
     <Compile Include="ClientDtos\CategoryDto.cs" />
-    <Compile Include="ClientDtos\ProductDetailsDto.cs" />
+    <Compile Include="ClientDtos\ProductFilterDto.cs" />
+    <Compile Include="ClientDtos\ProductsDtos\ProductDetailsDto.cs" />
     <Compile Include="ClientDtos\LoginRecordDtos\LoginRecordDto.cs" />
     <Compile Include="ClientDtos\ProductImageDto.cs" />
     <Compile Include="ClientDtos\ProductsDtos\ProductDto.cs" />

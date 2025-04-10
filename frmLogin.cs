@@ -97,7 +97,7 @@ namespace Computer_Store
         {
             //this.Hide(); // Hide the login form
             frmMain frm = new frmMain();
-            frm.ShowDialog(); // Block until the main form closes
+            frm.Show(); // Block until the main form closes
             //this.Close(); // Close the login form after the main form is closed
         }
 

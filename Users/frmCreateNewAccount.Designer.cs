@@ -222,7 +222,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(529, 369);
+            this.ClientSize = new System.Drawing.Size(526, 369);
             this.Controls.Add(this.lblAdmin);
             this.Controls.Add(this.pbExit);
             this.Controls.Add(this.btnSignIn);

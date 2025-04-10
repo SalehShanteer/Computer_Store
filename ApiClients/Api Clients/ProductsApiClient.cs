@@ -29,6 +29,16 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<ProductDto>(request, _httpClient);
         }
 
+        public async Task<ProductDetailsDto> FindWithDetailsAsync(int? id)
+        {
+            if (!id.HasValue)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+            var request = new HttpRequestMessage(HttpMethod.Get, $"FindWithDetails/{id}");
+            return await GenericClientMethods.SendRequestAsync<ProductDetailsDto>(request, _httpClient);
+        }
+
         public async Task<ProductDto> FindAsync(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -84,6 +94,21 @@ namespace ApiClients
         public async Task<IEnumerable<ProductDto>> GetAllAsync()
         {
             var request = new HttpRequestMessage(HttpMethod.Get, "GetAll");
+
+            return await GenericClientMethods.SendRequestAsync<IEnumerable<ProductDto>>(request, _httpClient);
+        }
+
+        public async Task<IEnumerable<ProductDto>> GetAllFilteredAsync(ProductFilterDto filter)
+        {
+            if (filter is null)
+            {
+                throw new ArgumentNullException(nameof(filter));
+            }
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "GetAllFiltered")
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(filter), Encoding.UTF8, "application/json")
+            };
 
             return await GenericClientMethods.SendRequestAsync<IEnumerable<ProductDto>>(request, _httpClient);
         }

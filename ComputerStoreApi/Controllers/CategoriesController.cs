@@ -84,7 +84,7 @@ namespace ComputerStoreApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult DeleteCategory(int? id)
+        public ActionResult<bool> DeleteCategory(int? id)
         {
             if (id is null || id < 1)
             {
@@ -96,12 +96,14 @@ namespace ComputerStoreApi.Controllers
                 return NotFound($"Category with ID {id} not found");
             }
 
-            if (!clsCategory.Delete(id.Value))
+            bool isDeleted = clsCategory.Delete(id.Value);
+
+            if (!isDeleted)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Failed to delete category");
             }
 
-            return Ok($"Category with ID {id} deleted successfully");
+            return Ok(isDeleted);
         }
 
         [HttpGet("IsExist/{id}", Name = "IsExistCategory")]

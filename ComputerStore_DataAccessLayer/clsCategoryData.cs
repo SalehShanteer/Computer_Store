@@ -126,6 +126,7 @@ namespace ComputerStore_DataAccessLayer
         public static bool DeleteCategory(int? id)
         {
             bool IsDeleted = false;
+
             using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
             {
                 using (SqlCommand command = new SqlCommand("SP_DeleteCategory", connection))

@@ -84,7 +84,7 @@ namespace ComputerStoreApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult DeleteBrand(int? id)
+        public ActionResult<bool> DeleteBrand(int? id)
         {
             if (id is null || id < 1)
             {
@@ -96,12 +96,14 @@ namespace ComputerStoreApi.Controllers
                 return NotFound($"Brand with ID {id} not found");
             }
 
-            if (!clsBrand.Delete(id))
+            bool isDeleted = clsBrand.Delete(id.Value);
+
+            if (!isDeleted)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Failed to delete brand");
             }
 
-            return Ok($"Brand with ID {id} deleted successfully");
+            return Ok(isDeleted);
         }
 
         [HttpGet("IsExist/{id}", Name = "IsExistBrand")]
