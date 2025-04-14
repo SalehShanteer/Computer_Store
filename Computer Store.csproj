@@ -355,6 +355,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\Add-Admin.png" />
+    <None Include="Resources\Send.png" />
     <None Include="Resources\right-arrow.png" />
     <None Include="Resources\left-arrow.png" />
     <None Include="Resources\addImage.png" />

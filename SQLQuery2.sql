@@ -153,3 +153,11 @@ CREATE TABLE ProductImages
 	FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
 )
 
+
+-------------------------Check Constraint----------------------------
+
+ALTER TABLE Reviews
+ADD CONSTRAINT CHK_1to5Rating CHECK (Rating >= 1 AND Rating <= 5)
+
+ALTER TABLE Reviews
+ADD CONSTRAINT UQ_Reviews_ProductID_UserID UNIQUE (ProductID, UserID)

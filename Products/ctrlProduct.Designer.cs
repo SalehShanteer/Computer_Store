@@ -53,9 +53,9 @@
             // 
             this.lblProductPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductPrice.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblProductPrice.Location = new System.Drawing.Point(263, 286);
+            this.lblProductPrice.Location = new System.Drawing.Point(246, 286);
             this.lblProductPrice.Name = "lblProductPrice";
-            this.lblProductPrice.Size = new System.Drawing.Size(142, 31);
+            this.lblProductPrice.Size = new System.Drawing.Size(159, 31);
             this.lblProductPrice.TabIndex = 2;
             this.lblProductPrice.Text = "0.00$";
             this.lblProductPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -63,7 +63,7 @@
             // lblProductInStock
             // 
             this.lblProductInStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductInStock.Location = new System.Drawing.Point(95, 328);
+            this.lblProductInStock.Location = new System.Drawing.Point(98, 328);
             this.lblProductInStock.Name = "lblProductInStock";
             this.lblProductInStock.Size = new System.Drawing.Size(212, 24);
             this.lblProductInStock.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 288);
+            this.label1.Location = new System.Drawing.Point(19, 289);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 24);
             this.label1.TabIndex = 6;
@@ -113,7 +113,7 @@
             // ctrlStarsRating
             // 
             this.ctrlStarsRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ctrlStarsRating.Location = new System.Drawing.Point(116, 286);
+            this.ctrlStarsRating.Location = new System.Drawing.Point(92, 286);
             this.ctrlStarsRating.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlStarsRating.Name = "ctrlStarsRating";
             this.ctrlStarsRating.RateFrom = 5;

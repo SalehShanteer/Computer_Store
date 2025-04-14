@@ -1,7 +1,7 @@
 ﻿
 namespace ApiClients.Api_URLs
 {
-    public class ApiUrls
+    public static class ApiUrls
     {
 
         public static readonly string UsersURL = "https://localhost:7173/api/UsersApi/";
@@ -19,6 +19,8 @@ namespace ApiClients.Api_URLs
         public static readonly string CategoryURL = "https://localhost:7173/api/CategoriesApi/";
 
         public static readonly string SubcategoryURL = "https://localhost:7173/api/SubcategoriesApi/";
+
+        public static readonly string ReviewsURL = "https://localhost:7173/api/ReviewsApi/";
 
     }
 }

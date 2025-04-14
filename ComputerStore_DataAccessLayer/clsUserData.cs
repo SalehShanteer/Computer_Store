@@ -131,6 +131,32 @@ namespace ComputerStore_DataAccessLayer
             return IsFound;
         }
 
+        public static bool IsUserExistByID(int? id)
+        {
+            bool IsFound = false;
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_IsUserExistByID", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    // Add the parameter
+                    command.Parameters.AddWithValue("@ID", id.HasValue ? id : (object)DBNull.Value);
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        IsFound = Convert.ToBoolean(command.ExecuteScalar());
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log the exception to the event log
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+            return IsFound;
+        }
+
         public static int? AddNewUser(UserDto user)
         {
             int? newUserID = null;

@@ -75,6 +75,23 @@ namespace ComputerStoreApi.Controllers
             return Ok(IsExist);
         }
 
+        [HttpGet("IsExist/{id}", Name = "IsExistByID")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<bool> IsExist(int id)
+        {
+            if (id < 1)
+            {
+                return BadRequest($"Not accepted ID {id}");
+            }
+            bool IsExist = clsUser.IsExistByID(id);
+            if (!IsExist)
+            {
+                return NotFound($"User with ID {id} not found");
+            }
+            return Ok(IsExist);
+        }
 
         [HttpPost("Add", Name = "AddNewUser")]
         [ProducesResponseType(StatusCodes.Status201Created)]

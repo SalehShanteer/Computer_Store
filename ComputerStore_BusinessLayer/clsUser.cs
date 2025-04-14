@@ -126,7 +126,12 @@ namespace ComputerStore_BusinessLayer
         {
             return clsUserData.IsUserExistByEmail(Email);
         }
-           
+
+        public static bool IsExistByID(int? ID)
+        {
+            return clsUserData.IsUserExistByID(ID);
+        }
+
         public static bool ChangeUserPassword(string email, string newPassword)
         {
             return clsUserData.ChangeUserPassword(email, newPassword);

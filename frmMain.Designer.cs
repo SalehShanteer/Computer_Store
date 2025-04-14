@@ -37,12 +37,13 @@
             this.tsbAccessories = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbHeadset = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbAdminSettings = new System.Windows.Forms.ToolStripDropDownButton();
-            this.manageProductsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbManageProducts = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbAddNewAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbAccount = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbLogoutSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbLogout = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbBasket = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbCart = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -85,7 +86,7 @@
             this.tsbHeadset,
             this.tsbAdminSettings,
             this.tsbAccount,
-            this.tsbBasket,
+            this.tsbCart,
             this.toolStripSeparator1});
             this.tsMainBar.Location = new System.Drawing.Point(0, 0);
             this.tsMainBar.Name = "tsMainBar";
@@ -174,7 +175,8 @@
             // 
             this.tsbAdminSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsbAdminSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manageProductsToolStripMenuItem});
+            this.tsbManageProducts,
+            this.tsbAddNewAdmin});
             this.tsbAdminSettings.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.tsbAdminSettings.Image = global::Computer_Store.Properties.Resources.system_administration;
             this.tsbAdminSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -184,13 +186,21 @@
             this.tsbAdminSettings.Text = "Admin Settings";
             this.tsbAdminSettings.Visible = false;
             // 
-            // manageProductsToolStripMenuItem
+            // tsbManageProducts
             // 
-            this.manageProductsToolStripMenuItem.Image = global::Computer_Store.Properties.Resources.products;
-            this.manageProductsToolStripMenuItem.Name = "manageProductsToolStripMenuItem";
-            this.manageProductsToolStripMenuItem.Size = new System.Drawing.Size(241, 30);
-            this.manageProductsToolStripMenuItem.Text = "Manage Products";
-            this.manageProductsToolStripMenuItem.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
+            this.tsbManageProducts.Image = global::Computer_Store.Properties.Resources.products;
+            this.tsbManageProducts.Name = "tsbManageProducts";
+            this.tsbManageProducts.Size = new System.Drawing.Size(306, 88);
+            this.tsbManageProducts.Text = "Manage Products";
+            this.tsbManageProducts.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
+            // 
+            // tsbAddNewAdmin
+            // 
+            this.tsbAddNewAdmin.Image = global::Computer_Store.Properties.Resources.Add_Admin;
+            this.tsbAddNewAdmin.Name = "tsbAddNewAdmin";
+            this.tsbAddNewAdmin.Size = new System.Drawing.Size(306, 88);
+            this.tsbAddNewAdmin.Text = "Add New Admin";
+            this.tsbAddNewAdmin.Click += new System.EventHandler(this.tsbAddNewAdmin_Click);
             // 
             // tsbAccount
             // 
@@ -211,7 +221,7 @@
             // 
             this.tsbLogoutSettings.Image = global::Computer_Store.Properties.Resources.account_settings;
             this.tsbLogoutSettings.Name = "tsbLogoutSettings";
-            this.tsbLogoutSettings.Size = new System.Drawing.Size(241, 30);
+            this.tsbLogoutSettings.Size = new System.Drawing.Size(306, 88);
             this.tsbLogoutSettings.Text = "Account Settings";
             this.tsbLogoutSettings.Click += new System.EventHandler(this.tsbLogoutSettings_Click);
             // 
@@ -219,7 +229,7 @@
             // 
             this.tsbChangePassword.Image = global::Computer_Store.Properties.Resources.Change_Password;
             this.tsbChangePassword.Name = "tsbChangePassword";
-            this.tsbChangePassword.Size = new System.Drawing.Size(241, 30);
+            this.tsbChangePassword.Size = new System.Drawing.Size(306, 88);
             this.tsbChangePassword.Text = "Change Password";
             this.tsbChangePassword.Click += new System.EventHandler(this.tsbChangePassword_Click);
             // 
@@ -227,20 +237,20 @@
             // 
             this.tsbLogout.Image = global::Computer_Store.Properties.Resources.Logout;
             this.tsbLogout.Name = "tsbLogout";
-            this.tsbLogout.Size = new System.Drawing.Size(241, 30);
+            this.tsbLogout.Size = new System.Drawing.Size(306, 88);
             this.tsbLogout.Text = "Logout";
             this.tsbLogout.Click += new System.EventHandler(this.tsbLogout_Click);
             // 
-            // tsbBasket
+            // tsbCart
             // 
-            this.tsbBasket.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbBasket.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbBasket.Image = global::Computer_Store.Properties.Resources.Basket;
-            this.tsbBasket.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBasket.Name = "tsbBasket";
-            this.tsbBasket.ShowDropDownArrow = false;
-            this.tsbBasket.Size = new System.Drawing.Size(155, 85);
-            this.tsbBasket.Text = "Basket";
+            this.tsbCart.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbCart.Image = global::Computer_Store.Properties.Resources.Basket;
+            this.tsbCart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCart.Name = "tsbCart";
+            this.tsbCart.ShowDropDownArrow = false;
+            this.tsbCart.Size = new System.Drawing.Size(135, 85);
+            this.tsbCart.Text = "Cart";
             // 
             // toolStripSeparator1
             // 
@@ -583,7 +593,7 @@
         private System.Windows.Forms.ToolStripDropDownButton tsbMonitor;
         private System.Windows.Forms.ToolStripDropDownButton tsbComponents;
         private System.Windows.Forms.ToolStripDropDownButton tsbStorage;
-        private System.Windows.Forms.ToolStripDropDownButton tsbBasket;
+        private System.Windows.Forms.ToolStripDropDownButton tsbCart;
         private System.Windows.Forms.ToolStripDropDownButton tsbAccount;
         private System.Windows.Forms.ToolStripDropDownButton tsbAdminSettings;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -599,7 +609,7 @@
         private ctrlProduct ctrlProduct7;
         private ctrlProduct ctrlProduct8;
         private ctrlPageNavigator ctrlPageNavigator1;
-        private System.Windows.Forms.ToolStripMenuItem manageProductsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsbManageProducts;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSubcategory;
@@ -615,5 +625,6 @@
         private System.Windows.Forms.Label lblTo;
         private System.Windows.Forms.Label lblNoResult;
         private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.ToolStripMenuItem tsbAddNewAdmin;
     }
 }

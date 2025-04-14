@@ -269,6 +269,12 @@ namespace Computer_Store
             frm.Show(); // Non-blocking
         }
 
+        private void _ShowAddAdminScreen()
+        {
+            frmCreateNewAccount frm = new frmCreateNewAccount(null, UserDto.enRole.Admin, 0);
+            frm.Show();
+        }
+
         private async void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             UserSettingsDto userSettings = new UserSettingsDto();
@@ -400,6 +406,11 @@ namespace Computer_Store
         {
             ctrlProduct product = (ctrlProduct)sender;
             _ShowProductScreen(product.ProductID);
+        }
+
+        private void tsbAddNewAdmin_Click(object sender, EventArgs e)
+        {
+            _ShowAddAdminScreen();
         }
     }
 }

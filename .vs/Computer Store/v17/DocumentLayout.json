@@ -7,20 +7,12 @@
       "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmproductviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmproductviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmproductviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\products\\ctrlproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:products\\ctrlproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\products\\ctrlproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:products\\ctrlproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmproductviewer.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmproductviewer.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,28 +26,29 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ctrlProduct.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\ctrlProduct.cs",
-              "RelativeDocumentMoniker": "Products\\ctrlProduct.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\ctrlProduct.cs",
-              "RelativeToolTip": "Products\\ctrlProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "frmProductViewer.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.Designer.cs",
+              "RelativeDocumentMoniker": "frmProductViewer.Designer.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.Designer.cs",
+              "RelativeToolTip": "frmProductViewer.Designer.cs",
+              "ViewState": "AgIAAPEAAAAAAAAAAIAzwAMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T20:53:26.615Z",
+              "WhenOpened": "2025-04-14T19:39:44.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ctrlProduct.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\ctrlProduct.cs",
-              "RelativeDocumentMoniker": "Products\\ctrlProduct.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\ctrlProduct.cs [Design]",
-              "RelativeToolTip": "Products\\ctrlProduct.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "frmProductViewer.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.cs",
+              "RelativeDocumentMoniker": "frmProductViewer.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.cs",
+              "RelativeToolTip": "frmProductViewer.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAA2wIkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T20:53:24.646Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-04-14T13:08:26.18Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -66,32 +59,7 @@
               "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.cs [Design]",
               "RelativeToolTip": "frmProductViewer.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-10T14:02:43.117Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmMain.cs",
-              "RelativeDocumentMoniker": "frmMain.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmMain.cs",
-              "RelativeToolTip": "frmMain.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAAAAoBAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T22:06:21.865Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmMain.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmMain.cs",
-              "RelativeDocumentMoniker": "frmMain.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmMain.cs [Design]",
-              "RelativeToolTip": "frmMain.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-05T22:06:16.641Z",
+              "WhenOpened": "2025-04-14T13:06:47.707Z",
               "EditorCaption": " [Design]"
             }
           ]

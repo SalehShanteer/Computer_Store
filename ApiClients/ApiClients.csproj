@@ -213,6 +213,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api Clients\ReviewsApiClient.cs" />
     <Compile Include="Api URLs\ApiUrls.cs" />
     <Compile Include="Api Clients\CategoriesApiClient.cs" />
     <Compile Include="Api Clients\BrandsApiClient.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="ClientDtos\LoginRecordDtos\LoginRecordDto.cs" />
     <Compile Include="ClientDtos\ProductImageDto.cs" />
     <Compile Include="ClientDtos\ProductsDtos\ProductDto.cs" />
+    <Compile Include="ClientDtos\ReviewDto.cs" />
     <Compile Include="ClientDtos\SubcategoryDto.cs" />
     <Compile Include="ClientDtos\UsersDtos\UserChangePasswordDto.cs" />
     <Compile Include="ClientDtos\UsersDtos\UserDto.cs" />
