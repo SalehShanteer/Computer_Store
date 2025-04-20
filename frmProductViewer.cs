@@ -125,7 +125,7 @@ namespace Computer_Store
             // Display product details
             lblProductID.Text = _Product.ID.ToString();
             lblProductName.Text = _Product.Name;
-            lblProductPrice.Text = (_Product.Price?.ToString("F2") ?? "0.00") + "$";
+            lblProductPrice.Text = clsUtility.DecimalToMoneyString(_Product.Price);
             lblDescription.Text = _Product.Description;
             lblCategory.Text = _Product.Category;
             lblSubcategory.Text = _Product.Subcategory;

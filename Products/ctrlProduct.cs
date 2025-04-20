@@ -93,7 +93,7 @@ namespace Computer_Store
         {
             lblProductID.Text = _Product.ID.ToString();
             lblProductName.Text = _Product.Name;
-            lblProductPrice.Text = (_Product.Price?.ToString("F2") ?? "0.00") + "$";
+            lblProductPrice.Text = clsUtility.DecimalToMoneyString(_Product.Price);
             _DisplayProductQuantity();
 
             // Display product rating 
@@ -102,6 +102,5 @@ namespace Computer_Store
             await _DisplayProductImage();
         }
 
-      
     }
 }

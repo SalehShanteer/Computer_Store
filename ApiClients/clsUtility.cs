@@ -172,5 +172,10 @@ namespace ApiClients
             }
         }
 
+        public static string DecimalToMoneyString(decimal? value)
+        {
+            return "$" + (value != null ? value?.ToString("F2") : "0.00");
+        }
+
     }
 }

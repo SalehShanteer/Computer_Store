@@ -22,5 +22,9 @@ namespace ApiClients.Api_URLs
 
         public static readonly string ReviewsURL = "https://localhost:7173/api/ReviewsApi/";
 
+        public static readonly string OrdersURL = "https://localhost:7173/api/OrdersApi/";
+
+        public static readonly string OrderItemsURL = "https://localhost:7173/api/OrderItemsApi/";
+
     }
 }

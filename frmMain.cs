@@ -275,6 +275,14 @@ namespace Computer_Store
             frm.Show();
         }
 
+        private void _ShowOrderCartScreen()
+        {
+            int? UserID = _CurrentUser.ID;
+
+            frmOrderCart frm = new frmOrderCart(UserID);
+            frm.Show();
+        }
+
         private async void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             UserSettingsDto userSettings = new UserSettingsDto();
@@ -411,6 +419,11 @@ namespace Computer_Store
         private void tsbAddNewAdmin_Click(object sender, EventArgs e)
         {
             _ShowAddAdminScreen();
+        }
+
+        private void tsbCart_Click(object sender, EventArgs e)
+        {
+            _ShowOrderCartScreen();
         }
     }
 }

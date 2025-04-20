@@ -34,8 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblProductID = new System.Windows.Forms.Label();
-            this.pbProductImage = new System.Windows.Forms.PictureBox();
             this.ctrlStarsRating = new Computer_Store.ctrlStarsRating();
+            this.pbProductImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,16 +100,6 @@
             this.lblProductID.TabIndex = 13;
             this.lblProductID.Text = "0";
             // 
-            // pbProductImage
-            // 
-            this.pbProductImage.Image = global::Computer_Store.Properties.Resources.No_Image;
-            this.pbProductImage.Location = new System.Drawing.Point(95, 14);
-            this.pbProductImage.Name = "pbProductImage";
-            this.pbProductImage.Size = new System.Drawing.Size(212, 193);
-            this.pbProductImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbProductImage.TabIndex = 0;
-            this.pbProductImage.TabStop = false;
-            // 
             // ctrlStarsRating
             // 
             this.ctrlStarsRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -119,6 +109,16 @@
             this.ctrlStarsRating.RateFrom = 5;
             this.ctrlStarsRating.Size = new System.Drawing.Size(168, 32);
             this.ctrlStarsRating.TabIndex = 14;
+            // 
+            // pbProductImage
+            // 
+            this.pbProductImage.Image = global::Computer_Store.Properties.Resources.No_Image;
+            this.pbProductImage.Location = new System.Drawing.Point(95, 14);
+            this.pbProductImage.Name = "pbProductImage";
+            this.pbProductImage.Size = new System.Drawing.Size(212, 193);
+            this.pbProductImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbProductImage.TabIndex = 0;
+            this.pbProductImage.TabStop = false;
             // 
             // ctrlProduct
             // 

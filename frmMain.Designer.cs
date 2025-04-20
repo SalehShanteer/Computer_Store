@@ -29,21 +29,6 @@
         private void InitializeComponent()
         {
             this.tsMainBar = new System.Windows.Forms.ToolStrip();
-            this.tsbLaptop = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbDesktop = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbMonitor = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbComponents = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbStorage = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbAccessories = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbHeadset = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbAdminSettings = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbManageProducts = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbAddNewAdmin = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbAccount = new System.Windows.Forms.ToolStripDropDownButton();
-            this.tsbLogoutSettings = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbChangePassword = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbLogout = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsbCart = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -69,6 +54,21 @@
             this.ctrlProduct3 = new Computer_Store.ctrlProduct();
             this.ctrlProduct2 = new Computer_Store.ctrlProduct();
             this.ctrlProduct1 = new Computer_Store.ctrlProduct();
+            this.tsbLaptop = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbDesktop = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbMonitor = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbComponents = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbStorage = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbAccessories = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbHeadset = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbAdminSettings = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbManageProducts = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbAddNewAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbAccount = new System.Windows.Forms.ToolStripDropDownButton();
+            this.tsbLogoutSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbChangePassword = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbLogout = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbCart = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsMainBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,164 +93,6 @@
             this.tsMainBar.Size = new System.Drawing.Size(1904, 88);
             this.tsMainBar.TabIndex = 0;
             this.tsMainBar.Text = "toolStrip1";
-            // 
-            // tsbLaptop
-            // 
-            this.tsbLaptop.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbLaptop.Image = global::Computer_Store.Properties.Resources.laptop;
-            this.tsbLaptop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbLaptop.Name = "tsbLaptop";
-            this.tsbLaptop.ShowDropDownArrow = false;
-            this.tsbLaptop.Size = new System.Drawing.Size(160, 85);
-            this.tsbLaptop.Text = "Laptop";
-            this.tsbLaptop.Click += new System.EventHandler(this.tsbLaptop_Click);
-            // 
-            // tsbDesktop
-            // 
-            this.tsbDesktop.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbDesktop.Image = global::Computer_Store.Properties.Resources.Desktop;
-            this.tsbDesktop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbDesktop.Name = "tsbDesktop";
-            this.tsbDesktop.ShowDropDownArrow = false;
-            this.tsbDesktop.Size = new System.Drawing.Size(171, 85);
-            this.tsbDesktop.Text = "Desktop";
-            this.tsbDesktop.Click += new System.EventHandler(this.tsbDesktop_Click);
-            // 
-            // tsbMonitor
-            // 
-            this.tsbMonitor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbMonitor.Image = global::Computer_Store.Properties.Resources.monitor;
-            this.tsbMonitor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbMonitor.Name = "tsbMonitor";
-            this.tsbMonitor.ShowDropDownArrow = false;
-            this.tsbMonitor.Size = new System.Drawing.Size(171, 85);
-            this.tsbMonitor.Text = "Monitor";
-            this.tsbMonitor.Click += new System.EventHandler(this.tsbMonitor_Click);
-            // 
-            // tsbComponents
-            // 
-            this.tsbComponents.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbComponents.Image = global::Computer_Store.Properties.Resources.Components1;
-            this.tsbComponents.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbComponents.Name = "tsbComponents";
-            this.tsbComponents.ShowDropDownArrow = false;
-            this.tsbComponents.Size = new System.Drawing.Size(211, 85);
-            this.tsbComponents.Text = "Components";
-            this.tsbComponents.Click += new System.EventHandler(this.tsbComponents_Click);
-            // 
-            // tsbStorage
-            // 
-            this.tsbStorage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbStorage.Image = global::Computer_Store.Properties.Resources.Storage;
-            this.tsbStorage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbStorage.Name = "tsbStorage";
-            this.tsbStorage.ShowDropDownArrow = false;
-            this.tsbStorage.Size = new System.Drawing.Size(167, 85);
-            this.tsbStorage.Text = "Storage";
-            this.tsbStorage.Click += new System.EventHandler(this.tsbStorage_Click);
-            // 
-            // tsbAccessories
-            // 
-            this.tsbAccessories.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbAccessories.Image = global::Computer_Store.Properties.Resources.Accessories;
-            this.tsbAccessories.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAccessories.Name = "tsbAccessories";
-            this.tsbAccessories.ShowDropDownArrow = false;
-            this.tsbAccessories.Size = new System.Drawing.Size(197, 85);
-            this.tsbAccessories.Text = "Accessories";
-            this.tsbAccessories.Click += new System.EventHandler(this.tsbAccessories_Click);
-            // 
-            // tsbHeadset
-            // 
-            this.tsbHeadset.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbHeadset.Image = global::Computer_Store.Properties.Resources.headphone;
-            this.tsbHeadset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbHeadset.Name = "tsbHeadset";
-            this.tsbHeadset.ShowDropDownArrow = false;
-            this.tsbHeadset.Size = new System.Drawing.Size(169, 85);
-            this.tsbHeadset.Text = "Headset";
-            this.tsbHeadset.Click += new System.EventHandler(this.tsbHeadset_Click);
-            // 
-            // tsbAdminSettings
-            // 
-            this.tsbAdminSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbAdminSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbManageProducts,
-            this.tsbAddNewAdmin});
-            this.tsbAdminSettings.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbAdminSettings.Image = global::Computer_Store.Properties.Resources.system_administration;
-            this.tsbAdminSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAdminSettings.Name = "tsbAdminSettings";
-            this.tsbAdminSettings.ShowDropDownArrow = false;
-            this.tsbAdminSettings.Size = new System.Drawing.Size(233, 85);
-            this.tsbAdminSettings.Text = "Admin Settings";
-            this.tsbAdminSettings.Visible = false;
-            // 
-            // tsbManageProducts
-            // 
-            this.tsbManageProducts.Image = global::Computer_Store.Properties.Resources.products;
-            this.tsbManageProducts.Name = "tsbManageProducts";
-            this.tsbManageProducts.Size = new System.Drawing.Size(306, 88);
-            this.tsbManageProducts.Text = "Manage Products";
-            this.tsbManageProducts.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
-            // 
-            // tsbAddNewAdmin
-            // 
-            this.tsbAddNewAdmin.Image = global::Computer_Store.Properties.Resources.Add_Admin;
-            this.tsbAddNewAdmin.Name = "tsbAddNewAdmin";
-            this.tsbAddNewAdmin.Size = new System.Drawing.Size(306, 88);
-            this.tsbAddNewAdmin.Text = "Add New Admin";
-            this.tsbAddNewAdmin.Click += new System.EventHandler(this.tsbAddNewAdmin_Click);
-            // 
-            // tsbAccount
-            // 
-            this.tsbAccount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbLogoutSettings,
-            this.tsbChangePassword,
-            this.tsbLogout});
-            this.tsbAccount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbAccount.Image = global::Computer_Store.Properties.Resources.Account;
-            this.tsbAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAccount.Name = "tsbAccount";
-            this.tsbAccount.ShowDropDownArrow = false;
-            this.tsbAccount.Size = new System.Drawing.Size(171, 85);
-            this.tsbAccount.Text = "Account";
-            // 
-            // tsbLogoutSettings
-            // 
-            this.tsbLogoutSettings.Image = global::Computer_Store.Properties.Resources.account_settings;
-            this.tsbLogoutSettings.Name = "tsbLogoutSettings";
-            this.tsbLogoutSettings.Size = new System.Drawing.Size(306, 88);
-            this.tsbLogoutSettings.Text = "Account Settings";
-            this.tsbLogoutSettings.Click += new System.EventHandler(this.tsbLogoutSettings_Click);
-            // 
-            // tsbChangePassword
-            // 
-            this.tsbChangePassword.Image = global::Computer_Store.Properties.Resources.Change_Password;
-            this.tsbChangePassword.Name = "tsbChangePassword";
-            this.tsbChangePassword.Size = new System.Drawing.Size(306, 88);
-            this.tsbChangePassword.Text = "Change Password";
-            this.tsbChangePassword.Click += new System.EventHandler(this.tsbChangePassword_Click);
-            // 
-            // tsbLogout
-            // 
-            this.tsbLogout.Image = global::Computer_Store.Properties.Resources.Logout;
-            this.tsbLogout.Name = "tsbLogout";
-            this.tsbLogout.Size = new System.Drawing.Size(306, 88);
-            this.tsbLogout.Text = "Logout";
-            this.tsbLogout.Click += new System.EventHandler(this.tsbLogout_Click);
-            // 
-            // tsbCart
-            // 
-            this.tsbCart.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsbCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.tsbCart.Image = global::Computer_Store.Properties.Resources.Basket;
-            this.tsbCart.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCart.Name = "tsbCart";
-            this.tsbCart.ShowDropDownArrow = false;
-            this.tsbCart.Size = new System.Drawing.Size(135, 85);
-            this.tsbCart.Text = "Cart";
             // 
             // toolStripSeparator1
             // 
@@ -536,6 +378,165 @@
             this.ctrlProduct1.Name = "ctrlProduct1";
             this.ctrlProduct1.Size = new System.Drawing.Size(409, 364);
             this.ctrlProduct1.TabIndex = 1;
+            // 
+            // tsbLaptop
+            // 
+            this.tsbLaptop.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbLaptop.Image = global::Computer_Store.Properties.Resources.laptop;
+            this.tsbLaptop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbLaptop.Name = "tsbLaptop";
+            this.tsbLaptop.ShowDropDownArrow = false;
+            this.tsbLaptop.Size = new System.Drawing.Size(160, 85);
+            this.tsbLaptop.Text = "Laptop";
+            this.tsbLaptop.Click += new System.EventHandler(this.tsbLaptop_Click);
+            // 
+            // tsbDesktop
+            // 
+            this.tsbDesktop.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbDesktop.Image = global::Computer_Store.Properties.Resources.Desktop;
+            this.tsbDesktop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDesktop.Name = "tsbDesktop";
+            this.tsbDesktop.ShowDropDownArrow = false;
+            this.tsbDesktop.Size = new System.Drawing.Size(171, 85);
+            this.tsbDesktop.Text = "Desktop";
+            this.tsbDesktop.Click += new System.EventHandler(this.tsbDesktop_Click);
+            // 
+            // tsbMonitor
+            // 
+            this.tsbMonitor.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbMonitor.Image = global::Computer_Store.Properties.Resources.monitor;
+            this.tsbMonitor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbMonitor.Name = "tsbMonitor";
+            this.tsbMonitor.ShowDropDownArrow = false;
+            this.tsbMonitor.Size = new System.Drawing.Size(171, 85);
+            this.tsbMonitor.Text = "Monitor";
+            this.tsbMonitor.Click += new System.EventHandler(this.tsbMonitor_Click);
+            // 
+            // tsbComponents
+            // 
+            this.tsbComponents.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbComponents.Image = global::Computer_Store.Properties.Resources.Components1;
+            this.tsbComponents.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbComponents.Name = "tsbComponents";
+            this.tsbComponents.ShowDropDownArrow = false;
+            this.tsbComponents.Size = new System.Drawing.Size(211, 85);
+            this.tsbComponents.Text = "Components";
+            this.tsbComponents.Click += new System.EventHandler(this.tsbComponents_Click);
+            // 
+            // tsbStorage
+            // 
+            this.tsbStorage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbStorage.Image = global::Computer_Store.Properties.Resources.Storage;
+            this.tsbStorage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbStorage.Name = "tsbStorage";
+            this.tsbStorage.ShowDropDownArrow = false;
+            this.tsbStorage.Size = new System.Drawing.Size(167, 85);
+            this.tsbStorage.Text = "Storage";
+            this.tsbStorage.Click += new System.EventHandler(this.tsbStorage_Click);
+            // 
+            // tsbAccessories
+            // 
+            this.tsbAccessories.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbAccessories.Image = global::Computer_Store.Properties.Resources.Accessories;
+            this.tsbAccessories.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAccessories.Name = "tsbAccessories";
+            this.tsbAccessories.ShowDropDownArrow = false;
+            this.tsbAccessories.Size = new System.Drawing.Size(197, 85);
+            this.tsbAccessories.Text = "Accessories";
+            this.tsbAccessories.Click += new System.EventHandler(this.tsbAccessories_Click);
+            // 
+            // tsbHeadset
+            // 
+            this.tsbHeadset.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbHeadset.Image = global::Computer_Store.Properties.Resources.headphone;
+            this.tsbHeadset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbHeadset.Name = "tsbHeadset";
+            this.tsbHeadset.ShowDropDownArrow = false;
+            this.tsbHeadset.Size = new System.Drawing.Size(169, 85);
+            this.tsbHeadset.Text = "Headset";
+            this.tsbHeadset.Click += new System.EventHandler(this.tsbHeadset_Click);
+            // 
+            // tsbAdminSettings
+            // 
+            this.tsbAdminSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbAdminSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbManageProducts,
+            this.tsbAddNewAdmin});
+            this.tsbAdminSettings.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbAdminSettings.Image = global::Computer_Store.Properties.Resources.system_administration;
+            this.tsbAdminSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdminSettings.Name = "tsbAdminSettings";
+            this.tsbAdminSettings.ShowDropDownArrow = false;
+            this.tsbAdminSettings.Size = new System.Drawing.Size(233, 85);
+            this.tsbAdminSettings.Text = "Admin Settings";
+            this.tsbAdminSettings.Visible = false;
+            // 
+            // tsbManageProducts
+            // 
+            this.tsbManageProducts.Image = global::Computer_Store.Properties.Resources.products;
+            this.tsbManageProducts.Name = "tsbManageProducts";
+            this.tsbManageProducts.Size = new System.Drawing.Size(241, 30);
+            this.tsbManageProducts.Text = "Manage Products";
+            this.tsbManageProducts.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
+            // 
+            // tsbAddNewAdmin
+            // 
+            this.tsbAddNewAdmin.Image = global::Computer_Store.Properties.Resources.Add_Admin;
+            this.tsbAddNewAdmin.Name = "tsbAddNewAdmin";
+            this.tsbAddNewAdmin.Size = new System.Drawing.Size(241, 30);
+            this.tsbAddNewAdmin.Text = "Add New Admin";
+            this.tsbAddNewAdmin.Click += new System.EventHandler(this.tsbAddNewAdmin_Click);
+            // 
+            // tsbAccount
+            // 
+            this.tsbAccount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbAccount.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbLogoutSettings,
+            this.tsbChangePassword,
+            this.tsbLogout});
+            this.tsbAccount.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbAccount.Image = global::Computer_Store.Properties.Resources.Account;
+            this.tsbAccount.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAccount.Name = "tsbAccount";
+            this.tsbAccount.ShowDropDownArrow = false;
+            this.tsbAccount.Size = new System.Drawing.Size(171, 85);
+            this.tsbAccount.Text = "Account";
+            // 
+            // tsbLogoutSettings
+            // 
+            this.tsbLogoutSettings.Image = global::Computer_Store.Properties.Resources.account_settings;
+            this.tsbLogoutSettings.Name = "tsbLogoutSettings";
+            this.tsbLogoutSettings.Size = new System.Drawing.Size(241, 30);
+            this.tsbLogoutSettings.Text = "Account Settings";
+            this.tsbLogoutSettings.Click += new System.EventHandler(this.tsbLogoutSettings_Click);
+            // 
+            // tsbChangePassword
+            // 
+            this.tsbChangePassword.Image = global::Computer_Store.Properties.Resources.Change_Password;
+            this.tsbChangePassword.Name = "tsbChangePassword";
+            this.tsbChangePassword.Size = new System.Drawing.Size(241, 30);
+            this.tsbChangePassword.Text = "Change Password";
+            this.tsbChangePassword.Click += new System.EventHandler(this.tsbChangePassword_Click);
+            // 
+            // tsbLogout
+            // 
+            this.tsbLogout.Image = global::Computer_Store.Properties.Resources.Logout;
+            this.tsbLogout.Name = "tsbLogout";
+            this.tsbLogout.Size = new System.Drawing.Size(241, 30);
+            this.tsbLogout.Text = "Logout";
+            this.tsbLogout.Click += new System.EventHandler(this.tsbLogout_Click);
+            // 
+            // tsbCart
+            // 
+            this.tsbCart.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tsbCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.tsbCart.Image = global::Computer_Store.Properties.Resources.Basket;
+            this.tsbCart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCart.Name = "tsbCart";
+            this.tsbCart.ShowDropDownArrow = false;
+            this.tsbCart.Size = new System.Drawing.Size(135, 85);
+            this.tsbCart.Text = "Cart";
+            this.tsbCart.Click += new System.EventHandler(this.tsbCart_Click);
             // 
             // frmMain
             // 

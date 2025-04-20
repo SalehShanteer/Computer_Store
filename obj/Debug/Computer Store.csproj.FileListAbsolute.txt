@@ -127,3 +127,5 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_St
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.frmAddUpdateProduct.resources
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.ctrlStarsRating.resources
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.frmProductViewer.resources
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.ctrlOrderItemViewer.resources
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.frmOrderCart.resources

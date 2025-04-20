@@ -213,12 +213,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api Clients\OrderItemsApiClient.cs" />
+    <Compile Include="Api Clients\OrdersApiClient.cs" />
     <Compile Include="Api Clients\ReviewsApiClient.cs" />
     <Compile Include="Api URLs\ApiUrls.cs" />
     <Compile Include="Api Clients\CategoriesApiClient.cs" />
     <Compile Include="Api Clients\BrandsApiClient.cs" />
     <Compile Include="ClientDtos\BrandDto.cs" />
     <Compile Include="ClientDtos\CategoryDto.cs" />
+    <Compile Include="ClientDtos\OrderDto.cs" />
+    <Compile Include="ClientDtos\OrderItemDto.cs" />
     <Compile Include="ClientDtos\ProductFilterDto.cs" />
     <Compile Include="ClientDtos\ProductsDtos\ProductDetailsDto.cs" />
     <Compile Include="ClientDtos\LoginRecordDtos\LoginRecordDto.cs" />

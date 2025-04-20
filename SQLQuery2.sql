@@ -12,13 +12,27 @@ CREATE TABLE Users
 )
 ---------------------
 
+CREATE TABLE OrderItems
+(
+    OrderID INT NOT NULL,
+    ProductID INT NOT NULL,
+    Quantity INT NOT NULL,
+    Price SMALLMONEY NOT NULL,
+    TotalItemsPrice AS CAST(Price * Quantity AS SMALLMONEY) PERSISTED,
+
+    PRIMARY KEY (OrderID, ProductID),
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
+    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
+)
+----------------------
+
 CREATE TABLE Orders
 (
 	OrderID INT PRIMARY KEY IDENTITY(1, 1),
 	UserID INT NOT NULL,
 	TotalAmount SMALLMONEY NOT NULL,
-	OrderDate DATETIME NOT NULL,
-	Status TINYINT NOT NULL -- 0 => canceled, 1 => pending, 2 => processing, 3 => delivered
+	OrderDate DATETIME NULL,
+	Status TINYINT NOT NULL -- 0 => canceled, 1 => Draft, 2 => pending, 3 => processing, 4 => delivered
 
 	FOREIGN KEY (UserID) REFERENCES Users(UserID)
 )
@@ -102,20 +116,6 @@ CREATE TABLE Products
 	FOREIGN KEY (BrandID) REFERENCES Brands(BrandID)
 )
 ---------------------
-
-CREATE TABLE OrderItems
-(
-    OrderID INT NOT NULL,
-    ProductID INT NOT NULL,
-    Quantity INT NOT NULL,
-    Price SMALLMONEY NOT NULL,
-    TotalItemsPrice AS CAST(Price * Quantity AS SMALLMONEY) PERSISTED,
-
-    PRIMARY KEY (OrderID, ProductID),
-    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID),
-    FOREIGN KEY (ProductID) REFERENCES Products(ProductID)
-)
-----------------------
 
 CREATE TABLE Reviews
 (

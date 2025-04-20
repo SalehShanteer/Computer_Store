@@ -233,6 +233,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrlOrderItemViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlOrderItemViewer.Designer.cs">
+      <DependentUpon>ctrlOrderItemViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrlPageNavigator.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -244,6 +250,12 @@
     </Compile>
     <Compile Include="ctrlStarsRating.Designer.cs">
       <DependentUpon>ctrlStarsRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrderCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderCart.Designer.cs">
+      <DependentUpon>frmOrderCart.cs</DependentUpon>
     </Compile>
     <Compile Include="frmProductViewer.cs">
       <SubType>Form</SubType>
@@ -290,11 +302,17 @@
     <Compile Include="gvMessages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrlOrderItemViewer.resx">
+      <DependentUpon>ctrlOrderItemViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrlPageNavigator.resx">
       <DependentUpon>ctrlPageNavigator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ctrlStarsRating.resx">
       <DependentUpon>ctrlStarsRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrderCart.resx">
+      <DependentUpon>frmOrderCart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductViewer.resx">
       <DependentUpon>frmProductViewer.cs</DependentUpon>
@@ -355,6 +373,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\cart.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\minus %281%29.png" />
+    <None Include="Resources\minus.png" />
     <None Include="Resources\Add-Admin.png" />
     <None Include="Resources\Send.png" />
     <None Include="Resources\right-arrow.png" />
