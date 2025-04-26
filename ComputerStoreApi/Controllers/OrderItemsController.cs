@@ -10,22 +10,23 @@ namespace ComputerStoreApi.Controllers
     [ApiController]
     public class OrderItemsController : ControllerBase
     {
-        [HttpGet("Find/{orderId}/{productId}", Name = "FindOrderItem")]
+        [HttpGet("Find", Name = "FindOrderItem")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<OrderItemDto> Find(int orderId, int productId)
+        public ActionResult<OrderItemDto> Find([FromQuery] OrderItemKeyDto orderItemKey)
         {
-            if (orderId < 1 || productId < 1)
+            if (orderItemKey.OrderID < 1 || orderItemKey.ProductID < 1)
             {
-                return BadRequest($"Not accepted OrderID {orderId} or ProductID {productId}");
+                return BadRequest($"Not accepted OrderID {orderItemKey.OrderID} or ProductID {orderItemKey.ProductID}");
             }
-            var orderItem = clsOrderItem.Find(orderId, productId);
 
+            var orderItem = clsOrderItem.Find(orderItemKey);
             if (orderItem is null)
             {
-                return NotFound($"OrderItem with OrderID {orderId} and ProductID {productId} not found");
+                return NotFound($"OrderItem with OrderID {orderItemKey.OrderID} and ProductID {orderItemKey.ProductID} not found");
             }
+
             return Ok(orderItem.OrderItemDto);
         }
 
@@ -42,7 +43,7 @@ namespace ComputerStoreApi.Controllers
                 return BadRequest(errorMessage);
             }
 
-            if (!clsOrder.IsExist(orderItemDto.OrderID))
+            if (!clsUser.IsExistByID(orderItemDto.UserID))
             {
                 return BadRequest($"Order with ID {orderItemDto.OrderID} not found");
             }
@@ -52,14 +53,22 @@ namespace ComputerStoreApi.Controllers
                 return BadRequest($"Product with ID {orderItemDto.ProductID} not found");
             }
 
-            var orderItem = new clsOrderItem(orderItemDto, clsOrderItem.enMode.AddNew);
+            var orderItem = new clsOrderItem(orderItemDto);
 
-            if (!orderItem.Save())
+            var Result = orderItem.AddNew();
+
+            if (!Result.Success)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Failed to save order item");
+                return StatusCode(StatusCodes.Status500InternalServerError, Result.Message);
             }
 
-            return CreatedAtRoute("FindOrderItem", new { orderId = orderItem.OrderID, productId = orderItem.ProductID }, orderItem.OrderItemDto);
+            OrderItemKeyDto orderItemKey = new OrderItemKeyDto
+            {
+                OrderID = orderItem.OrderID,
+                ProductID = orderItem.ProductID
+            };
+
+            return CreatedAtRoute("FindOrderItem", new {orderItemKey}, orderItem.OrderItemDto);
         }
 
         [HttpPut("Update", Name = "UpdateOrderItem")]
@@ -73,14 +82,14 @@ namespace ComputerStoreApi.Controllers
             {
                 return BadRequest(errorMessage);
             }
-            var orderItem = new clsOrderItem(orderItemDto, clsOrderItem.enMode.Update);
+            var orderItem = new clsOrderItem(orderItemDto);
 
             if (orderItem is null)
             {
                 return NotFound($"OrderItem with OrderID {orderItemDto.OrderID} and ProductID {orderItemDto.ProductID} not found");
             }
 
-            if (!orderItem.Save())
+            if (!orderItem.Update())
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Failed to save order item");
             }

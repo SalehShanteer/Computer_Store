@@ -17,28 +17,47 @@ namespace ApiClients
             _httpClient = new HttpClient { BaseAddress = new Uri(baseUrl) };
         }
 
-        public async Task<OrderItemDto> FindAsync(int? orderId, int? productId)
+        public async Task<OrderItemDto> FindAsync(OrderItemKeyDto orderItemKey)
         {
-            if (!orderId.HasValue || !productId.HasValue)
+            if (!orderItemKey.OrderID.HasValue || !orderItemKey.ProductID.HasValue)
             {
-                throw new ArgumentNullException(orderId.HasValue ? nameof(productId) : nameof(orderId));
+                throw new ArgumentNullException(orderItemKey.OrderID.HasValue ? nameof(orderItemKey.ProductID) : nameof(orderItemKey.OrderID));
+            }
+            if (orderItemKey.OrderID <= 0 || orderItemKey.ProductID <= 0)
+            {
+                throw new ArgumentException("OrderID and ProductID must be positive.");
             }
 
-            var request = new HttpRequestMessage(HttpMethod.Get, $"Find/{orderId}/{productId}");
-
+            string query = $"?OrderID={orderItemKey.OrderID}&ProductID={orderItemKey.ProductID}";
+            var request = new HttpRequestMessage(HttpMethod.Get, $"Find{query}");
+            request.Content = null; // Ensure no body
+           
             return await GenericClientMethods.SendRequestAsync<OrderItemDto>(request, _httpClient);
         }
 
-        public async Task<OrderItemDto> SaveAsync(OrderItemDto orderItemDto)
+        public async Task<OrderItemDto> AddNewAsync(OrderItemDto orderItemDto)
         {
             if (orderItemDto is null)
             {
                 throw new ArgumentNullException(nameof(orderItemDto));
             }
 
-            var request = new HttpRequestMessage(
-                !orderItemDto.OrderID.HasValue || !orderItemDto.ProductID.HasValue ? HttpMethod.Post : HttpMethod.Put,
-                !orderItemDto.OrderID.HasValue || !orderItemDto.ProductID.HasValue ? "Add" : "Update")
+            var request = new HttpRequestMessage(HttpMethod.Post,"Add")
+            {
+                Content = new StringContent(JsonConvert.SerializeObject(orderItemDto), Encoding.UTF8, "application/json")
+            };
+
+            return await GenericClientMethods.SendRequestAsync<OrderItemDto>(request, _httpClient);
+        }
+
+        public async Task<OrderItemDto> UpdateAsync(OrderItemDto orderItemDto)
+        {
+            if (orderItemDto is null)
+            {
+                throw new ArgumentNullException(nameof(orderItemDto));
+            }
+
+            var request = new HttpRequestMessage(HttpMethod.Put, "Update")
             {
                 Content = new StringContent(JsonConvert.SerializeObject(orderItemDto), Encoding.UTF8, "application/json")
             };

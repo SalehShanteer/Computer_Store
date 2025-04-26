@@ -1179,7 +1179,7 @@
         }
       }
     },
-    "/api/OrderItemsApi/Find/{orderId}/{productId}": {
+    "/api/OrderItemsApi/Find": {
       "get": {
         "tags": [
           "OrderItems"
@@ -1187,18 +1187,16 @@
         "operationId": "FindOrderItem",
         "parameters": [
           {
-            "name": "orderId",
-            "in": "path",
-            "required": true,
+            "name": "OrderID",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
             }
           },
           {
-            "name": "productId",
-            "in": "path",
-            "required": true,
+            "name": "ProductID",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -8242,6 +8240,11 @@
           "totalItemsPrice": {
             "type": "number",
             "format": "double",
+            "nullable": true
+          },
+          "userID": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           }
         },

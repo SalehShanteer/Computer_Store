@@ -14,6 +14,8 @@ namespace Computer_Store
         private ProductsApiClient _ProductsClient = new ProductsApiClient(ApiUrls.ProductsURL);
 
         private OrderItemDto _OrderItem;
+        private short? _ProductQuantity; 
+        private short? _SelectedQuantity; // The quantity selected by the user
 
         public int? OrderID
         {
@@ -47,7 +49,7 @@ namespace Computer_Store
                 {
                     return null;
                 }
-                return _OrderItem.Quantity;
+                return _OrderItem.Quantity + _ProductQuantity - _SelectedQuantity;
             }
         }
 
@@ -89,32 +91,82 @@ namespace Computer_Store
             }
         }
 
-        private async Task _GetProductName(int? productID)
-        {
-            if (productID != null)
-            {
-                // Get the product name
-                ProductDto product = await _ProductsClient.FindAsync(productID.Value);
-                if (product != null)
-                {
-                    lblName.Text = product.Name;
-                }
-            }
-        }
-
         private async Task _DisplayOrderItem()
         {
+            // Set the order item quantity
             lblQuantity.Text =  _OrderItem.Quantity.ToString();
+            _SelectedQuantity = _OrderItem.Quantity;
+
             lblOneItemPrice.Text = clsUtility.DecimalToMoneyString(_OrderItem.Price);
             lblTotalItemsPrice.Text = clsUtility.DecimalToMoneyString(_OrderItem.TotalItemsPrice);
             lblProductID.Text = _OrderItem.ProductID.ToString();
 
-            await Task.WhenAll(_DisplayOrderItemImage(), _GetProductName(_OrderItem.ProductID));
+            var product = await _ProductsClient.FindAsync(_OrderItem.ProductID.Value);
+
+            if (product != null)
+            {
+                // Set the product name
+                lblName.Text = product.Name;
+
+                // Set the product quantity
+                _ProductQuantity = product.QuantityInStock;
+            }
+
+            await _DisplayOrderItemImage();
         }
 
         private void llblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //raise event to remove the order item
+
+            if (MessageBox.Show("Are you sure you want to remove this item from the order?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //raise event to remove the order item
+            }
+        }
+
+        private void _UpdateOrderItemUI()
+        {
+            lblQuantity.Text = _SelectedQuantity.ToString();
+            lblTotalItemsPrice.Text = clsUtility.DecimalToMoneyString(_OrderItem.Price * _SelectedQuantity);
+        }
+
+        private void pbAdd_Click(object sender, System.EventArgs e)
+        {
+            if (_SelectedQuantity < _ProductQuantity)
+            {
+                _SelectedQuantity++;
+                _UpdateOrderItemUI();
+            }
+        }
+
+        private void pbSub_Click(object sender, System.EventArgs e)
+        {
+            if (_SelectedQuantity > 1)
+            {
+                _SelectedQuantity--;
+                _UpdateOrderItemUI();
+            }
+        }
+
+        private void pbSub_MouseHover(object sender, System.EventArgs e)
+        {
+            // Change the background color of the subtract button to indicate hover
+            pbSub.BackColor = System.Drawing.Color.Gainsboro;
+        }
+
+        private void pbAdd_MouseHover(object sender, System.EventArgs e)
+        {
+            pbAdd.BackColor = System.Drawing.Color.Gainsboro;
+        }
+
+        private void pbSub_MouseLeave(object sender, System.EventArgs e)
+        {
+            pbSub.BackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void pbAdd_MouseLeave(object sender, System.EventArgs e)
+        {
+            pbAdd.BackColor = System.Drawing.Color.Transparent;
         }
     }
 }

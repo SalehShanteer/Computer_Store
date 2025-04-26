@@ -223,6 +223,8 @@
     <Compile Include="ClientDtos\CategoryDto.cs" />
     <Compile Include="ClientDtos\OrderDto.cs" />
     <Compile Include="ClientDtos\OrderItemDto.cs" />
+    <Compile Include="ClientDtos\OrderItemKeyDto.cs" />
+    <Compile Include="ClientDtos\OrderItemResultDto.cs" />
     <Compile Include="ClientDtos\ProductFilterDto.cs" />
     <Compile Include="ClientDtos\ProductsDtos\ProductDetailsDto.cs" />
     <Compile Include="ClientDtos\LoginRecordDtos\LoginRecordDto.cs" />

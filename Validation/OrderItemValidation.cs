@@ -66,22 +66,12 @@ namespace Validation
                 return false;
             }
 
-            if (!ValidateID((int)orderItemDto.OrderID, "OrderID", out errorMessage))
-            {
-                return false;
-            }
-
             if (!ValidateID((int)orderItemDto.ProductID, "ProductID", out errorMessage))
             {
                 return false;
             }
 
             if (!ValidateQuantity((int)orderItemDto.Quantity, out errorMessage))
-            {
-                return false;
-            }
-
-            if (!ValidatePrice((decimal)orderItemDto.Price, out errorMessage))
             {
                 return false;
             }

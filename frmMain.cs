@@ -110,7 +110,7 @@ namespace Computer_Store
 
             if (productNumber < productsNumber)
             {
-                await product.LoadProductInfo(_Products[productNumber]);
+                await product.LoadProductInfo(_Products[productNumber], (int)_CurrentUser.ID);
             }
             else
             {

@@ -42,6 +42,7 @@
             this.lblSubcategory = new System.Windows.Forms.Label();
             this.lblBrand = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pbExit = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -55,16 +56,15 @@
             this.rbFive = new System.Windows.Forms.RadioButton();
             this.lblRatinglabel = new System.Windows.Forms.Label();
             this.pbSend = new System.Windows.Forms.PictureBox();
-            this.pbExit = new System.Windows.Forms.PictureBox();
             this.pbNext = new System.Windows.Forms.PictureBox();
             this.pbPrevious = new System.Windows.Forms.PictureBox();
             this.pbProductImage = new System.Windows.Forms.PictureBox();
-            this.ctrlStarsRating = new Computer_Store.ctrlStarsRating();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddToCart = new System.Windows.Forms.Button();
             this.nudQuantityToCart = new System.Windows.Forms.NumericUpDown();
+            this.ctrlStarsRating = new Computer_Store.ctrlStarsRating();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSend)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPrevious)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).BeginInit();
@@ -209,6 +209,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(830, 39);
             this.panel1.TabIndex = 126;
+            // 
+            // pbExit
+            // 
+            this.pbExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pbExit.Image = global::Computer_Store.Properties.Resources.Close_Login;
+            this.pbExit.Location = new System.Drawing.Point(786, 3);
+            this.pbExit.Name = "pbExit";
+            this.pbExit.Size = new System.Drawing.Size(32, 32);
+            this.pbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbExit.TabIndex = 108;
+            this.pbExit.TabStop = false;
+            this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
             // 
             // panel2
             // 
@@ -358,18 +370,6 @@
             this.pbSend.MouseLeave += new System.EventHandler(this.pbSend_MouseLeave);
             this.pbSend.MouseHover += new System.EventHandler(this.pbSend_MouseHover);
             // 
-            // pbExit
-            // 
-            this.pbExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pbExit.Image = global::Computer_Store.Properties.Resources.Close_Login;
-            this.pbExit.Location = new System.Drawing.Point(786, 3);
-            this.pbExit.Name = "pbExit";
-            this.pbExit.Size = new System.Drawing.Size(32, 32);
-            this.pbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbExit.TabIndex = 108;
-            this.pbExit.TabStop = false;
-            this.pbExit.Click += new System.EventHandler(this.pbExit_Click);
-            // 
             // pbNext
             // 
             this.pbNext.Image = global::Computer_Store.Properties.Resources.right_arrow;
@@ -406,29 +406,21 @@
             this.pbProductImage.TabIndex = 110;
             this.pbProductImage.TabStop = false;
             // 
-            // ctrlStarsRating
+            // btnAddToCart
             // 
-            this.ctrlStarsRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ctrlStarsRating.Location = new System.Drawing.Point(139, 486);
-            this.ctrlStarsRating.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlStarsRating.Name = "ctrlStarsRating";
-            this.ctrlStarsRating.RateFrom = 5;
-            this.ctrlStarsRating.Size = new System.Drawing.Size(165, 32);
-            this.ctrlStarsRating.TabIndex = 109;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(673, 496);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 29);
-            this.button1.TabIndex = 140;
-            this.button1.Text = "Add To Cart";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAddToCart.BackColor = System.Drawing.Color.Gray;
+            this.btnAddToCart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAddToCart.Enabled = false;
+            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAddToCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.btnAddToCart.ForeColor = System.Drawing.Color.Black;
+            this.btnAddToCart.Location = new System.Drawing.Point(673, 496);
+            this.btnAddToCart.Name = "btnAddToCart";
+            this.btnAddToCart.Size = new System.Drawing.Size(116, 29);
+            this.btnAddToCart.TabIndex = 140;
+            this.btnAddToCart.Text = "Add To Cart";
+            this.btnAddToCart.UseVisualStyleBackColor = false;
+            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
             // nudQuantityToCart
             // 
@@ -443,6 +435,17 @@
             this.nudQuantityToCart.Size = new System.Drawing.Size(43, 26);
             this.nudQuantityToCart.TabIndex = 141;
             this.nudQuantityToCart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudQuantityToCart.ValueChanged += new System.EventHandler(this.nudQuantityToCart_ValueChanged);
+            // 
+            // ctrlStarsRating
+            // 
+            this.ctrlStarsRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ctrlStarsRating.Location = new System.Drawing.Point(139, 486);
+            this.ctrlStarsRating.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlStarsRating.Name = "ctrlStarsRating";
+            this.ctrlStarsRating.RateFrom = 5;
+            this.ctrlStarsRating.Size = new System.Drawing.Size(165, 32);
+            this.ctrlStarsRating.TabIndex = 109;
             // 
             // frmProductViewer
             // 
@@ -451,7 +454,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(828, 714);
             this.Controls.Add(this.nudQuantityToCart);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddToCart);
             this.Controls.Add(this.pbSend);
             this.Controls.Add(this.lblRatinglabel);
             this.Controls.Add(this.rbFive);
@@ -491,8 +494,8 @@
             this.Text = "frmProductViewer";
             this.Load += new System.EventHandler(this.frmProductViewer_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbSend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPrevious)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).EndInit();
@@ -535,7 +538,7 @@
         private System.Windows.Forms.RadioButton rbFive;
         private System.Windows.Forms.Label lblRatinglabel;
         private System.Windows.Forms.PictureBox pbSend;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddToCart;
         private System.Windows.Forms.NumericUpDown nudQuantityToCart;
     }
 }

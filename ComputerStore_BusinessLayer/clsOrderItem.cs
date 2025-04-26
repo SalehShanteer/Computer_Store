@@ -7,14 +7,14 @@ namespace ComputerStore_BusinessLayer
 {
     public class clsOrderItem
     {
-        public enum enMode { AddNew, Update }
-        private enMode _Mode;
-
         public int? OrderID { get; set; }
         public int? ProductID { get; set; }
-        public int? Quantity { get; set; }
+        public short? Quantity { get; set; }
         public decimal? Price { get; set; }
         public decimal? TotalItemsPrice { get; set; } // Computed, read-only
+
+        public int? UserID { get; set; } // Optional, not used in the original code
+                                         // (for create new order if item added using userid)
 
         public OrderItemDto OrderItemDto
         {
@@ -26,7 +26,8 @@ namespace ComputerStore_BusinessLayer
                     ProductID = this.ProductID,
                     Quantity = this.Quantity,
                     Price = this.Price,
-                    TotalItemsPrice = this.TotalItemsPrice
+                    TotalItemsPrice = this.TotalItemsPrice,
+                    UserID = this.UserID // Optional, not used in the original code
                 };
             }
         }
@@ -38,51 +39,31 @@ namespace ComputerStore_BusinessLayer
             this.Quantity = 0;
             this.Price = 0m;
             this.TotalItemsPrice = 0m;
-
-            _Mode = enMode.AddNew;
+            this.UserID = 0; // Optional, not used in the original code
         }
 
-        public clsOrderItem(OrderItemDto orderItemDto, enMode mode)
+        public clsOrderItem(OrderItemDto orderItemDto)
         {
             this.OrderID = orderItemDto.OrderID;
             this.ProductID = orderItemDto.ProductID;
             this.Quantity = orderItemDto.Quantity;
             this.Price = orderItemDto.Price;
             this.TotalItemsPrice = orderItemDto.TotalItemsPrice;
-
-            _Mode = mode;
+            this.UserID = orderItemDto.UserID; // Optional, not used in the original code
         }
 
-        private bool AddNewOrderItem() => clsOrderItemData.AddNewOrderItem(this.OrderItemDto);
+        public OrderItemResultDto AddNew() => clsOrderItemData.AddNewOrderItem(this.OrderItemDto);
 
-        private bool UpdateOrderItem() => clsOrderItemData.UpdateOrderItem(this.OrderItemDto);
-
-        public bool Save()
-        {
-            switch (_Mode)
-            {
-                case enMode.AddNew:
-                    if (AddNewOrderItem())
-                    {
-                        _Mode = enMode.Update;
-                        return true;
-                    }
-                    break;
-
-                case enMode.Update:
-                    return UpdateOrderItem();
-            }
-            return false;
-        }
+        public bool Update() => clsOrderItemData.UpdateOrderItem(this.OrderItemDto);
 
         public static bool Delete(int orderId, int productId) => clsOrderItemData.DeleteOrderItem(orderId, productId);
 
-        public static clsOrderItem Find(int orderId, int productId)
+        public static clsOrderItem Find(OrderItemKeyDto orderItemKey)
         {
-            OrderItemDto orderItemDto = clsOrderItemData.GetOrderItemByID(orderId, productId);
+            OrderItemDto orderItemDto = clsOrderItemData.GetOrderItem(orderItemKey);
             if (orderItemDto is not null)
             {
-                return new clsOrderItem(orderItemDto, enMode.Update);
+                return new clsOrderItem(orderItemDto);
             }
             return null;
         }

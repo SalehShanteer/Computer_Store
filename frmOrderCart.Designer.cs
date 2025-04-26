@@ -53,7 +53,7 @@
             this.pnItemsContainer.BackColor = System.Drawing.Color.Silver;
             this.pnItemsContainer.Location = new System.Drawing.Point(12, 128);
             this.pnItemsContainer.Name = "pnItemsContainer";
-            this.pnItemsContainer.Size = new System.Drawing.Size(550, 112);
+            this.pnItemsContainer.Size = new System.Drawing.Size(550, 541);
             this.pnItemsContainer.TabIndex = 116;
             // 
             // pbEmptyCart

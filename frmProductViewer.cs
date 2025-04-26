@@ -19,8 +19,11 @@ namespace Computer_Store
         private ProductImagesApiClient _ProductImagesClient = new ProductImagesApiClient(ApiUrls.ProductImagesURL);
         private ReviewsApiClient _ReviewsClient = new ReviewsApiClient(ApiUrls.ReviewsURL);
         private UserSettingsApiClient _UserSettingsClient = new UserSettingsApiClient(ApiUrls.UserSettingsURL);
+        private OrderItemsApiClient _OrderItemsClient = new OrderItemsApiClient(ApiUrls.OrderItemsURL);
+        private OrdersApiClient _OrdersClient = new OrdersApiClient(ApiUrls.OrdersURL);
 
         private int? _ProductID;
+        private int? _UserID;
         private ProductDetailsDto _Product;
         private ReviewDto _Review;
         private List<string> _ProductImagePaths;
@@ -64,10 +67,19 @@ namespace Computer_Store
                 return;
             }
 
-            await Task.WhenAll(_LoadImagesPaths(), _LoadReview());
+            await Task.WhenAll(_LoadImagesPaths(), _LoadReview(), _GetUserID());
 
             // Display product details and images
             await _DisplayProductDetails();
+        }
+            
+        private async Task _GetUserID()
+        {
+            var currentUser = await _UserSettingsClient.FindAsync("Current User");
+            if (currentUser != null && currentUser.UserID != null)
+            {
+                _UserID = (int)currentUser.UserID;
+            }
         }
 
         private async Task _LoadImagesPaths()
@@ -135,8 +147,7 @@ namespace Computer_Store
             // Display product rating as stars
             ctrlStarsRating.DisplayRating(_Product.Rating);
 
-            _DisplayQuantityToCart();
-            _DisplayProductQuantity();
+            await _DisplayProductQuantity();
             _DisplayReviewUI();
 
             _ImageOrder = 1; // Initialize image order to 1
@@ -144,18 +155,28 @@ namespace Computer_Store
             _DisplayProductsImages(1);
         }
 
-        private void _DisplayQuantityToCart()
+        private void _DisplayQuantityToCart(short quantity)
         {
-            nudQuantityToCart.Value = _Product.QuantityInStock > 0 ? 1 : 0;
-            nudQuantityToCart.Maximum = (int)_Product.QuantityInStock;
-
+            nudQuantityToCart.Value = quantity > 0 ? 1 : 0;
+            nudQuantityToCart.Maximum = (int)quantity;
         }
 
-        private void _DisplayProductQuantity()
+        private async Task _DisplayProductQuantity()
         {
             short? quantity = _Product.QuantityInStock;
 
-            if (quantity != 0)
+            // check quantity added before
+            int? orderID = (await _OrdersClient.FindCurrentAsync(_UserID)).OrderID;
+            if (orderID != null)
+            {
+                var orderItem = await _OrderItemsClient.FindAsync(new OrderItemKeyDto(orderID, _Product.ID));
+                if (orderItem != null && orderItem.Quantity != null)
+                {
+                    quantity -= orderItem.Quantity;
+                }
+            }
+
+            if (quantity > 0)
             {
                 lblProductInStock.Text = $"{quantity} left";
                 lblProductInStock.ForeColor = Color.Green;
@@ -165,6 +186,8 @@ namespace Computer_Store
                 lblProductInStock.Text = "Out of stock";
                 lblProductInStock.ForeColor = Color.Red;
             }
+
+            _DisplayQuantityToCart((short)quantity);
         }
 
         private async Task _LoadReview()
@@ -276,7 +299,7 @@ namespace Computer_Store
                 _Review = new ReviewDto
                 {
                     ProductID = _Product.ID,
-                    UserID = (await _UserSettingsClient.FindAsync("Current User")).UserID,
+                    UserID = _UserID,
                     ReviewText = rtxtReviewText.Text ?? null,
                     Rating = (byte)(rbOne.Checked ? 1 : rbTwo.Checked ? 2 : rbThree.Checked ? 3 : rbFour.Checked ? 4 : 5)
                 };
@@ -300,6 +323,29 @@ namespace Computer_Store
             else
             {
                 MessageBox.Show("Failed to save review", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task _AddItemToCart()
+        {
+            // Add the item to the cart
+            var orderItem = new OrderItemDto
+            {
+                ProductID = _Product.ID,
+                Quantity = (short)nudQuantityToCart.Value,
+                UserID = _UserID,
+            };
+            var result = await _OrderItemsClient.AddNewAsync(orderItem);
+            if (result != null)
+            {
+                MessageBox.Show("Item added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Update the product quantity in stock
+                await _DisplayProductQuantity();
+            }
+            else
+            {
+                MessageBox.Show("Failed to add item to cart", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -363,6 +409,27 @@ namespace Computer_Store
             {
                 _HideReviewUI();
             }
+        }
+
+        private void nudQuantityToCart_ValueChanged(object sender, EventArgs e)
+        {
+            if (nudQuantityToCart.Value == 0)
+            {
+                btnAddToCart.Enabled = false;
+                btnAddToCart.BackColor = Color.Gray;
+                btnAddToCart.ForeColor = Color.Black;
+            }
+            else
+            {
+                btnAddToCart.Enabled = true;
+                btnAddToCart.BackColor = Color.Black;
+                btnAddToCart.ForeColor = Color.White;
+            }
+        }
+
+        private async void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            await _AddItemToCart();
         }
     }
 }

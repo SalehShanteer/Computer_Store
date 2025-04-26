@@ -14,6 +14,8 @@ namespace Computer_Store
 
         private ProductDto _Product;
         private ProductImagesApiClient _ProductImagesClient = new ProductImagesApiClient(ApiUrls.ProductImagesURL);
+        private OrdersApiClient _OrdersClient = new OrdersApiClient(ApiUrls.OrdersURL);
+        private OrderItemsApiClient _OrderItemsClient = new OrderItemsApiClient(ApiUrls.OrderItemsURL);
 
         public int? ProductID
         {
@@ -26,19 +28,22 @@ namespace Computer_Store
                 return _Product.ID;
             }
         }
+        private int _UserID;
 
         public ctrlProduct()
         {
             InitializeComponent();
         }
 
-        public async Task LoadProductInfo(ProductDto product)
+        public async Task LoadProductInfo(ProductDto product, int userID)
         {
             // show product
             this.Visible = true;
 
             pbProductImage.ImageLocation = null;
             pbProductImage.Image = Resources.No_Image;
+
+            _UserID = userID;
 
             if (product != null)
             {
@@ -53,11 +58,22 @@ namespace Computer_Store
             this.Visible = false;       
         }
 
-        private void _DisplayProductQuantity()
+        private async Task _DisplayProductQuantity()
         {
             short? quantity = _Product.QuantityInStock;
 
-            if (quantity != 0)
+            // check quantity added before
+            int? orderID = (await _OrdersClient.FindCurrentAsync(_UserID)).OrderID;
+            if (orderID != null)
+            {
+                var orderItem = await _OrderItemsClient.FindAsync(new OrderItemKeyDto(orderID, _Product.ID));
+                if (orderItem != null && orderItem.Quantity != null)
+                {
+                    quantity -= orderItem.Quantity;
+                }
+            }
+
+            if (quantity > 0)
             {
                 lblProductInStock.Text = $"{quantity} left";
                 lblProductInStock.ForeColor = Color.Green;
@@ -94,12 +110,11 @@ namespace Computer_Store
             lblProductID.Text = _Product.ID.ToString();
             lblProductName.Text = _Product.Name;
             lblProductPrice.Text = clsUtility.DecimalToMoneyString(_Product.Price);
-            _DisplayProductQuantity();
 
             // Display product rating 
             ctrlStarsRating.DisplayRating(_Product.Rating);
 
-            await _DisplayProductImage();
+            await Task.WhenAll(_DisplayProductImage(),_DisplayProductQuantity());
         }
 
     }
