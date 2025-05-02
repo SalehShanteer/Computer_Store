@@ -17,7 +17,7 @@ namespace ApiClients
             _httpClient = new HttpClient { BaseAddress = new Uri(baseUrl) };
         }
 
-        public async Task<OrderItemDto> FindAsync(OrderItemKeyDto orderItemKey)
+        private void ValidateOrderItemKey(OrderItemKeyDto orderItemKey)
         {
             if (!orderItemKey.OrderID.HasValue || !orderItemKey.ProductID.HasValue)
             {
@@ -27,6 +27,11 @@ namespace ApiClients
             {
                 throw new ArgumentException("OrderID and ProductID must be positive.");
             }
+        }
+
+        public async Task<OrderItemDto> FindAsync(OrderItemKeyDto orderItemKey)
+        {
+            ValidateOrderItemKey(orderItemKey);
 
             string query = $"?OrderID={orderItemKey.OrderID}&ProductID={orderItemKey.ProductID}";
             var request = new HttpRequestMessage(HttpMethod.Get, $"Find{query}");
@@ -65,26 +70,23 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<OrderItemDto>(request, _httpClient);
         }
 
-        public async Task<bool> DeleteAsync(int? orderId, int? productId)
+        public async Task<bool> DeleteAsync(OrderItemKeyDto orderItemKey)
         {
-            if (!orderId.HasValue || !productId.HasValue)
-            {
-                throw new ArgumentNullException(orderId.HasValue ? nameof(productId) : nameof(orderId));
-            }
+            ValidateOrderItemKey(orderItemKey);
 
-            var request = new HttpRequestMessage(HttpMethod.Delete, $"Delete/{orderId}/{productId}");
+            string query = $"?OrderID={orderItemKey.OrderID}&ProductID={orderItemKey.ProductID}";
+
+            var request = new HttpRequestMessage(HttpMethod.Delete, $"Delete{query}");
 
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }
 
-        public async Task<bool> IsExistAsync(int? orderId, int? productId)
+        public async Task<bool> IsExistAsync(OrderItemKeyDto orderItemKey)
         {
-            if (!orderId.HasValue || !productId.HasValue)
-            {
-                throw new ArgumentNullException(orderId.HasValue ? nameof(productId) : nameof(orderId));
-            }
+            ValidateOrderItemKey(orderItemKey);
 
-            var request = new HttpRequestMessage(HttpMethod.Get, $"IsExist/{orderId}/{productId}");
+            string query = $"?OrderID={orderItemKey.OrderID}&ProductID={orderItemKey.ProductID}";
+            var request = new HttpRequestMessage(HttpMethod.Get, $"IsExist{query}");
 
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }

@@ -46,7 +46,7 @@ namespace ComputerStore_DataAccessLayer
             return orderItem;
         }
 
-        public static bool IsOrderItemExist(int orderId, int productId)
+        public static bool IsOrderItemExist(OrderItemKeyDto orderItemKey)
         {
             bool isExist = false;
 
@@ -55,8 +55,8 @@ namespace ComputerStore_DataAccessLayer
                 using (SqlCommand command = new SqlCommand("SP_IsOrderItemExist", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@OrderID", orderId);
-                    command.Parameters.AddWithValue("@ProductID", productId);
+                    command.Parameters.AddWithValue("@OrderID", orderItemKey.OrderID);
+                    command.Parameters.AddWithValue("@ProductID", orderItemKey.ProductID);
 
                     try
                     {
@@ -163,7 +163,7 @@ namespace ComputerStore_DataAccessLayer
             return rowsAffected > 0;
         }
 
-        public static bool DeleteOrderItem(int orderId, int productId)
+        public static bool DeleteOrderItem(OrderItemKeyDto orderItemKey)
         {
             int rowsAffected = 0;
 
@@ -172,8 +172,8 @@ namespace ComputerStore_DataAccessLayer
                 using (SqlCommand command = new SqlCommand("SP_DeleteOrderItem", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@OrderID", orderId);
-                    command.Parameters.AddWithValue("@ProductID", productId);
+                    command.Parameters.AddWithValue("@OrderID", orderItemKey.OrderID);
+                    command.Parameters.AddWithValue("@ProductID", orderItemKey.ProductID);
 
                     try
                     {

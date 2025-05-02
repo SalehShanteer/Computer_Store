@@ -96,24 +96,24 @@ namespace ComputerStoreApi.Controllers
             return Ok(orderItem.OrderItemDto);
         }
 
-        [HttpDelete("Delete/{orderId}/{productId}", Name = "DeleteOrderItem")]
+        [HttpDelete("Delete", Name = "DeleteOrderItem")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<bool> DeleteOrderItem(int orderId, int productId)
+        public ActionResult<bool> DeleteOrderItem([FromQuery] OrderItemKeyDto orderItemKey)
         {
-            if (orderId < 1 || productId < 1)
+            if (orderItemKey.OrderID < 1 || orderItemKey.ProductID < 1)
             {
-                return BadRequest($"Not accepted OrderID {orderId} or ProductID {productId}");
+                return BadRequest($"Not accepted OrderID {orderItemKey.OrderID} or ProductID {orderItemKey.ProductID}");
             }
 
-            if (!clsOrderItem.IsExist(orderId, productId))
+            if (!clsOrderItem.IsExist(orderItemKey))
             {
-                return NotFound($"OrderItem with OrderID {orderId} and ProductID {productId} not found");
+                return NotFound($"OrderItem with OrderID {orderItemKey.OrderID} and ProductID {orderItemKey.ProductID} not found");
             }
 
-            bool isDeleted = clsOrderItem.Delete(orderId, productId);
+            bool isDeleted = clsOrderItem.Delete(orderItemKey);
             if (!isDeleted)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Failed to delete order item");
@@ -121,20 +121,20 @@ namespace ComputerStoreApi.Controllers
             return Ok(isDeleted);
         }
 
-        [HttpGet("IsExist/{orderId}/{productId}", Name = "IsExistOrderItem")]
+        [HttpGet("IsExist", Name = "IsExistOrderItem")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<bool> IsExist(int orderId, int productId)
+        public ActionResult<bool> IsExist([FromQuery] OrderItemKeyDto orderItemKey)
         {
-            if (orderId < 1 || productId < 1)
+            if (orderItemKey.OrderID < 1 || orderItemKey.ProductID < 1)
             {
-                return BadRequest($"Not accepted OrderID {orderId} or ProductID {productId}");
+                return BadRequest($"Not accepted OrderID {orderItemKey.OrderID} or ProductID {orderItemKey.ProductID}");
             }
-            bool isExist = clsOrderItem.IsExist(orderId, productId);
+            bool isExist = clsOrderItem.IsExist(orderItemKey);
             if (!isExist)
             {
-                return NotFound($"OrderItem with OrderID {orderId} and ProductID {productId} not found");
+                return NotFound($"OrderItem with OrderID {orderItemKey.OrderID} and ProductID {orderItemKey.ProductID} not found");
             }
             return Ok(isExist);
         }

@@ -26,5 +26,11 @@ namespace ApiClients.Api_URLs
 
         public static readonly string OrderItemsURL = "https://localhost:7173/api/OrderItemsApi/";
 
+        public static readonly string ShippingsURL = "https://localhost:7173/api/ShippingsApi/";
+
+        public static readonly string PaymentMethodsURL = "https://localhost:7173/api/PaymentMethodsApi/";
+
+        public static readonly string PaymentURL = "https://localhost:7173/api/PaymentsApi/";
+
     }
 }

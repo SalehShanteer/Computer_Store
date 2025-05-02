@@ -9,6 +9,13 @@ namespace Computer_Store
     public partial class ctrlOrderItemViewer : UserControl
     {
 
+        public delegate void OrderItemDeletedHandler(object sender, bool isDeleted);
+        public event OrderItemDeletedHandler OrderItemDeleted;
+
+        public delegate void OrderItemQuantityChangedHandler(object sender, short? quantity);
+        public event OrderItemQuantityChangedHandler OrderItemQuantityChanged;
+
+
         private ProductImagesApiClient _ProductImagesClient = new ProductImagesApiClient(ApiUrls.ProductImagesURL);
         private OrderItemsApiClient _OrderItemClient = new OrderItemsApiClient(ApiUrls.OrderItemsURL);
         private ProductsApiClient _ProductsClient = new ProductsApiClient(ApiUrls.ProductsURL);
@@ -50,6 +57,26 @@ namespace Computer_Store
                     return null;
                 }
                 return _OrderItem.Quantity + _ProductQuantity - _SelectedQuantity;
+            }
+        }
+
+        public short? SelectedQuantity
+        {
+            get
+            {
+                return _SelectedQuantity;
+            }
+        }
+
+        public decimal? Price
+        {
+            get
+            {
+                if (_OrderItem == null)
+                {
+                    return null;
+                }
+                return _OrderItem.Price;
             }
         }
 
@@ -115,12 +142,24 @@ namespace Computer_Store
             await _DisplayOrderItemImage();
         }
 
-        private void llblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void llblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
             if (MessageBox.Show("Are you sure you want to remove this item from the order?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                //raise event to remove the order item
+                var isDeleted = await _OrderItemClient.DeleteAsync(new OrderItemKeyDto(_OrderItem.OrderID, _OrderItem.ProductID));
+
+                if (isDeleted)
+                {
+                    MessageBox.Show("Item removed successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Invoke the event to notify that the order item has been deleted
+                    OrderItemDeleted?.Invoke(this, true);
+                }
+                else
+                {
+                    MessageBox.Show("Failed to remove item", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -136,6 +175,9 @@ namespace Computer_Store
             {
                 _SelectedQuantity++;
                 _UpdateOrderItemUI();
+
+                // Invoke the event to notify that the order item quantity has changed
+                OrderItemQuantityChanged?.Invoke(this, _SelectedQuantity.Value);
             }
         }
 
@@ -145,6 +187,9 @@ namespace Computer_Store
             {
                 _SelectedQuantity--;
                 _UpdateOrderItemUI();
+
+                // Invoke the event to notify that the order item quantity has changed
+                OrderItemQuantityChanged?.Invoke(this, _SelectedQuantity.Value);
             }
         }
 

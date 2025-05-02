@@ -215,7 +215,10 @@
   <ItemGroup>
     <Compile Include="Api Clients\OrderItemsApiClient.cs" />
     <Compile Include="Api Clients\OrdersApiClient.cs" />
+    <Compile Include="Api Clients\PaymentMethodsApiClient.cs" />
+    <Compile Include="Api Clients\PaymentsApiClient.cs" />
     <Compile Include="Api Clients\ReviewsApiClient.cs" />
+    <Compile Include="Api Clients\ShippingsApiClient.cs" />
     <Compile Include="Api URLs\ApiUrls.cs" />
     <Compile Include="Api Clients\CategoriesApiClient.cs" />
     <Compile Include="Api Clients\BrandsApiClient.cs" />
@@ -225,12 +228,15 @@
     <Compile Include="ClientDtos\OrderItemDto.cs" />
     <Compile Include="ClientDtos\OrderItemKeyDto.cs" />
     <Compile Include="ClientDtos\OrderItemResultDto.cs" />
+    <Compile Include="ClientDtos\PaymentDto.cs" />
+    <Compile Include="ClientDtos\PaymentMethodDto.cs" />
     <Compile Include="ClientDtos\ProductFilterDto.cs" />
     <Compile Include="ClientDtos\ProductsDtos\ProductDetailsDto.cs" />
     <Compile Include="ClientDtos\LoginRecordDtos\LoginRecordDto.cs" />
     <Compile Include="ClientDtos\ProductImageDto.cs" />
     <Compile Include="ClientDtos\ProductsDtos\ProductDto.cs" />
     <Compile Include="ClientDtos\ReviewDto.cs" />
+    <Compile Include="ClientDtos\ShippingDto.cs" />
     <Compile Include="ClientDtos\SubcategoryDto.cs" />
     <Compile Include="ClientDtos\UsersDtos\UserChangePasswordDto.cs" />
     <Compile Include="ClientDtos\UsersDtos\UserDto.cs" />

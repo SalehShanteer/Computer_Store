@@ -12,10 +12,9 @@ using ApiClients.ClientDtos;
 using System.Drawing;
 using ComputerStore_Business;
 using Computer_Store.Properties;
-using static System.Net.Mime.MediaTypeNames;
 using System.IO;
 using System.Configuration;
-using System.Runtime.CompilerServices;
+
 
 namespace Computer_Store
 {

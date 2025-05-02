@@ -19,11 +19,18 @@ namespace Computer_Store
         private OrderItemsApiClient _OrderItemsClient = new OrderItemsApiClient(ApiUrls.OrderItemsURL);
 
         private OrderDto _Order;
+        private int? _UserID;
 
         public frmOrderCart(int? UserID)
         {
             InitializeComponent();
-            LoadOrderAsync(UserID);
+
+            _UserID = UserID;
+        }
+
+        private void frmOrderCart_Load(object sender, EventArgs e)
+        {
+            _LoadOrderAsync(_UserID);
         }
 
         private void _HideNoCart()
@@ -32,13 +39,43 @@ namespace Computer_Store
             pbEmptyCart.Visible = false;
         }
 
-        private async void LoadOrderAsync(int? UserID)
+        private void _ShowNoCart()
         {
+            lblEmptyCart.Visible = true;
+            pbEmptyCart.Visible = true;
+        }
+
+        private void _GetTotalPrice()
+        {
+            decimal totalPrice = 0;
+            decimal totalItemsPrice = 0;
+            foreach (Control control in pnItemsContainer.Controls)
+            {
+                if (control is ctrlOrderItemViewer orderItemViewer)
+                {
+                    totalItemsPrice = orderItemViewer.SelectedQuantity * orderItemViewer.Price ?? 0;
+                    totalPrice += totalItemsPrice;
+                }
+            }
+            lblTotalPrice.Text = clsUtility.DecimalToMoneyString(totalPrice);
+        }
+
+
+        private async void _LoadOrderAsync(int? UserID)
+        {
+
+            _DisableContinueToPaymentButton();
+
             _Order = await _OrdersClient.FindCurrentAsync(UserID);
             
             if (_Order != null)
             {
                 await _LoadOrderItems();
+            }
+            else
+            {
+                // No order found for the user
+                _ShowNoCart();
             }
         }
 
@@ -53,6 +90,26 @@ namespace Computer_Store
             orderItemViewer.Location = new Point(10, positionY);
             orderItemViewer.Size = new Size(526, 122);
             pnItemsContainer.Controls.Add(orderItemViewer);
+
+            // Subscribe to the OrderItemDeleted event
+            orderItemViewer.OrderItemDeleted += ctrlOrderItem_Delete;
+
+            // Subscribe to the orderItemQuantityChanged event
+            orderItemViewer.OrderItemQuantityChanged += ctrlOrderItem_QuantityChanged;
+        }
+
+        private void _EnableContinueToPaymentButton()
+        {
+            btnContinueToPayment.Enabled = true;
+            btnContinueToPayment.BackColor = Color.Black;
+            btnContinueToPayment.ForeColor = Color.White;
+        }
+
+        private void _DisableContinueToPaymentButton()
+        {
+            btnContinueToPayment.Enabled = false;
+            btnContinueToPayment.BackColor = Color.Gray;
+            btnContinueToPayment.ForeColor = Color.Black;
         }
 
         private async Task _LoadOrderItems()
@@ -71,14 +128,55 @@ namespace Computer_Store
                     await _LoadOneOrderItem(item, positionY);
                     positionY += 5 + 122; // Adjust the position for the next item
                 }
+                _HideNoCart();
+
+                _EnableContinueToPaymentButton();
             }
             else
             {
                 // No items in the order
-                lblEmptyCart.Visible = true;
-                pbEmptyCart.Visible = true;
+                _ShowNoCart();
+            }
+
+            _GetTotalPrice();
+        }
+
+        private async void ctrlOrderItem_Delete(object sender, bool isDeleted)
+        {
+            if(isDeleted)
+            {
+                _DisableContinueToPaymentButton();
+
+                pnItemsContainer.Controls.Clear();
+
+                await _LoadOrderItems();
             }
         }
 
+        private void ctrlOrderItem_QuantityChanged(object sender, short? quantity) 
+        {
+            if (quantity != null && quantity > 0)
+            {
+                _GetTotalPrice();
+            }
+        }
+
+        private void _ShowPaymentPortal()
+        {
+            if (_Order != null)
+            {
+                var paymentPortal = new frmPaymentPortal(_Order.OrderID);
+                paymentPortal.Show();
+            }
+            else
+            {
+                MessageBox.Show("No order found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnContinueToPayment_Click(object sender, EventArgs e)
+        {
+            _ShowPaymentPortal();
+        }
     }
 }

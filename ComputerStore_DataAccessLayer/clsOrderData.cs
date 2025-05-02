@@ -149,7 +149,6 @@ namespace ComputerStore_DataAccessLayer
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@OrderID", order.OrderID);
                     command.Parameters.AddWithValue("@UserID", order.UserID);
-                    command.Parameters.AddWithValue("@OrderDate", order.OrderDate);
                     command.Parameters.AddWithValue("@Status", order.Status);
 
                     try

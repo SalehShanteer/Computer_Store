@@ -166,10 +166,10 @@ namespace Computer_Store
             short? quantity = _Product.QuantityInStock;
 
             // check quantity added before
-            int? orderID = (await _OrdersClient.FindCurrentAsync(_UserID)).OrderID;
-            if (orderID != null)
+            var order = await _OrdersClient.FindCurrentAsync(_UserID);
+            if (order != null && order.OrderID != null)
             {
-                var orderItem = await _OrderItemsClient.FindAsync(new OrderItemKeyDto(orderID, _Product.ID));
+                var orderItem = await _OrderItemsClient.FindAsync(new OrderItemKeyDto(order.OrderID, _Product.ID));
                 if (orderItem != null && orderItem.Quantity != null)
                 {
                     quantity -= orderItem.Quantity;

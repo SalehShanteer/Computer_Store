@@ -56,7 +56,7 @@ namespace ComputerStore_BusinessLayer
 
         public bool Update() => clsOrderItemData.UpdateOrderItem(this.OrderItemDto);
 
-        public static bool Delete(int orderId, int productId) => clsOrderItemData.DeleteOrderItem(orderId, productId);
+        public static bool Delete(OrderItemKeyDto orderItemKey) => clsOrderItemData.DeleteOrderItem(orderItemKey);
 
         public static clsOrderItem Find(OrderItemKeyDto orderItemKey)
         {
@@ -68,7 +68,7 @@ namespace ComputerStore_BusinessLayer
             return null;
         }
 
-        public static bool IsExist(int orderId, int productId) => clsOrderItemData.IsOrderItemExist(orderId, productId);
+        public static bool IsExist(OrderItemKeyDto orderItemKey) => clsOrderItemData.IsOrderItemExist(orderItemKey);
 
 
         public static List<OrderItemDto> GetOrderItemsByOrderID(int orderId) => clsOrderItemData.GetOrderItemsByOrderID(orderId);

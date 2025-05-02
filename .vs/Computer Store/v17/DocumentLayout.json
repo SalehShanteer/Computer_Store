@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\ctrlorderitemviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:ctrlorderitemviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmpaymentportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmpaymentportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmproductviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmproductviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmpaymentportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmpaymentportal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\ctrlorderitemviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:ctrlorderitemviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmproductviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmproductviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmpaymentportal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmpaymentportal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +22,44 @@
       "DocumentGroups": [
         {
           "DockedHeight": 573,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ctrlOrderItemViewer.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ctrlOrderItemViewer.cs",
-              "RelativeDocumentMoniker": "ctrlOrderItemViewer.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ctrlOrderItemViewer.cs [Design]",
-              "RelativeToolTip": "ctrlOrderItemViewer.cs [Design]",
+              "DocumentIndex": 2,
+              "Title": "frmPaymentPortal.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmPaymentPortal.Designer.cs",
+              "RelativeDocumentMoniker": "frmPaymentPortal.Designer.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmPaymentPortal.Designer.cs",
+              "RelativeToolTip": "frmPaymentPortal.Designer.cs",
+              "ViewState": "AgIAANAAAAAAAAAAAIA4wOUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T19:40:19.848Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-05-02T21:04:20.896Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ctrlOrderItemViewer.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ctrlOrderItemViewer.cs",
-              "RelativeDocumentMoniker": "ctrlOrderItemViewer.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ctrlOrderItemViewer.cs",
-              "RelativeToolTip": "ctrlOrderItemViewer.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAA1wHoAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "frmPaymentPortal.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmPaymentPortal.cs",
+              "RelativeDocumentMoniker": "frmPaymentPortal.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmPaymentPortal.cs",
+              "RelativeToolTip": "frmPaymentPortal.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAA+wK4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-26T19:40:23.59Z",
+              "WhenOpened": "2025-05-01T19:33:13.72Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmProductViewer.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.cs",
-              "RelativeDocumentMoniker": "frmProductViewer.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.cs",
-              "RelativeToolTip": "frmProductViewer.cs",
-              "ViewState": "AgIAAFsBAAAAAAAAAIAxwHABAAAuAAAAAAAAAA==",
+              "Title": "frmPaymentPortal.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmPaymentPortal.cs",
+              "RelativeDocumentMoniker": "frmPaymentPortal.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmPaymentPortal.cs [Design]",
+              "RelativeToolTip": "frmPaymentPortal.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T19:46:35.145Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmProductViewer.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.cs",
-              "RelativeDocumentMoniker": "frmProductViewer.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmProductViewer.cs [Design]",
-              "RelativeToolTip": "frmProductViewer.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-21T19:46:21.523Z",
+              "WhenOpened": "2025-05-01T19:29:57.401Z",
               "EditorCaption": " [Design]"
             }
           ]
