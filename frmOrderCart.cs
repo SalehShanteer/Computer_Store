@@ -1,15 +1,14 @@
 ﻿using ApiClients;
 using ApiClients.Api_URLs;
 using ApiClients.ClientDtos;
+using Computer_Store;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Computer_Store.ctrlOrderItemViewer;
 
 namespace Computer_Store
 {
@@ -20,6 +19,7 @@ namespace Computer_Store
 
         private OrderDto _Order;
         private int? _UserID;
+        private Dictionary<int, short> _OrderItemsInfo = new Dictionary<int, short>();
 
         public frmOrderCart(int? UserID)
         {
@@ -153,10 +153,17 @@ namespace Computer_Store
             }
         }
 
-        private void ctrlOrderItem_QuantityChanged(object sender, short? quantity) 
+        private void _AddOrderItemUpdatedToUpdateList(OrderItemInfo orderItemInfo)
         {
-            if (quantity != null && quantity > 0)
+            _OrderItemsInfo[orderItemInfo.ProductID.Value] = orderItemInfo.Quantity.Value;
+        }
+
+        private void ctrlOrderItem_QuantityChanged(object sender, OrderItemInfo orderItemInfo) 
+        {
+            if (orderItemInfo.ProductID != null && orderItemInfo.ProductID > 0 
+                && orderItemInfo.Quantity != null && orderItemInfo.Quantity > 0)
             {
+                _AddOrderItemUpdatedToUpdateList(orderItemInfo);
                 _GetTotalPrice();
             }
         }
@@ -173,9 +180,36 @@ namespace Computer_Store
                 MessageBox.Show("No order found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnContinueToPayment_Click(object sender, EventArgs e)
+        private async Task _UpdateOneOrderItem(int productId, short quantity)
         {
+            OrderItemDto orderItemDto = new OrderItemDto()
+            {
+                OrderID = _Order.OrderID,
+                Quantity = quantity,
+                ProductID = productId
+            };
+
+            orderItemDto = await _OrderItemsClient.UpdateAsync(orderItemDto);
+        }
+
+        private async Task _UpdateOrderItemsQuantityIfChanged()
+        {
+            var tasks = new List<Task>();
+
+            Parallel.ForEach(_OrderItemsInfo.Keys, (productId) =>
+            {
+                if (_OrderItemsInfo[productId] > 0)
+                {
+                    tasks.Add(Task.Run(() => _UpdateOneOrderItem(productId, _OrderItemsInfo[productId])));
+                }
+            });
+
+            await Task.WhenAll(tasks);
+        }
+            
+        private async void btnContinueToPayment_Click(object sender, EventArgs e)
+        {
+            await _UpdateOrderItemsQuantityIfChanged();
             _ShowPaymentPortal();
         }
     }

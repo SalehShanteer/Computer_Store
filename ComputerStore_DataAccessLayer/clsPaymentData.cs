@@ -113,7 +113,6 @@ namespace ComputerStore_DataAccessLayer
                     command.Parameters.AddWithValue("@OrderID", payment.OrderID);
                     command.Parameters.AddWithValue("@Amount", payment.Amount);
                     command.Parameters.AddWithValue("@PaymentMethodID", payment.PaymentMethodID);
-                    command.Parameters.AddWithValue("@TransactionDate", payment.TransactionDate);
 
                     SqlParameter outputIdParam = new SqlParameter("@NewID", SqlDbType.Int)
                     {

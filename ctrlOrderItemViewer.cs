@@ -12,7 +12,19 @@ namespace Computer_Store
         public delegate void OrderItemDeletedHandler(object sender, bool isDeleted);
         public event OrderItemDeletedHandler OrderItemDeleted;
 
-        public delegate void OrderItemQuantityChangedHandler(object sender, short? quantity);
+        public class OrderItemInfo
+        {
+            public int? ProductID { get; set; }
+            public short? Quantity { get; set; }
+
+            public OrderItemInfo(int? productID, short? quantity)
+            {
+                ProductID = productID;
+                Quantity = quantity;
+            }
+        }
+
+        public delegate void OrderItemQuantityChangedHandler(object sender, OrderItemInfo orderItemInfo);
         public event OrderItemQuantityChangedHandler OrderItemQuantityChanged;
 
 
@@ -139,6 +151,20 @@ namespace Computer_Store
                 _ProductQuantity = product.QuantityInStock;
             }
 
+            if (_SelectedQuantity > _ProductQuantity)
+            {
+                // If the selected quantity is greater than the available quantity, set it to the maximum available
+                _SelectedQuantity = _ProductQuantity;
+
+                if (_ProductQuantity == 0)
+                {
+                    // If the product is out of stock, delete the item and set the background color to red
+                    await _OrderItemClient.DeleteAsync(new OrderItemKeyDto(_OrderItem.OrderID, _OrderItem.ProductID));
+                    this.BackColor = System.Drawing.Color.LightCoral;
+                    lblQuantity.Text = "0";
+                }
+            }
+
             await _DisplayOrderItemImage();
         }
 
@@ -172,12 +198,12 @@ namespace Computer_Store
         private void pbAdd_Click(object sender, System.EventArgs e)
         {
             if (_SelectedQuantity < _ProductQuantity)
-            {
+            { 
                 _SelectedQuantity++;
                 _UpdateOrderItemUI();
 
                 // Invoke the event to notify that the order item quantity has changed
-                OrderItemQuantityChanged?.Invoke(this, _SelectedQuantity.Value);
+                OrderItemQuantityChanged?.Invoke(this, new OrderItemInfo(_OrderItem.ProductID.Value, _SelectedQuantity.Value));
             }
         }
 
@@ -189,7 +215,7 @@ namespace Computer_Store
                 _UpdateOrderItemUI();
 
                 // Invoke the event to notify that the order item quantity has changed
-                OrderItemQuantityChanged?.Invoke(this, _SelectedQuantity.Value);
+                OrderItemQuantityChanged?.Invoke(this, new OrderItemInfo(_OrderItem.ProductID.Value, _SelectedQuantity.Value));
             }
         }
 

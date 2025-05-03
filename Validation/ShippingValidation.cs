@@ -91,48 +91,9 @@ namespace Validation
                 return false;
             }
 
-            if (!ValidateNotNull(shippingDto.ShippingCost, out errorMessage))
-            {
-                errorMessage = "Shipping cost is null.";
-                return false;
-            }
-
-            if (!ValidateShippingCost(shippingDto.ShippingCost.Value, out errorMessage))
-            {
-                return false;
-            }
-
             if (!ValidateString(shippingDto.ShippingAddress, out errorMessage))
             {
                 errorMessage = "Shipping address is null or empty.";
-                return false;
-            }
-
-            if (!ValidateNotNull(shippingDto.EstimatedDeliveryDate, out errorMessage))
-            {
-                errorMessage = "Estimated delivery date is null.";
-                return false;
-            }
-
-            if (!ValidateEstimatedDeliveryDate(shippingDto.EstimatedDeliveryDate.Value, out errorMessage))
-            {
-                return false;
-            }
-
-            if (shippingDto.ActualDeliveryDate.HasValue && 
-                !ValidateActualDeliveryDate(shippingDto.ActualDeliveryDate, shippingDto.EstimatedDeliveryDate.Value, out errorMessage))
-            {
-                return false;
-            }
-
-            if (!ValidateNotNull(shippingDto.Status, out errorMessage))
-            {
-                errorMessage = "Status is null.";
-                return false;
-            }
-
-            if (!ValidateStatus(shippingDto.Status.Value, out errorMessage))
-            {
                 return false;
             }
 

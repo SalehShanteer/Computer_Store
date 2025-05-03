@@ -98,17 +98,6 @@ namespace Validation
                 return false;
             }
 
-            if (!ValidateNotNull(paymentDto.TransactionDate, out errorMessage))
-            {
-                errorMessage = "Transaction date is null.";
-                return false;
-            }
-
-            if (!ValidateTransactionDate(paymentDto.TransactionDate.Value, out errorMessage))
-            {
-                return false;
-            }
-
             errorMessage = string.Empty;
             return true;
         }

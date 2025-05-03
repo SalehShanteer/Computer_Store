@@ -120,11 +120,7 @@ namespace ComputerStore_DataAccessLayer
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@OrderID", shipping.OrderID);
                     command.Parameters.AddWithValue("@CarrierName", shipping.CarrierName);
-                    command.Parameters.AddWithValue("@ShippingCost", shipping.ShippingCost);
                     command.Parameters.AddWithValue("@ShippingAddress", shipping.ShippingAddress);
-                    command.Parameters.AddWithValue("@EstimatedDeliveryDate", shipping.EstimatedDeliveryDate);
-                    command.Parameters.AddWithValue("@ActualDeliveryDate", shipping.ActualDeliveryDate ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@Status", shipping.Status);
 
                     SqlParameter outputIdParam = new SqlParameter("@NewID", SqlDbType.Int)
                     {
@@ -157,10 +153,6 @@ namespace ComputerStore_DataAccessLayer
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ShippingID", shipping.ID);
                     command.Parameters.AddWithValue("@OrderID", shipping.OrderID);
-                    command.Parameters.AddWithValue("@CarrierName", shipping.CarrierName);
-                    command.Parameters.AddWithValue("@ShippingCost", shipping.ShippingCost);
-                    command.Parameters.AddWithValue("@ShippingAddress", shipping.ShippingAddress);
-                    command.Parameters.AddWithValue("@EstimatedDeliveryDate", shipping.EstimatedDeliveryDate);
                     command.Parameters.AddWithValue("@ActualDeliveryDate", shipping.ActualDeliveryDate ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@Status", shipping.Status);
 

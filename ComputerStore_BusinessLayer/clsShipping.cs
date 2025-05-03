@@ -17,7 +17,7 @@ namespace ComputerStore_BusinessLayer
         public string? ShippingAddress { get; set; }
         public DateTime? EstimatedDeliveryDate { get; set; }
         public DateTime? ActualDeliveryDate { get; set; }
-        public byte? Status { get; set; }
+        public byte? Status { get; set; } // 0 => canceled, 1 => pending, 2 => processing, 3 => delivered
 
         public ShippingDto ShippingDto
         {

@@ -149,6 +149,22 @@ namespace Computer_Store
 
         private async void _Purchase()
         {
+            // Create a new shipping object
+            var shipping = new ShippingDto
+            {
+                OrderID = _OrderID,
+                CarrierName = cbxShippingCarriers.SelectedItem.ToString(),
+                ShippingAddress = txtShippingAddress.Text,
+            };
+
+            // Save the shipping information to the API
+            var savedShipping = await _ShippingClient.SaveAsync(shipping);
+            if (savedShipping is null)
+            {
+                MessageBox.Show("Failed to save shipping information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Create a new payment object
             var payment = new PaymentDto
             {
@@ -171,7 +187,15 @@ namespace Computer_Store
 
         private void btnPurchase_Click(object sender, EventArgs e)
         {
-            _Purchase();
+            if (MessageBox.Show("Are you sure you want to proceed with the payment?", "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _Purchase();
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

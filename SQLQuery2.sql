@@ -158,6 +158,57 @@ CREATE TABLE ProductImages
 
 ALTER TABLE Reviews
 ADD CONSTRAINT CHK_1to5Rating CHECK (Rating >= 1 AND Rating <= 5)
-
 ALTER TABLE Reviews
-ADD CONSTRAINT UQ_Reviews_ProductID_UserID UNIQUE (ProductID, UserID)
+ADD CONSTRAINT UQ_Reviews_ProductID_UserID UNIQUE (ProductID, UserID)  
+
+
+-------------------------Triggers----------------------------
+
+CREATE TRIGGER TRG_Reviews_SetProductRating
+ON Reviews
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Update the Product rating based on the average rating from Reviews
+    UPDATE p
+    SET p.Rating = (
+        -- Calculate the average rating for the affected ProductID
+        SELECT AVG(CAST(r.Rating AS DECIMAL(3,2))) 
+        FROM Reviews r
+        WHERE r.ProductID = i.ProductID
+    )
+    FROM Products p
+    INNER JOIN (
+        -- Get distinct ProductIDs from the inserted rows
+        SELECT DISTINCT ProductID
+        FROM inserted
+    ) i
+    ON p.ProductID = i.ProductID;
+
+END;
+------------------
+
+ALTER TRIGGER TRG_OrderItems_UpdateOrderTotalAmount
+ON OrderItems
+AFTER INSERT, UPDATE
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DECLARE @TotalAmount DECIMAL(10,2);
+	DECLARE @OrderID INT;
+	
+	-- Get OrderID to update order total amount
+	SELECT @OrderID = OrderID FROM inserted
+
+	-- Get new total amount
+	SELECT @TotalAmount = SUM(TotalItemsPrice)
+	FROM OrderItems
+	WHERE OrderID = @OrderID
+
+	UPDATE Orders
+	SET TotalAmount = @TotalAmount
+	WHERE OrderID = @OrderID
+END
+
