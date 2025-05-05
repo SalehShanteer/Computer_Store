@@ -177,5 +177,10 @@ namespace ApiClients
             return "$" + (value != null ? value?.ToString("F2") : "0.00");
         }
 
+        public static string DateTimeToString(DateTime? value)
+        {
+            return value != null ? ((DateTime)value).ToString("dd/MM/yyyy") : "???";
+        }
+
     }
 }

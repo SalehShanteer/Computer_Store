@@ -27,7 +27,7 @@ namespace ComputerStore_DataAccessLayer
                             {
                                 order = new OrderDto
                                 {
-                                    OrderID = orderId,
+                                    ID = orderId,
                                     UserID = reader["UserID"] as int?,
                                     TotalAmount = reader["TotalAmount"] as decimal?,
                                     OrderDate = reader["OrderDate"] as DateTime?,
@@ -63,7 +63,7 @@ namespace ComputerStore_DataAccessLayer
                             {
                                 order = new OrderDto
                                 {
-                                    OrderID = reader["OrderID"] as int?,
+                                    ID = reader["OrderID"] as int?,
                                     UserID = userId,
                                     TotalAmount = reader["TotalAmount"] as decimal?,
                                     OrderDate = reader["OrderDate"] as DateTime?,
@@ -147,7 +147,7 @@ namespace ComputerStore_DataAccessLayer
                 using (SqlCommand command = new SqlCommand("SP_UpdateOrder", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@OrderID", order.OrderID);
+                    command.Parameters.AddWithValue("@OrderID", order.ID);
                     command.Parameters.AddWithValue("@UserID", order.UserID);
                     command.Parameters.AddWithValue("@Status", order.Status);
 
@@ -209,7 +209,7 @@ namespace ComputerStore_DataAccessLayer
                             {
                                 orders.Add(new OrderDto
                                 {
-                                    OrderID = (int)reader["OrderID"],
+                                    ID = (int)reader["OrderID"],
                                     UserID = reader["UserID"] as int?,
                                     TotalAmount = reader["TotalAmount"] as decimal?,
                                     OrderDate = reader["OrderDate"] as DateTime?,
@@ -247,7 +247,7 @@ namespace ComputerStore_DataAccessLayer
                             {
                                 orders.Add(new OrderDto
                                 {
-                                    OrderID = reader["OrderID"] as int?,
+                                    ID = reader["OrderID"] as int?,
                                     UserID = userId,
                                     TotalAmount = reader["TotalAmount"] as decimal?,
                                     OrderDate = reader["OrderDate"] as DateTime?,

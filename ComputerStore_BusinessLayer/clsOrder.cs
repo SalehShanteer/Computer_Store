@@ -10,7 +10,7 @@ namespace ComputerStore_BusinessLayer
         public enum enMode { AddNew, Update }
         private enMode _Mode;
 
-        public int? OrderID { get; set; }
+        public int? ID { get; set; }
         public int? UserID { get; set; }
         public decimal? TotalAmount { get; set; }
         public DateTime? OrderDate { get; set; }
@@ -22,7 +22,7 @@ namespace ComputerStore_BusinessLayer
             {
                 return new OrderDto
                 {
-                    OrderID = this.OrderID,
+                    ID = this.ID,
                     UserID = this.UserID,
                     TotalAmount = this.TotalAmount,
                     OrderDate = this.OrderDate,
@@ -33,7 +33,7 @@ namespace ComputerStore_BusinessLayer
 
         public clsOrder()
         {
-            this.OrderID = null;
+            this.ID = null;
             this.UserID = null;
             this.TotalAmount = null;
             this.OrderDate = null;
@@ -44,7 +44,7 @@ namespace ComputerStore_BusinessLayer
 
         public clsOrder(OrderDto orderDto, enMode mode)
         {
-            this.OrderID = orderDto.OrderID;
+            this.ID = orderDto.ID;
             this.UserID = orderDto.UserID;
             this.TotalAmount = orderDto.TotalAmount;
             this.OrderDate = orderDto.OrderDate;
@@ -55,8 +55,8 @@ namespace ComputerStore_BusinessLayer
 
         private bool AddNewOrder()
         {
-            this.OrderID = clsOrderData.AddNewOrder(this.OrderDto);
-            return this.OrderID is not null;
+            this.ID = clsOrderData.AddNewOrder(this.OrderDto);
+            return this.ID is not null;
         }
 
         private bool UpdateOrder() => clsOrderData.UpdateOrder(this.OrderDto);

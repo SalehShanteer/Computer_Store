@@ -71,7 +71,7 @@ namespace ComputerStoreApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Failed to save order");
             }
 
-            return CreatedAtRoute("FindOrder", new { id = order.OrderID }, order.OrderDto);
+            return CreatedAtRoute("FindOrder", new { id = order.ID }, order.OrderDto);
         }
 
         [HttpPut("Update", Name = "UpdateOrder")]
@@ -89,7 +89,7 @@ namespace ComputerStoreApi.Controllers
 
             if (order is null)
             {
-                return NotFound($"Order with ID {orderDto.OrderID} not found");
+                return NotFound($"Order with ID {orderDto.ID} not found");
             }
 
             if (!order.Save())

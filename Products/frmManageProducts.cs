@@ -177,5 +177,10 @@ namespace Computer_Store
         {
             await _DeleteProduct();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

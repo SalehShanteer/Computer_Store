@@ -17,7 +17,7 @@ namespace Computer_Store
     {
         private ShippingsApiClient _ShippingClient = new ShippingsApiClient(ApiUrls.ShippingsURL);
         private PaymentMethodsApiClient _PaymentMethodClient = new PaymentMethodsApiClient(ApiUrls.PaymentMethodsURL);
-        private PaymentsApiClient _PaymentClient = new PaymentsApiClient(ApiUrls.PaymentURL);
+        private PaymentsApiClient _PaymentClient = new PaymentsApiClient(ApiUrls.PaymentsURL);
         private OrdersApiClient _OrdersClient = new OrdersApiClient(ApiUrls.OrdersURL);
 
         private int? _OrderID;
@@ -126,7 +126,7 @@ namespace Computer_Store
             estimatedDeliveryDate = await _ShippingClient.GetEstimatedDeliveryDateAsync(_OrderID);
             if (estimatedDeliveryDate != null)
             {
-                lblEstimatedDeliveryDate.Text = estimatedDeliveryDate.Value.ToString("dd/MM/yyyy");
+                lblEstimatedDeliveryDate.Text = clsUtility.DateTimeToString(estimatedDeliveryDate.Value);
             }
             else
             {

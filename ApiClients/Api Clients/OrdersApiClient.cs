@@ -47,8 +47,8 @@ namespace ApiClients
             }
 
             var request = new HttpRequestMessage(
-                orderDto.OrderID is null ? HttpMethod.Post : HttpMethod.Put,
-                orderDto.OrderID is null ? "Add" : "Update")
+                orderDto.ID is null ? HttpMethod.Post : HttpMethod.Put,
+                orderDto.ID is null ? "Add" : "Update")
             {
                 Content = new StringContent(JsonConvert.SerializeObject(orderDto), Encoding.UTF8, "application/json")
             };

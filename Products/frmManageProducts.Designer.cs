@@ -36,6 +36,8 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsList)).BeginInit();
             this.cmsManageProducts.SuspendLayout();
             this.SuspendLayout();
@@ -45,12 +47,13 @@
             this.dgvProductsList.AllowUserToAddRows = false;
             this.dgvProductsList.AllowUserToDeleteRows = false;
             this.dgvProductsList.AllowUserToOrderColumns = true;
+            this.dgvProductsList.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvProductsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductsList.ContextMenuStrip = this.cmsManageProducts;
-            this.dgvProductsList.Location = new System.Drawing.Point(83, 196);
+            this.dgvProductsList.Location = new System.Drawing.Point(15, 106);
             this.dgvProductsList.Name = "dgvProductsList";
             this.dgvProductsList.ReadOnly = true;
-            this.dgvProductsList.Size = new System.Drawing.Size(1193, 413);
+            this.dgvProductsList.Size = new System.Drawing.Size(1044, 413);
             this.dgvProductsList.TabIndex = 0;
             // 
             // cmsManageProducts
@@ -60,7 +63,7 @@
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.cmsManageProducts.Name = "cmsManageProducts";
-            this.cmsManageProducts.Size = new System.Drawing.Size(196, 98);
+            this.cmsManageProducts.Size = new System.Drawing.Size(196, 76);
             // 
             // addNewProductToolStripMenuItem
             // 
@@ -90,7 +93,7 @@
             this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddProduct.Location = new System.Drawing.Point(1050, 640);
+            this.btnAddProduct.Location = new System.Drawing.Point(919, 526);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(122, 31);
             this.btnAddProduct.TabIndex = 109;
@@ -113,24 +116,51 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(359, 34);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(348, 46);
+            this.label10.TabIndex = 168;
+            this.label10.Text = "Manage Products";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(34, 526);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 31);
+            this.button1.TabIndex = 169;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmManageProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1904, 1036);
+            this.ClientSize = new System.Drawing.Size(1070, 565);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.dgvProductsList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmManageProducts";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Products";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmManageProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsList)).EndInit();
             this.cmsManageProducts.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -143,5 +173,7 @@
         private System.Windows.Forms.ToolStripMenuItem addNewProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button1;
     }
 }

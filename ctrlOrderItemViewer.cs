@@ -9,9 +9,7 @@ namespace Computer_Store
     public partial class ctrlOrderItemViewer : UserControl
     {
 
-        public delegate void OrderItemDeletedHandler(object sender, bool isDeleted);
-        public event OrderItemDeletedHandler OrderItemDeleted;
-
+      
         public class OrderItemInfo
         {
             public int? ProductID { get; set; }
@@ -23,6 +21,10 @@ namespace Computer_Store
                 Quantity = quantity;
             }
         }
+
+        // Delegates and events for notifying changes in order item
+        public delegate void OrderItemDeletedHandler(object sender, bool isDeleted);
+        public event OrderItemDeletedHandler OrderItemDeleted;
 
         public delegate void OrderItemQuantityChangedHandler(object sender, OrderItemInfo orderItemInfo);
         public event OrderItemQuantityChangedHandler OrderItemQuantityChanged;

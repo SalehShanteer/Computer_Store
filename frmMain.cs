@@ -280,6 +280,11 @@ namespace Computer_Store
             int? UserID = _CurrentUser.ID;
 
             frmOrderCart frm = new frmOrderCart(UserID);
+            frm.FormClosed += (s, e) =>
+            {
+                this.Focus(); // Focus on close           
+            };
+
             frm.Show();
         }
 
@@ -427,3 +432,4 @@ namespace Computer_Store
         }
     }
 }
+   

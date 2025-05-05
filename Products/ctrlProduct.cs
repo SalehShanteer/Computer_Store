@@ -64,9 +64,9 @@ namespace Computer_Store
 
             // check quantity added before
             var order = await _OrdersClient.FindCurrentAsync(_UserID);
-            if (order != null &&  order.OrderID != null && order.Status == 1)
+            if (order != null &&  order.ID != null && order.Status == 1)
             {
-                var orderItem = await _OrderItemsClient.FindAsync(new OrderItemKeyDto(order.OrderID, _Product.ID));
+                var orderItem = await _OrderItemsClient.FindAsync(new OrderItemKeyDto(order.ID, _Product.ID));
                 if (orderItem != null && orderItem.Quantity != null)
                 {
                     quantity -= orderItem.Quantity;

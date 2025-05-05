@@ -60,15 +60,15 @@ namespace Computer_Store
             lblTotalPrice.Text = clsUtility.DecimalToMoneyString(totalPrice);
         }
 
-
         private async void _LoadOrderAsync(int? UserID)
         {
 
             _DisableContinueToPaymentButton();
 
             _Order = await _OrdersClient.FindCurrentAsync(UserID);
-            
-            if (_Order != null)
+
+            // Check if the order is not null and has a status of 1 (Draft)
+            if (_Order != null && _Order.Status == 1)
             {
                 await _LoadOrderItems();
             }
@@ -98,27 +98,13 @@ namespace Computer_Store
             orderItemViewer.OrderItemQuantityChanged += ctrlOrderItem_QuantityChanged;
         }
 
-        private void _EnableContinueToPaymentButton()
-        {
-            btnContinueToPayment.Enabled = true;
-            btnContinueToPayment.BackColor = Color.Black;
-            btnContinueToPayment.ForeColor = Color.White;
-        }
-
-        private void _DisableContinueToPaymentButton()
-        {
-            btnContinueToPayment.Enabled = false;
-            btnContinueToPayment.BackColor = Color.Gray;
-            btnContinueToPayment.ForeColor = Color.Black;
-        }
-
-        private async Task _LoadOrderItems()
+                private async Task _LoadOrderItems()
         {
             if (_Order == null)
             {
                 return;
             }
-            var orderItems = await _OrderItemsClient.GetByOrderAsync(_Order.OrderID);
+            var orderItems = await _OrderItemsClient.GetByOrderAsync(_Order.ID);
             if (orderItems != null && orderItems.Any())
             {
                 int positionY = 10;
@@ -137,8 +123,22 @@ namespace Computer_Store
                 // No items in the order
                 _ShowNoCart();
             }
-
             _GetTotalPrice();
+        }
+
+
+        private void _EnableContinueToPaymentButton()
+        {
+            btnContinueToPayment.Enabled = true;
+            btnContinueToPayment.BackColor = Color.Black;
+            btnContinueToPayment.ForeColor = Color.White;
+        }
+
+        private void _DisableContinueToPaymentButton()
+        {
+            btnContinueToPayment.Enabled = false;
+            btnContinueToPayment.BackColor = Color.Gray;
+            btnContinueToPayment.ForeColor = Color.Black;
         }
 
         private async void ctrlOrderItem_Delete(object sender, bool isDeleted)
@@ -172,7 +172,7 @@ namespace Computer_Store
         {
             if (_Order != null)
             {
-                var paymentPortal = new frmPaymentPortal(_Order.OrderID);
+                var paymentPortal = new frmPaymentPortal(_Order.ID);
                 paymentPortal.Show();
             }
             else
@@ -180,11 +180,12 @@ namespace Computer_Store
                 MessageBox.Show("No order found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private async Task _UpdateOneOrderItem(int productId, short quantity)
         {
             OrderItemDto orderItemDto = new OrderItemDto()
             {
-                OrderID = _Order.OrderID,
+                OrderID = _Order.ID,
                 Quantity = quantity,
                 ProductID = productId
             };
@@ -194,8 +195,8 @@ namespace Computer_Store
 
         private async Task _UpdateOrderItemsQuantityIfChanged()
         {
+            // Check if there are any items to update using multiple threads
             var tasks = new List<Task>();
-
             Parallel.ForEach(_OrderItemsInfo.Keys, (productId) =>
             {
                 if (_OrderItemsInfo[productId] > 0)
@@ -207,10 +208,26 @@ namespace Computer_Store
             await Task.WhenAll(tasks);
         }
             
+        private void _ShowManageYourOrdersScreen()
+        {
+            frmManageYourOrders frm = new frmManageYourOrders(_UserID.Value);
+            frm.Show();
+        }
+
         private async void btnContinueToPayment_Click(object sender, EventArgs e)
         {
             await _UpdateOrderItemsQuantityIfChanged();
             _ShowPaymentPortal();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnManageYourOrders_Click(object sender, EventArgs e)
+        {
+            _ShowManageYourOrdersScreen();
         }
     }
 }

@@ -30,7 +30,7 @@ namespace ApiClients.Api_URLs
 
         public static readonly string PaymentMethodsURL = "https://localhost:7173/api/PaymentMethodsApi/";
 
-        public static readonly string PaymentURL = "https://localhost:7173/api/PaymentsApi/";
+        public static readonly string PaymentsURL = "https://localhost:7173/api/PaymentsApi/";
 
     }
 }

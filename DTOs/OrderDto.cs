@@ -4,7 +4,7 @@ namespace DTOs
 {
     public class OrderDto
     {
-        public int? OrderID { get; set; }
+        public int? ID { get; set; }
         public int? UserID { get; set; }
         public decimal? TotalAmount { get; set; }
         public DateTime? OrderDate { get; set; }
@@ -12,7 +12,7 @@ namespace DTOs
 
         public OrderDto()
         {
-            this.OrderID = null;
+            this.ID = null;
             this.UserID = null;
             this.TotalAmount = null;
             this.OrderDate = null;
@@ -21,7 +21,7 @@ namespace DTOs
 
         public OrderDto(int? orderId, int? userId, decimal? totalAmount, DateTime? orderDate, byte? status)
         {
-            this.OrderID = orderId;
+            this.ID = orderId;
             this.UserID = userId;
             this.TotalAmount = totalAmount;
             this.OrderDate = orderDate;

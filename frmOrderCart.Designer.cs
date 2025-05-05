@@ -30,11 +30,13 @@
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnItemsContainer = new System.Windows.Forms.Panel();
-            this.pbEmptyCart = new System.Windows.Forms.PictureBox();
             this.lblEmptyCart = new System.Windows.Forms.Label();
             this.btnContinueToPayment = new System.Windows.Forms.Button();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnManageYourOrders = new System.Windows.Forms.Button();
+            this.pbEmptyCart = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbEmptyCart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,18 +58,8 @@
             this.pnItemsContainer.BackColor = System.Drawing.Color.Silver;
             this.pnItemsContainer.Location = new System.Drawing.Point(12, 128);
             this.pnItemsContainer.Name = "pnItemsContainer";
-            this.pnItemsContainer.Size = new System.Drawing.Size(550, 541);
+            this.pnItemsContainer.Size = new System.Drawing.Size(550, 500);
             this.pnItemsContainer.TabIndex = 116;
-            // 
-            // pbEmptyCart
-            // 
-            this.pbEmptyCart.Image = global::Computer_Store.Properties.Resources.cart;
-            this.pbEmptyCart.Location = new System.Drawing.Point(605, 182);
-            this.pbEmptyCart.Name = "pbEmptyCart";
-            this.pbEmptyCart.Size = new System.Drawing.Size(164, 134);
-            this.pbEmptyCart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbEmptyCart.TabIndex = 117;
-            this.pbEmptyCart.TabStop = false;
             // 
             // lblEmptyCart
             // 
@@ -87,7 +79,7 @@
             this.btnContinueToPayment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnContinueToPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinueToPayment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnContinueToPayment.Location = new System.Drawing.Point(923, 605);
+            this.btnContinueToPayment.Location = new System.Drawing.Point(938, 638);
             this.btnContinueToPayment.Name = "btnContinueToPayment";
             this.btnContinueToPayment.Size = new System.Drawing.Size(198, 31);
             this.btnContinueToPayment.TabIndex = 145;
@@ -99,7 +91,7 @@
             // 
             this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lblTotalPrice.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblTotalPrice.Location = new System.Drawing.Point(968, 526);
+            this.lblTotalPrice.Location = new System.Drawing.Point(965, 567);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(146, 24);
             this.lblTotalPrice.TabIndex = 146;
@@ -110,18 +102,60 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label1.Location = new System.Drawing.Point(968, 490);
+            this.label1.Location = new System.Drawing.Point(965, 531);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 24);
             this.label1.TabIndex = 147;
             this.label1.Text = "Total Amount:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.Black;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClose.Location = new System.Drawing.Point(12, 638);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(83, 31);
+            this.btnClose.TabIndex = 148;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnManageYourOrders
+            // 
+            this.btnManageYourOrders.BackColor = System.Drawing.Color.Black;
+            this.btnManageYourOrders.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnManageYourOrders.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnManageYourOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageYourOrders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnManageYourOrders.Location = new System.Drawing.Point(571, 638);
+            this.btnManageYourOrders.Name = "btnManageYourOrders";
+            this.btnManageYourOrders.Size = new System.Drawing.Size(198, 31);
+            this.btnManageYourOrders.TabIndex = 149;
+            this.btnManageYourOrders.Text = "Manage Your Orders";
+            this.btnManageYourOrders.UseVisualStyleBackColor = false;
+            this.btnManageYourOrders.Click += new System.EventHandler(this.btnManageYourOrders_Click);
+            // 
+            // pbEmptyCart
+            // 
+            this.pbEmptyCart.Image = global::Computer_Store.Properties.Resources.cart;
+            this.pbEmptyCart.Location = new System.Drawing.Point(605, 182);
+            this.pbEmptyCart.Name = "pbEmptyCart";
+            this.pbEmptyCart.Size = new System.Drawing.Size(164, 134);
+            this.pbEmptyCart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbEmptyCart.TabIndex = 117;
+            this.pbEmptyCart.TabStop = false;
+            // 
             // frmOrderCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 681);
+            this.Controls.Add(this.btnManageYourOrders);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTotalPrice);
             this.Controls.Add(this.btnContinueToPayment);
@@ -151,5 +185,7 @@
         private System.Windows.Forms.Button btnContinueToPayment;
         private System.Windows.Forms.Label lblTotalPrice;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnManageYourOrders;
     }
 }
