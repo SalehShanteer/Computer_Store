@@ -136,7 +136,30 @@ namespace ComputerStoreApi.Controllers
             return Ok(exists);
         }
 
-        [HttpGet("IsSubcategoryBelongsToCategory", Name = "IsSubcategoryBelongsToCategory")]
+        [HttpGet("IsExist", Name = "IsExistSubcategoryByNameAndCategoryID")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> IsExistByNameAndCategoryID([FromQuery] SubcategoryDto subcategory)
+        {
+            if (subcategory is null)
+            {
+                return BadRequest("Subcategory cannot be null");
+            }
+            if (string.IsNullOrWhiteSpace(subcategory.Name) || subcategory.CategoryID is null || subcategory.CategoryID < 1)
+            {
+                return BadRequest("Subcategory name and Category ID are required");
+            }
+            var exists = clsSubcategory.IsExist(subcategory.Name, subcategory.CategoryID);
+            if (!exists)
+            {
+                return NotFound($"Subcategory with name '{subcategory.Name}' in category ID {subcategory.CategoryID} does not exist");
+            }
+            return Ok(exists);
+        }
+
+
+            [HttpGet("IsSubcategoryBelongsToCategory", Name = "IsSubcategoryBelongsToCategory")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

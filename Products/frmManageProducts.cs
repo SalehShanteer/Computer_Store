@@ -38,10 +38,10 @@ namespace Computer_Store
 
         private async void frmManageProducts_Load(object sender, EventArgs e)
         {
-            await _LoadProductDataTable();
+            await _LoadProductDataTableAsync();
         }
 
-        private async Task _LoadProductDataTable()
+        private async Task _LoadProductDataTableAsync()
         {
             _dtProductsList = new DataTable();
 
@@ -89,7 +89,7 @@ namespace Computer_Store
             {
                 if (isSaved)
                 {
-                    await _LoadProductDataTable();
+                    await _LoadProductDataTableAsync();
                 }
             };
 
@@ -115,7 +115,7 @@ namespace Computer_Store
                 {
                     if (isSaved)
                     {
-                        await _LoadProductDataTable();
+                        await _LoadProductDataTableAsync();
                     }
                 };
 
@@ -127,7 +127,7 @@ namespace Computer_Store
             }         
         }
 
-        private async Task _DeleteProduct()
+        private async Task _DeleteProductAsync()
         {
             if (dgvProductsList.SelectedCells.Count > 0)
             {
@@ -143,7 +143,7 @@ namespace Computer_Store
                         var deleteImagesTask = _ProductImagesClient.DeleteAllByProductIdWithFilesAsync(productID);
 
                         await Task.WhenAll(deleteProductTask, deleteImagesTask); 
-                        await _LoadProductDataTable();
+                        await _LoadProductDataTableAsync();
                     }
                     catch (Exception ex)
                     {
@@ -175,7 +175,7 @@ namespace Computer_Store
 
         private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            await _DeleteProduct();
+            await _DeleteProductAsync();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
@@ -44,14 +45,20 @@
             this.btnSignIn = new System.Windows.Forms.Button();
             this.pbExit = new System.Windows.Forms.PictureBox();
             this.lblAdmin = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pbShowHidePassword = new System.Windows.Forms.PictureBox();
+            this.pbShowHideConfirmPassword = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowHideConfirmPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(81, 26);
+            this.lblTitle.Location = new System.Drawing.Point(86, 26);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(341, 39);
@@ -168,6 +175,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(178, 22);
             this.txtPassword.TabIndex = 125;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtConfirmPassword
             // 
@@ -178,6 +186,7 @@
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(178, 22);
             this.txtConfirmPassword.TabIndex = 126;
+            this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // btnSignIn
             // 
@@ -217,12 +226,40 @@
             this.lblAdmin.Text = "Admin Account";
             this.lblAdmin.Visible = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // pbShowHidePassword
+            // 
+            this.pbShowHidePassword.Image = global::Computer_Store.Properties.Resources.hide;
+            this.pbShowHidePassword.Location = new System.Drawing.Point(230, 268);
+            this.pbShowHidePassword.Name = "pbShowHidePassword";
+            this.pbShowHidePassword.Size = new System.Drawing.Size(29, 21);
+            this.pbShowHidePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbShowHidePassword.TabIndex = 130;
+            this.pbShowHidePassword.TabStop = false;
+            this.pbShowHidePassword.Click += new System.EventHandler(this.pbShowHidePassword_Click);
+            // 
+            // pbShowHideConfirmPassword
+            // 
+            this.pbShowHideConfirmPassword.Image = global::Computer_Store.Properties.Resources.hide;
+            this.pbShowHideConfirmPassword.Location = new System.Drawing.Point(484, 269);
+            this.pbShowHideConfirmPassword.Name = "pbShowHideConfirmPassword";
+            this.pbShowHideConfirmPassword.Size = new System.Drawing.Size(29, 21);
+            this.pbShowHideConfirmPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbShowHideConfirmPassword.TabIndex = 131;
+            this.pbShowHideConfirmPassword.TabStop = false;
+            this.pbShowHideConfirmPassword.Click += new System.EventHandler(this.pbShowHideConfirmPassword_Click);
+            // 
             // frmCreateNewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(526, 369);
+            this.Controls.Add(this.pbShowHideConfirmPassword);
+            this.Controls.Add(this.pbShowHidePassword);
             this.Controls.Add(this.lblAdmin);
             this.Controls.Add(this.pbExit);
             this.Controls.Add(this.btnSignIn);
@@ -247,6 +284,9 @@
             this.Text = "frmCreateNewAccount";
             this.Load += new System.EventHandler(this.frmCreateNewAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowHidePassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbShowHideConfirmPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +310,8 @@
         private System.Windows.Forms.Button btnSignIn;
         private System.Windows.Forms.PictureBox pbExit;
         private System.Windows.Forms.Label lblAdmin;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.PictureBox pbShowHideConfirmPassword;
+        private System.Windows.Forms.PictureBox pbShowHidePassword;
     }
 }

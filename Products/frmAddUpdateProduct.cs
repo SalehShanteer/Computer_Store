@@ -60,16 +60,16 @@ namespace Computer_Store
         private async void frmAddUpdateProduct_Load(object sender, EventArgs e)
         {
             // Load brands, categories, and subcategories
-            await _LoadCategoriesCombobox();
-            await _LoadBrandsCombobox();
+            await _LoadCategoriesComboboxAsync();
+            await _LoadBrandsComboboxAsync();
 
             cbxCategory.SelectedIndex = 0;
             cbxBrand.SelectedIndex = 0;
 
-            await _LoadProductInfo();
+            await _LoadProductInfoAsync();
         }
 
-        private async Task _LoadCategoriesCombobox()
+        private async Task _LoadCategoriesComboboxAsync()
         {
             // Load categories into the combobox
             List<CategoryDto> categories = (List<CategoryDto>)await _CategoriesClient.GetAllAsync();
@@ -78,7 +78,7 @@ namespace Computer_Store
             cbxCategory.ValueMember = "ID";
         }
 
-        private async Task _LoadBrandsCombobox()
+        private async Task _LoadBrandsComboboxAsync()
         {
             // Load brands into the combobox
             List<BrandDto> brands = (List<BrandDto>)await _BrandsClient.GetAllAsync();
@@ -87,7 +87,7 @@ namespace Computer_Store
             cbxBrand.ValueMember = "ID";
         }
 
-        private async Task _LoadSubcategoryCombobox(int? categoryID)
+        private async Task _LoadSubcategoryComboboxAsync(int? categoryID)
         {
             // Load subcategories into the combobox based on the selected category
             List<SubcategoryDto> subcategories = (List<SubcategoryDto>)await _SubcategoriesClient.GetSubcategoriesByCategoryID(categoryID);
@@ -96,7 +96,7 @@ namespace Computer_Store
             cbxSubcategory.ValueMember = "ID";
         }
 
-        private async Task _DisplayLoadInfo()
+        private async Task _DisplayLoadInfoAsync()
         {
             txtProductName.Text = _ProductDto.Name;
             rtxtDescription.Text = _ProductDto.Description;
@@ -110,11 +110,11 @@ namespace Computer_Store
                 _ProductImages = (List<ProductImageDto>)await _ProductImagesClient.GetAllByProductIdAsync((int)_ProductID);
             }
 
-            await _DisplayBrandCategorySubcategory();
+            await _DisplayBrandCategorySubcategoryAsync();
             _DisplayProductImages();
         }
 
-        private async Task _DisplayBrandCategorySubcategory()
+        private async Task _DisplayBrandCategorySubcategoryAsync()
         {
             // Display the selected brand, category, and subcategory
             BrandDto brand = await _BrandsClient.FindAsync(_ProductDto.BrandID);
@@ -125,7 +125,7 @@ namespace Computer_Store
 
             if (_ProductDto.SubcategoryID != null)
             {
-                await _LoadSubcategoryCombobox(_ProductDto.CategoryID);
+                await _LoadSubcategoryComboboxAsync(_ProductDto.CategoryID);
                 SubcategoryDto subcategory = await _SubcategoriesClient.FindAsync(_ProductDto.SubcategoryID);
                 cbxSubcategory.SelectedIndex = cbxSubcategory.FindStringExact(subcategory.Name);
             }
@@ -165,7 +165,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _LoadProductInfo()
+        private async Task _LoadProductInfoAsync()
         {
             if (_Mode == enMode.AddNew)
             {
@@ -190,11 +190,11 @@ namespace Computer_Store
                     return;
                 }
 
-                await _DisplayLoadInfo();
+                await _DisplayLoadInfoAsync();
             }
         }
 
-        private async Task _SaveProduct()
+        private async Task _SaveProductAsync()
         {
             _SetProductInfo();
 
@@ -424,7 +424,7 @@ namespace Computer_Store
             _Brand = new BrandDto();
         }
 
-        private async Task _UpdateCategory()
+        private async Task _UpdateCategoryAsync()
         {
             _ShowCategoryUI();
 
@@ -437,7 +437,7 @@ namespace Computer_Store
             txtCategoryName.Text = _Category.Name;
         }
 
-        private async Task _UpdateSubcategory()
+        private async Task _UpdateSubcategoryAsync()
         {
             _ShowSubcategoryUI();
 
@@ -450,7 +450,7 @@ namespace Computer_Store
             txtSubcategoryName.Text = _Subcategory.Name;
         }
 
-        private async Task _UpdateBrand()
+        private async Task _UpdateBrandAsync()
         {
             _ShowBrandUI();
             BrandDto selectedBrand = (BrandDto)cbxBrand.SelectedItem;
@@ -462,7 +462,7 @@ namespace Computer_Store
             txtBrandName.Text = _Brand.Name;
         }
 
-        private async Task _DeleteCategory()
+        private async Task _DeleteCategoryAsync()
         {
             CategoryDto selectedCategory = (CategoryDto)cbxCategory.SelectedItem;
             int selectedCategoryID = (int)selectedCategory.ID;
@@ -475,7 +475,7 @@ namespace Computer_Store
                 {
                     // Category deleted successfully
                     MessageBox.Show(gvMessages.deleteMessage("category"), "Deleted successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await _LoadCategoriesCombobox();
+                    await _LoadCategoriesComboboxAsync();
                 }
                 else
                 {
@@ -485,7 +485,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DeleteSubcategory()
+        private async Task _DeleteSubcategoryAsync()
         {
             SubcategoryDto selectedSubcategory = (SubcategoryDto)cbxSubcategory.SelectedItem;
             int selectedSubcategoryID = (int)selectedSubcategory.ID;
@@ -497,7 +497,7 @@ namespace Computer_Store
                 {
                     // Subcategory deleted successfully
                     MessageBox.Show(gvMessages.deleteMessage("subcategory"), "Deleted successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await _LoadSubcategoryCombobox(selectedSubcategory.CategoryID);
+                    await _LoadSubcategoryComboboxAsync(selectedSubcategory.CategoryID);
                 }
                 else
                 {
@@ -507,7 +507,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DeleteBrand()
+        private async Task _DeleteBrandAsync()
         {
             BrandDto selectedBrand = (BrandDto)cbxBrand.SelectedItem;
             int selectedBrandID = (int)selectedBrand.ID;
@@ -519,7 +519,7 @@ namespace Computer_Store
                 {
                     // Brand deleted successfully
                     MessageBox.Show(gvMessages.deleteMessage("brand"), "Deleted successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await _LoadBrandsCombobox();
+                    await _LoadBrandsComboboxAsync();
                 }
                 else
                 {
@@ -529,12 +529,19 @@ namespace Computer_Store
             }
         }
 
-        private async Task _SaveCategory()
+        private async Task _SaveCategoryAsync()
         {
             if (string.IsNullOrEmpty(txtCategoryName.Text))
             {
                 MessageBox.Show("Please enter a category name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+
+            // Validate the category name
+            if (await _IsCategoryExistAsync(txtCategoryName.Text))
+            {
+                MessageBox.Show("Category name already exists.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // If validation fails, exit the method
             }
 
             // Set the category name
@@ -551,24 +558,34 @@ namespace Computer_Store
                 // Category saved successfully
                 MessageBox.Show(gvMessages.saveMessage("category"), "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
-                await _LoadCategoriesCombobox();
+                await _LoadCategoriesComboboxAsync();
 
                 _HideCategoryUI();
             }
         }
 
-        private async Task _SaveSubcategory()
+        private async Task _SaveSubcategoryAsync()
         {
             if (string.IsNullOrEmpty(txtSubcategoryName.Text))
             {
                 MessageBox.Show("Please enter a subcategory name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            // Set the subcategory name and category ID
-            _Subcategory.Name = txtSubcategoryName.Text;
+
             CategoryDto selectedCategory = (CategoryDto)cbxCategory.SelectedItem;
 
             _Subcategory.CategoryID = selectedCategory.ID;
+
+            // Validate the subcategory name
+            if (await _IsSubcategoryExistAsync(txtSubcategoryName.Text, _Subcategory?.CategoryID))
+            {
+                MessageBox.Show("Subcategory name already exists.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // If validation fails, exit the method
+            }
+
+            // Set the subcategory name and category ID
+            _Subcategory.Name = txtSubcategoryName.Text;
+            
             var subcategory = await _SubcategoriesClient.SaveAsync(_Subcategory);
             if (subcategory is null)
             {
@@ -581,19 +598,27 @@ namespace Computer_Store
                 // Subcategory saved successfully
                 MessageBox.Show(gvMessages.saveMessage("subcategory"), "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                await _LoadSubcategoryCombobox(_Subcategory.CategoryID);
+                await _LoadSubcategoryComboboxAsync(_Subcategory.CategoryID);
 
                 _HideSubcategoryUI();
             }
         }
 
-        private async Task _SaveBrand()
+        private async Task _SaveBrandAsync()
         {
             if (string.IsNullOrEmpty(txtBrandName.Text))
             {
                 MessageBox.Show("Please enter a brand name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            // Validate the brand name
+            if (await _IsBrandExistAsync(txtBrandName.Text))
+            {
+                MessageBox.Show("Brand name already exists.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // If validation fails, exit the method
+            }
+
             // Set the brand name
             _Brand.Name = txtBrandName.Text;
             var brand = await _BrandsClient.SaveAsync(_Brand);
@@ -608,17 +633,82 @@ namespace Computer_Store
                 // Brand saved successfully
                 MessageBox.Show(gvMessages.saveMessage("brand"), "Saved successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                await _LoadBrandsCombobox();
+                await _LoadBrandsComboboxAsync();
 
                 _HideBrandUI();
             }
+        }
+
+        private bool _ValidateRequiredField(TextBox ctrl, string name)
+        {
+            if (string.IsNullOrWhiteSpace(ctrl.Text))
+            {
+                errorProvider1.SetError(ctrl, $"Please enter the {name}");
+                return false;
+            }
+            else
+            {
+                errorProvider1.SetError(ctrl, string.Empty);
+                return true;
+            }
+        }
+
+        private bool _ValidateRequiredField(RichTextBox ctrl, string name)
+        {
+            if (string.IsNullOrWhiteSpace(ctrl.Text))
+            {
+                errorProvider1.SetError(ctrl, $"Please enter the {name}");
+                return false;
+            }
+            else
+            {
+                errorProvider1.SetError(ctrl, string.Empty);
+                return true;
+            }
+        }
+
+        private bool _IsValidData()
+        {
+            // Validate required fields
+            bool isValid = true;
+            isValid &= _ValidateRequiredField(txtProductName, "product name");
+            isValid &= _ValidateRequiredField(rtxtDescription, "description");
+            isValid &= _ValidateRequiredField(txtPrice, "price");
+           
+            return isValid;
+        }
+
+        private async Task<bool> _IsCategoryExistAsync(string categoryName)
+        {
+            // Check if the category already exists
+            var existingCategory = await _CategoriesClient.IsExistAsync(categoryName);
+            return existingCategory;
+        }
+
+        private async Task<bool> _IsSubcategoryExistAsync(string subcategoryName, int? categoryID)
+        {
+            // Check if the subcategory already exists
+            SubcategoryDto subcategory = new SubcategoryDto
+            {
+                Name = subcategoryName,
+                CategoryID = categoryID
+            };
+            var existingSubcategory = await _SubcategoriesClient.IsExistAsync(subcategory);
+            return existingSubcategory;
+        }
+
+        private async Task<bool> _IsBrandExistAsync(string brandName)
+        {
+            // Check if the brand already exists
+            var existingBrand = await _BrandsClient.IsExistAsync(brandName);
+            return existingBrand;
         }
 
         private async void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             CategoryDto selectedCategory = (CategoryDto)cbxCategory.SelectedItem;
             int selectedCategoryID = (int)selectedCategory.ID;
-            await _LoadSubcategoryCombobox(selectedCategoryID);
+            await _LoadSubcategoryComboboxAsync(selectedCategoryID);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -631,7 +721,13 @@ namespace Computer_Store
             if (MessageBox.Show(gvMessages.askForSaveMessage("product"), "Save?"
                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                await _SaveProduct();
+                // Validate required fields
+                if (!_IsValidData())
+                {
+                    MessageBox.Show(gvMessages.errorProviderMessage, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                await _SaveProductAsync();
             }
         }
 
@@ -675,7 +771,7 @@ namespace Computer_Store
             if (MessageBox.Show(gvMessages.askForSaveMessage("category"), "Save?"
                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                await _SaveCategory();
+                await _SaveCategoryAsync();
             }
         }
 
@@ -694,7 +790,7 @@ namespace Computer_Store
             if (MessageBox.Show(gvMessages.askForSaveMessage("subcategory"), "Save?"
                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                await _SaveSubcategory();
+                await _SaveSubcategoryAsync();
             }
         }
 
@@ -703,7 +799,7 @@ namespace Computer_Store
             if (MessageBox.Show(gvMessages.askForSaveMessage("brand"), "Save?"
                , MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                await _SaveBrand();
+                await _SaveBrandAsync();
             }
         }
 
@@ -724,32 +820,32 @@ namespace Computer_Store
 
         private async void btnEditCategory_Click(object sender, EventArgs e)
         {
-            await _UpdateCategory();
+            await _UpdateCategoryAsync();
         }
 
         private async void btnEditSubcategory_Click(object sender, EventArgs e)
         {
-            await _UpdateSubcategory();
+            await _UpdateSubcategoryAsync();
         }
 
         private async void btnEditBrand_Click(object sender, EventArgs e)
         {
-            await _UpdateBrand();
+            await _UpdateBrandAsync();
         }
 
         private async void btnDeleteCategory_Click(object sender, EventArgs e)
         {
-            await _DeleteCategory();
+            await _DeleteCategoryAsync();
         }
 
         private async void btnDeleteSubcategory_Click(object sender, EventArgs e)
         {
-            await _DeleteSubcategory();
+            await _DeleteSubcategoryAsync();
         }
 
         private async void btnDeleteBrand_Click(object sender, EventArgs e)
         {
-            await _DeleteBrand();
+            await _DeleteBrandAsync();
         }
     }
 }

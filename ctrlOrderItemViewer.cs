@@ -99,7 +99,7 @@ namespace Computer_Store
             InitializeComponent();
         }
 
-        public async Task LoadOrderItem(OrderItemDto orderItem)
+        public async Task LoadOrderItemAsync(OrderItemDto orderItem)
         {
             if (orderItem is null)
             {
@@ -109,10 +109,10 @@ namespace Computer_Store
 
             _OrderItem = orderItem;
 
-            await _DisplayOrderItem();
+            await _DisplayOrderItemAsync();
         }
 
-        private async Task _DisplayOrderItemImage()
+        private async Task _DisplayOrderItemImageAsync()
         {
             int? productID = _OrderItem.ProductID;
 
@@ -132,7 +132,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DisplayOrderItem()
+        private async Task _DisplayOrderItemAsync()
         {
             // Set the order item quantity
             lblQuantity.Text =  _OrderItem.Quantity.ToString();
@@ -167,7 +167,7 @@ namespace Computer_Store
                 }
             }
 
-            await _DisplayOrderItemImage();
+            await _DisplayOrderItemImageAsync();
         }
 
         private async void llblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -127,6 +127,25 @@ namespace ComputerStoreApi.Controllers
             return Ok(exists);
         }
 
+        [HttpGet("IsExistByName/{name}", Name = "IsExistByNameBrand")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> IsExistByName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return BadRequest("Brand name cannot be null or empty");
+            }
+            bool exists = clsBrand.IsExist(name);
+            if (!exists)
+            {
+                return NotFound($"Brand with name '{name}' does not exist");
+            }
+            return Ok(exists);
+        }
+
+
         [HttpGet("GetAll", Name = "GetAllBrands")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

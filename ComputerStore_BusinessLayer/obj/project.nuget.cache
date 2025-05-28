@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+pCSlDC+Bp0=",
+  "dgSpecHash": "vV6b8pFFlyk=",
   "success": true,
   "projectFilePath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_BusinessLayer\\ComputerStore_BusinessLayer.csproj",
   "expectedPackageFiles": [
@@ -96,17 +96,16 @@
     "C:\\Users\\saleh\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\saleh\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\saleh\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\saleh\\.nuget\\packages\\system.threading.tasks.extensions\\4.6.0\\system.threading.tasks.extensions.4.6.0.nupkg.sha512",
-    "C:\\Users\\saleh\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.15\\microsoft.windowsdesktop.app.ref.8.0.15.nupkg.sha512",
-    "C:\\Users\\saleh\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.15\\microsoft.netcore.app.ref.8.0.15.nupkg.sha512",
-    "C:\\Users\\saleh\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.15\\microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
+    "C:\\Users\\saleh\\.nuget\\packages\\system.threading.tasks.extensions\\4.6.0\\system.threading.tasks.extensions.4.6.0.nupkg.sha512"
   ],
   "logs": [
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'System.Net.Http.Formatting.Extension 5.2.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_BusinessLayer\\ComputerStore_BusinessLayer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_BusinessLayer\\ComputerStore_BusinessLayer.csproj",
       "libraryId": "System.Net.Http.Formatting.Extension",
       "targetGraphs": [
         "net8.0"

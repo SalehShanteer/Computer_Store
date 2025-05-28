@@ -56,21 +56,22 @@ namespace Computer_Store
             }
             else
             {
-                // Set title and change button to save
-                lblTitle.Text = "Update Your Account";
+                // Set title and button text
                 btnSignIn.Text = "Save";
 
                 if (_UpdateMode == enUpdateMode.UpdateInfo)
                 {
                     // Hide some UI
+                    lblTitle.Text = "Update Your Account";
                     _HidePasswordUI();
                 }
                 else
                 {
+                    lblTitle.Text = "Change Password";
                     _DisableUIExceptPassword();
                 }
 
-                await _LoadUserInfo();
+                await _LoadUserInfoAsync();
             }
 
             if (_Role == enRole.Admin)
@@ -104,7 +105,7 @@ namespace Computer_Store
             txtConfirmPassword.Visible = false;
         }
 
-        private async Task _LoadUserInfo()
+        private async Task _LoadUserInfoAsync()
         {
             // Retrieve user info
             _User = await _UsersClient.FindAsync(_UserID);
@@ -192,6 +193,87 @@ namespace Computer_Store
             }
         }
 
+        private bool _ValidateRequiredField(TextBox ctrl, string name)
+        {
+            if (string.IsNullOrWhiteSpace(ctrl.Text))
+            {
+                errorProvider1.SetError(ctrl, $"Please enter the {name}");
+                return false;
+            }
+            else
+            {
+                errorProvider1.SetError(ctrl, string.Empty);
+                return true;
+            }
+        }
+
+        private bool _ValidatePassword()
+        {
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                errorProvider1.SetError(txtPassword, "Please enter the password");
+                return false;
+            }
+            else if (!clsUtility.ValidatePassword(txtPassword.Text))
+            {
+                errorProvider1.SetError(txtPassword, "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character");
+                return false;
+            }
+            else if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                errorProvider1.SetError(txtConfirmPassword, "Passwords do not match");
+                return false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtPassword, string.Empty);
+                errorProvider1.SetError(txtConfirmPassword, string.Empty);
+                return true;
+            }
+        }
+
+        private async Task<bool> _ValidateEmailAsync()
+        {
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                errorProvider1.SetError(txtEmail, "Please enter the email");
+                return false;
+            }
+            else if (!clsUtility.ValidateEmail(txtEmail.Text))
+            {
+                errorProvider1.SetError(txtEmail, "Please enter a valid email address");
+                return false;
+            }
+            else if (_Mode == enMode.AddNew && await _UsersClient.IsUserExistsByEmailAsync(txtEmail.Text))
+            {
+                errorProvider1.SetError(txtEmail, "This email is already registered");
+                return false;
+            }
+            else if (_Mode == enMode.Update && await _UsersClient.IsUserExistsByEmailAsync(txtEmail.Text) && _User.Email != txtEmail.Text)
+            {
+                errorProvider1.SetError(txtEmail, "This email is already registered with another user");
+                return false;
+            }
+            else
+            {
+                errorProvider1.SetError(txtEmail, string.Empty);
+                return true;
+            }
+        }
+
+        private async Task<bool> _IsValidDataAsync()
+        {
+            bool isValid = true;
+
+            isValid = isValid & _ValidateRequiredField(txtFirstName, "first name");
+            isValid = isValid & _ValidateRequiredField(txtLastName, "last name");
+            isValid = isValid & await _ValidateEmailAsync();
+            isValid = isValid & _ValidateRequiredField(txtPhone, "phone");
+            isValid = isValid & _ValidatePassword();
+
+            return isValid;
+        }
+
         private async void btnSignIn_Click(object sender, EventArgs e)
         {
 
@@ -201,12 +283,32 @@ namespace Computer_Store
                 // save user if user in add new mode or update info mode
                 if (_UpdateMode == enUpdateMode.UpdateInfo || _Mode == enMode.AddNew)
                 {
-                    await _SaveUserAsync();
+                    if (await _IsValidDataAsync())
+                    {
+                        await _SaveUserAsync();
+                        MessageBox.Show("User information saved successfully", "Success",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter the required data", "Error!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 // change password if user in change password mode
                 else
                 {
-                    await _ChangePasswordAsync();
+                    if (_ValidatePassword())
+                    {
+                        await _ChangePasswordAsync();
+                        MessageBox.Show("Password changed successfully", "Success",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter the required data", "Error!",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -224,5 +326,36 @@ namespace Computer_Store
             this.Close();
         }
 
+        private void pbShowHidePassword_Click(object sender, EventArgs e)
+        {
+            if (txtPassword.UseSystemPasswordChar == true)
+            {
+                // Show password in plain text
+                pbShowHidePassword.Image = Properties.Resources.show;
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Hide password in plain text
+                pbShowHidePassword.Image = Properties.Resources.hide;
+                txtPassword.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void pbShowHideConfirmPassword_Click(object sender, EventArgs e)
+        {
+            if (txtConfirmPassword.UseSystemPasswordChar == true)
+            {
+                // Show password in plain text
+                pbShowHideConfirmPassword.Image = Properties.Resources.show;
+                txtConfirmPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Hide password in plain text
+                pbShowHideConfirmPassword.Image = Properties.Resources.hide;
+                txtConfirmPassword.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

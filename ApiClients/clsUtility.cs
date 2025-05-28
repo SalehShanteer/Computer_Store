@@ -171,7 +171,43 @@ namespace ApiClients
                 return false;
             }
         }
+        
 
+        // Validation
+        public static bool ValidatePassword(string Password)
+        {
+            if (Password.Length < 8)
+            {
+                return false;
+            }
+            bool HasUpper = false;
+            bool HasLower = false;
+            bool HasDigit = false;
+            bool HasSpecial = false;
+
+            for (int i = 0; i < Password.Length; i++)
+            {
+                if (char.IsUpper(Password[i]))
+                {
+                    HasUpper = true;
+                }
+                if (char.IsLower(Password[i]))
+                {
+                    HasLower = true;
+                }
+                if (char.IsDigit(Password[i]))
+                {
+                    HasDigit = true;
+                }
+                if (char.IsSymbol(Password[i]) || char.IsPunctuation(Password[i]))
+                {
+                    HasSpecial = true;
+                }
+            }
+            return HasUpper && HasLower && HasDigit && HasSpecial;
+        }
+
+        // Formatting
         public static string DecimalToMoneyString(decimal? value)
             {
             return "$" + (value != null ? value?.ToString("F2") : "0.00");

@@ -1,7 +1,6 @@
 ﻿using ApiClients.ClientDtos;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +69,17 @@ namespace ApiClients
             var request = new HttpRequestMessage(HttpMethod.Get, $"IsExist/{id}");
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }
+
+        public async Task<bool> IsExistAsync(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+            var request = new HttpRequestMessage(HttpMethod.Get, $"IsExistByName/{name}");
+            return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+        }
+
 
         public async Task<IEnumerable<CategoryDto>> GetAllAsync()
         {

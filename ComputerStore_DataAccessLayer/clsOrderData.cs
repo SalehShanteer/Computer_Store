@@ -165,6 +165,32 @@ namespace ComputerStore_DataAccessLayer
             return rowsAffected > 0;
         }
 
+        public static bool ChangeOrderStatus(OrderStatusDto orderStatus)
+        {
+            int rowsAffected = 0;
+
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_ChangeOrderStatus", connection))
+                {
+                    command.CommandType= CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@OrderID", orderStatus.ID);
+                    command.Parameters.AddWithValue("@Status", orderStatus.Status);
+
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+            return rowsAffected > 0;
+        }
+
         public static bool DeleteOrder(int? orderId)
         {
             int rowsAffected = 0;

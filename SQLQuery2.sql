@@ -192,23 +192,34 @@ END;
 
 ALTER TRIGGER TRG_OrderItems_UpdateOrderTotalAmount
 ON OrderItems
-AFTER INSERT, UPDATE
+AFTER INSERT, UPDATE, DELETE
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @TotalAmount DECIMAL(10,2);
-	DECLARE @OrderID INT;
-	
-	-- Get OrderID to update order total amount
-	SELECT @OrderID = OrderID FROM inserted
 
-	-- Get new total amount
-	SELECT @TotalAmount = SUM(TotalItemsPrice)
-	FROM OrderItems
-	WHERE OrderID = @OrderID
+	DECLARE @AffectedRows TABLE (OrderID INT)
 
-	UPDATE Orders
-	SET TotalAmount = @TotalAmount
-	WHERE OrderID = @OrderID
+	-- For INSERT and UPDATE, get OrderIDs from inserted
+	INSERT INTO @AffectedRows (OrderID)
+	SELECT DISTINCT OrderID
+	FROM inserted
+	WHERE OrderID IS NOT NULL
+
+	-- For DELETE and UPDATE, get OrderIDs from inserted
+	INSERT INTO @AffectedRows (OrderID)
+	SELECT DISTINCT OrderID
+	FROM deleted
+	WHERE OrderID IS NOT NULL AND OrderID NOT IN (SELECT OrderID FROM @AffectedRows)
+
+	-- Update TotalAmount for each affected OrderID
+	UPDATE o
+	SET TotalAmount = COALESCE( 
+	(SELECT SUM(TotalItemsPrice) FROM OrderItems oi
+	WHERE oi.OrderID = o.OrderID)
+	, 0)
+	FROM Orders o
+	INNER JOIN @AffectedRows oa
+	ON o.OrderID = oa.OrderID
 END
+
 

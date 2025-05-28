@@ -82,6 +82,11 @@ namespace ComputerStore_BusinessLayer
             return clsCategoryData.IsCategoryExist(id);
         }   
 
+        public static bool IsExist(string name)
+        {
+            return clsCategoryData.IsCategoryNameExist(name);
+        }
+
         public static bool Delete(int id)
         {
             return clsCategoryData.DeleteCategory(id);

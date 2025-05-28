@@ -2,9 +2,7 @@
 using ApiClients;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApiClients.ClientDtos;
@@ -46,10 +44,10 @@ namespace Computer_Store
 
         private async void frmProductViewer_Load(object sender, EventArgs e)
         {
-            await _LoadProductDetails();
+            await _LoadProductDetailsAsync();
         }
 
-        private async Task _LoadProductDetails()
+        private async Task _LoadProductDetailsAsync()
         {
             try
             {
@@ -67,13 +65,13 @@ namespace Computer_Store
                 return;
             }
 
-            await Task.WhenAll(_LoadImagesPaths(), _LoadReview(), _GetUserID());
+            await Task.WhenAll(_LoadImagesPathsAsync(), _LoadReviewAsync(), _GetUserIDAsync());
 
             // Display product details and images
-            await _DisplayProductDetails();
+            await _DisplayProductDetailsAsync();
         }
             
-        private async Task _GetUserID()
+        private async Task _GetUserIDAsync()
         {
             var currentUser = await _UserSettingsClient.FindAsync("Current User");
             if (currentUser != null && currentUser.UserID != null)
@@ -82,7 +80,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _LoadImagesPaths()
+        private async Task _LoadImagesPathsAsync()
         {
             // Load image paths from the product images
             _ProductImagePaths = new List<string>();
@@ -132,7 +130,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DisplayProductDetails()
+        private async Task _DisplayProductDetailsAsync()
         {
             // Display product details
             lblProductID.Text = _Product.ID.ToString();
@@ -147,7 +145,7 @@ namespace Computer_Store
             // Display product rating as stars
             ctrlStarsRating.DisplayRating(_Product.Rating);
 
-            await _DisplayProductQuantity();
+            await _DisplayProductQuantityAsync();
             _DisplayReviewUI();
 
             _ImageOrder = 1; // Initialize image order to 1
@@ -161,7 +159,7 @@ namespace Computer_Store
             nudQuantityToCart.Maximum = (int)quantity;
         }
 
-        private async Task _DisplayProductQuantity()
+        private async Task _DisplayProductQuantityAsync()
         {
             short? quantity = _Product.QuantityInStock;
 
@@ -190,7 +188,7 @@ namespace Computer_Store
             _DisplayQuantityToCart((short)quantity);
         }
 
-        private async Task _LoadReview()
+        private async Task _LoadReviewAsync()
         {
             var currentUser = await _UserSettingsClient.FindAsync("Current User");
 
@@ -292,7 +290,7 @@ namespace Computer_Store
             btnAddEditReview.Text = "Add Review";
         }   
 
-        private async Task _SendReview()
+        private async Task _SendReviewAsync()
         {
             if (_Review == null)
             {
@@ -326,7 +324,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _AddItemToCart()
+        private async Task _AddItemToCartAsync()
         {
             // Add the item to the cart
             var orderItem = new OrderItemDto
@@ -341,7 +339,7 @@ namespace Computer_Store
                 MessageBox.Show("Item added to cart successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Update the product quantity in stock
-                await _DisplayProductQuantity();
+                await _DisplayProductQuantityAsync();
             }
             else
             {
@@ -396,7 +394,7 @@ namespace Computer_Store
 
         private async void pbSend_Click(object sender, EventArgs e)
         {
-            await _SendReview();
+            await _SendReviewAsync();
         }
 
         private void btnAddEditReview_Click(object sender, EventArgs e)
@@ -429,7 +427,7 @@ namespace Computer_Store
 
         private async void btnAddToCart_Click(object sender, EventArgs e)
         {
-            await _AddItemToCart();
+            await _AddItemToCartAsync();
         }
     }
 }

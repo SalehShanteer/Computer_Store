@@ -79,6 +79,8 @@ namespace ComputerStore_BusinessLayer
             return false;
         }
 
+        public static bool ChangeStatus(OrderStatusDto orderStatusDto) => clsOrderData.ChangeOrderStatus(orderStatusDto);
+
         public static bool Delete(int orderId) => clsOrderData.DeleteOrder(orderId);
 
         public static clsOrder Find(int orderId)

@@ -20,12 +20,6 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets\msbuild.ComputerStoreApi.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets\msbuild.ComputerStoreApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets\msbuild.build.ComputerStoreApi.props
-C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ComputerStoreApi.props
-C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ComputerStoreApi.props
-C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\Computer.706908DC.Up2Date
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\ComputerStoreApi.dll
@@ -105,3 +99,4 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\bin\
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\ComputerStoreApi.sourcelink.json
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\ComputerStoreApi\obj\Debug\net8.0\staticwebassets.build.json.cache

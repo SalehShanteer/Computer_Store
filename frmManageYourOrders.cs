@@ -21,6 +21,8 @@ namespace Computer_Store
         private PaymentsApiClient _PaymentClient = new PaymentsApiClient(ApiUrls.PaymentsURL);
 
         private int _UserID;
+        private int _OrderID;
+        private byte _CurrentOrderStatus;
 
         public frmManageYourOrders(int userID)
         {
@@ -31,7 +33,7 @@ namespace Computer_Store
 
         private async void frmManageYourOrders_Load(object sender, EventArgs e)
         {
-            await _LoadUserOrders();
+            await _LoadUserOrdersAsync();
         }
 
         private void _DisplayOrder(OrderDto order, int positionY)
@@ -41,7 +43,7 @@ namespace Computer_Store
                 return;
             }
             var orderViewer = new ctrlOrderViewer();
-            orderViewer.LoadOrderAsync(order);
+            orderViewer.LoadOrder(order);
             orderViewer.Location = new Point(0, positionY);
             orderViewer.Size = new Size(502, 112); // Adjust size as needed
             pnlOrders.Controls.Add(orderViewer);
@@ -49,8 +51,9 @@ namespace Computer_Store
             orderViewer.Click += orderViewer_Click; // Subscribe to the click event
         }
 
-        private async Task _LoadUserOrders()
+        private async Task _LoadUserOrdersAsync()
         {
+            pnlOrders.Controls.Clear(); // Clear previous orders from the panel if any
             try
             {
                 // Assuming you have a method to get user orders
@@ -99,7 +102,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DisplayShippingInfo(int? orderID)
+        private async Task _DisplayShippingInfoAsync(int? orderID)
         {
             try
             {
@@ -123,7 +126,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DisplayPaymentInfo(int? orderID)
+        private async Task _DisplayPaymentInfoAsync(int? orderID)
         {
             try
             {
@@ -143,11 +146,11 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DisplayOverallOrderInfo(int? orderID)
+        private async Task _DisplayOverallOrderInfoAsync(int? orderID)
         {
             try
             {
-              await Task.WhenAll(_DisplayShippingInfo(orderID), _DisplayPaymentInfo(orderID));
+              await Task.WhenAll(_DisplayShippingInfoAsync(orderID), _DisplayPaymentInfoAsync(orderID));
             }
             catch (Exception ex)
             {
@@ -167,6 +170,14 @@ namespace Computer_Store
             lblTotalPrice.Text = "???";
             lblShippingStatus.Text = "???";
 
+            // Hide the cancel order button
+            btnCancelOrder.Visible = false;
+        }
+
+        private async Task<bool> _CancelOrderAsync()
+        {
+            var isCanceled = await _OrderClient.UpdateStatusAsync(new OrderStatusDto(_OrderID, 0));
+            return isCanceled;
         }
 
         private async void orderViewer_Click(object sender, EventArgs e)
@@ -181,11 +192,17 @@ namespace Computer_Store
             {
                 if (orderViewer.OrderID != null)
                 {
-                    lblOrderID.Text = orderViewer.OrderID.ToString();
+                    _OrderID = orderViewer.OrderID.Value;
+                    lblOrderID.Text = _OrderID.ToString();
+                    _CurrentOrderStatus = orderViewer.OrderStatus.Value;
 
-                    if (orderViewer.OrderStatus != 1)
+                    if (_CurrentOrderStatus != 1)
                     {
-                        await _DisplayOverallOrderInfo(orderViewer.OrderID);
+                        if (_CurrentOrderStatus == 2 || _CurrentOrderStatus == 3)
+                        {
+                            btnCancelOrder.Visible = true;
+                        }
+                        await _DisplayOverallOrderInfoAsync(_OrderID);
                     }
                 }
             }
@@ -198,6 +215,27 @@ namespace Computer_Store
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to cancel this order with id = " + _OrderID, "Cancel the order?"
+                , MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (_CurrentOrderStatus == 2 || _CurrentOrderStatus == 3)
+                {
+                    if (await _CancelOrderAsync())
+                    {
+                        MessageBox.Show("Order canceled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        await _LoadUserOrdersAsync();
+                        await _DisplayOverallOrderInfoAsync(_OrderID);
+                        btnCancelOrder.Visible = false; // Hide the cancel button after successful cancellation
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to cancel the order.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
+                }
         }
     }
 }

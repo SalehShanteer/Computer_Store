@@ -56,6 +56,20 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<OrderDto>(request, _httpClient);
         }
 
+        public async Task<bool> UpdateStatusAsync(OrderStatusDto orderStatus)
+        {
+            if (orderStatus is null)
+            {
+                throw new ArgumentNullException(nameof(orderStatus));
+            }
+
+            string query = $"?ID={orderStatus.ID}&Status={orderStatus.Status}";
+            var request = new HttpRequestMessage(HttpMethod.Put, $"UpdateStatus{query}");
+            request.Content = null; // Ensure no body
+
+            return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+        }
+
         public async Task<bool> DeleteAsync(int? id)
         {
             if (!id.HasValue)

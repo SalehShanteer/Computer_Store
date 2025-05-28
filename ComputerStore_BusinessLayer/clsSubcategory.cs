@@ -82,6 +82,11 @@ namespace ComputerStore_BusinessLayer
             return clsSubcategoryData.IsSubcategoryExist(id);
         }
 
+        public static bool IsExist(string name, int? categoryID)
+        {
+            return clsSubcategoryData.IsSubcategoryNameExist(name, categoryID);
+        }
+
         public static bool IsSubcategoryBelongsToCategory(int? SubcategoryID, int? categoryID)
         {
             return clsSubcategoryData.IsSubcategoryBelongsToCategory(SubcategoryID, categoryID);

@@ -71,6 +71,16 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }
 
+        public async Task<bool> IsExistAsync(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ArgumentException("Brand name cannot be null or empty", nameof(name));
+            }
+            var request = new HttpRequestMessage(HttpMethod.Get, $"IsExistByName/{name}");
+            return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+        }
+
         public async Task<IEnumerable<BrandDto>> GetAllAsync()
         {
             var request = new HttpRequestMessage(HttpMethod.Get, "GetAll");

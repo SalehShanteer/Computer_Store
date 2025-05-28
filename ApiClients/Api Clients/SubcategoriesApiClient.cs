@@ -72,6 +72,18 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
         }
 
+        public async Task<bool> IsExistAsync(SubcategoryDto subcategoryDto)
+        {
+            if (subcategoryDto == null)
+            {
+                throw new ArgumentNullException(nameof(subcategoryDto));
+            }
+            var request = new HttpRequestMessage(
+                HttpMethod.Get,
+                $"IsExist?categoryID={subcategoryDto.CategoryID}&name={subcategoryDto.Name}");
+            return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+        }
+
         public async Task<bool> IsSubcategoryBelongsToCategoryAsync(int? subcategoryId, int? categoryId)
         {
             if (!subcategoryId.HasValue || subcategoryId < 1 || !categoryId.HasValue || categoryId < 1)

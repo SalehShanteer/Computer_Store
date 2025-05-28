@@ -28,21 +28,29 @@ namespace Computer_Store
             _UserID = UserID;
         }
 
-        private void frmOrderCart_Load(object sender, EventArgs e)
+        private async void frmOrderCart_Load(object sender, EventArgs e)
         {
-            _LoadOrderAsync(_UserID);
+            await _LoadOrderAsync(_UserID);
         }
 
         private void _HideNoCart()
         {
+            // Hide the empty cart message and show the items container
+            pnItemsContainer.Visible = true;
             lblEmptyCart.Visible = false;
             pbEmptyCart.Visible = false;
+            lblTotalPrice.Visible = true;
+            lblTotalAmountLabel.Visible = true;
         }
 
         private void _ShowNoCart()
         {
+            // Show the empty cart message and hide the items container
+            pnItemsContainer.Visible = false;
             lblEmptyCart.Visible = true;
             pbEmptyCart.Visible = true;
+            lblTotalPrice.Visible = false;
+            lblTotalAmountLabel.Visible = false;
         }
 
         private void _GetTotalPrice()
@@ -60,7 +68,7 @@ namespace Computer_Store
             lblTotalPrice.Text = clsUtility.DecimalToMoneyString(totalPrice);
         }
 
-        private async void _LoadOrderAsync(int? UserID)
+        private async Task _LoadOrderAsync(int? UserID)
         {
 
             _DisableContinueToPaymentButton();
@@ -70,7 +78,7 @@ namespace Computer_Store
             // Check if the order is not null and has a status of 1 (Draft)
             if (_Order != null && _Order.Status == 1)
             {
-                await _LoadOrderItems();
+                await _LoadOrderItemsAsync();
             }
             else
             {
@@ -79,14 +87,14 @@ namespace Computer_Store
             }
         }
 
-        private async Task _LoadOneOrderItem(OrderItemDto orderItem, int positionY)
+        private async Task _LoadOneOrderItemAsync(OrderItemDto orderItem, int positionY)
         {
             if (orderItem == null)
             {
                 return;
             }
             var orderItemViewer = new ctrlOrderItemViewer();
-            await orderItemViewer.LoadOrderItem(orderItem);
+            await orderItemViewer.LoadOrderItemAsync(orderItem);
             orderItemViewer.Location = new Point(10, positionY);
             orderItemViewer.Size = new Size(526, 122);
             pnItemsContainer.Controls.Add(orderItemViewer);
@@ -98,7 +106,7 @@ namespace Computer_Store
             orderItemViewer.OrderItemQuantityChanged += ctrlOrderItem_QuantityChanged;
         }
 
-                private async Task _LoadOrderItems()
+        private async Task _LoadOrderItemsAsync()
         {
             if (_Order == null)
             {
@@ -111,7 +119,7 @@ namespace Computer_Store
                 // Load order items into the UI
                 foreach (var item in orderItems)
                 {
-                    await _LoadOneOrderItem(item, positionY);
+                    await _LoadOneOrderItemAsync(item, positionY);
                     positionY += 5 + 122; // Adjust the position for the next item
                 }
                 _HideNoCart();
@@ -149,7 +157,7 @@ namespace Computer_Store
 
                 pnItemsContainer.Controls.Clear();
 
-                await _LoadOrderItems();
+                await _LoadOrderItemsAsync();
             }
         }
 
@@ -181,7 +189,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _UpdateOneOrderItem(int productId, short quantity)
+        private async Task _UpdateOneOrderItemAsync(int productId, short quantity)
         {
             OrderItemDto orderItemDto = new OrderItemDto()
             {
@@ -193,7 +201,7 @@ namespace Computer_Store
             orderItemDto = await _OrderItemsClient.UpdateAsync(orderItemDto);
         }
 
-        private async Task _UpdateOrderItemsQuantityIfChanged()
+        private async Task _UpdateOrderItemsQuantityIfChangedAsync()
         {
             // Check if there are any items to update using multiple threads
             var tasks = new List<Task>();
@@ -201,7 +209,7 @@ namespace Computer_Store
             {
                 if (_OrderItemsInfo[productId] > 0)
                 {
-                    tasks.Add(Task.Run(() => _UpdateOneOrderItem(productId, _OrderItemsInfo[productId])));
+                    tasks.Add(Task.Run(() => _UpdateOneOrderItemAsync(productId, _OrderItemsInfo[productId])));
                 }
             });
 
@@ -211,12 +219,16 @@ namespace Computer_Store
         private void _ShowManageYourOrdersScreen()
         {
             frmManageYourOrders frm = new frmManageYourOrders(_UserID.Value);
+            frm.FormClosed += (s, e) =>
+            {
+                this.Focus(); // Focus on close
+            };
             frm.Show();
         }
 
         private async void btnContinueToPayment_Click(object sender, EventArgs e)
         {
-            await _UpdateOrderItemsQuantityIfChanged();
+            await _UpdateOrderItemsQuantityIfChangedAsync();
             _ShowPaymentPortal();
         }
 

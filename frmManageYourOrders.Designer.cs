@@ -48,6 +48,7 @@
             this.lblShippingStatus = new System.Windows.Forms.Label();
             this.lblOrderID = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnCancelOrder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pnlOrders
@@ -65,7 +66,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClose.Location = new System.Drawing.Point(12, 407);
+            this.btnClose.Location = new System.Drawing.Point(12, 398);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(83, 31);
             this.btnClose.TabIndex = 149;
@@ -254,12 +255,29 @@
             this.label10.TabIndex = 167;
             this.label10.Text = "Order ID:";
             // 
+            // btnCancelOrder
+            // 
+            this.btnCancelOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnCancelOrder.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCancelOrder.Location = new System.Drawing.Point(675, 398);
+            this.btnCancelOrder.Name = "btnCancelOrder";
+            this.btnCancelOrder.Size = new System.Drawing.Size(160, 31);
+            this.btnCancelOrder.TabIndex = 169;
+            this.btnCancelOrder.Text = "Cancel The Order";
+            this.btnCancelOrder.UseVisualStyleBackColor = false;
+            this.btnCancelOrder.Visible = false;
+            this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
+            // 
             // frmManageYourOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(870, 450);
+            this.ClientSize = new System.Drawing.Size(870, 441);
+            this.Controls.Add(this.btnCancelOrder);
             this.Controls.Add(this.lblOrderID);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblShippingStatus);
@@ -312,5 +330,6 @@
         private System.Windows.Forms.Label lblShippingStatus;
         private System.Windows.Forms.Label lblOrderID;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnCancelOrder;
     }
 }

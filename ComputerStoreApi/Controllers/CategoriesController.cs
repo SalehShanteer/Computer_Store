@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ComputerStore_BusinessLayer;
 using DTOs;
 using Validation;
@@ -124,6 +123,24 @@ namespace ComputerStoreApi.Controllers
                 return NotFound($"Category with ID {id} does not exist");
             }
 
+            return Ok(exists);
+        }
+
+        [HttpGet("IsExistByName/{name}", Name = "IsExistByNameCategory")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<bool> IsExistByName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return BadRequest("Category name cannot be null or empty");
+            }
+            bool exists = clsCategory.IsExist(name);
+            if (!exists)
+            {
+                return NotFound($"Category with name '{name}' does not exist");
+            }
             return Ok(exists);
         }
 

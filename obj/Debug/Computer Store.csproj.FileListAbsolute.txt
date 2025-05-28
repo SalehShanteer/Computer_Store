@@ -132,3 +132,4 @@ C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_St
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.frmPaymentPortal.resources
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.ctrlOrderViewer.resources
 C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer_Store.frmManageYourOrders.resources
+C:\Users\saleh\Desktop\Programming\Projects\Computer Store\obj\Debug\Computer Store.exe.config

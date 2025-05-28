@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
@@ -80,12 +81,14 @@
             this.btnSaveCategory = new System.Windows.Forms.Button();
             this.btnCancelBrand = new System.Windows.Forms.Button();
             this.btnSaveBrand = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantityInStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -762,6 +765,10 @@
             this.btnSaveBrand.Visible = false;
             this.btnSaveBrand.Click += new System.EventHandler(this.btnSaveBrand_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAddUpdateProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -832,6 +839,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImage3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -891,5 +899,6 @@
         private System.Windows.Forms.Button btnSaveCategory;
         private System.Windows.Forms.Button btnCancelBrand;
         private System.Windows.Forms.Button btnSaveBrand;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

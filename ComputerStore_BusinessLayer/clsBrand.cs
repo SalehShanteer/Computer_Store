@@ -77,6 +77,11 @@ namespace ComputerStore_BusinessLayer
             return clsBrandData.IsBrandExist(id);
         }
 
+        public static bool IsExist(string name)
+        {
+            return clsBrandData.IsBrandNameExist(name);
+        }
+
         public static bool Delete(int? id)
         {
             return clsBrandData.DeleteBrand(id);

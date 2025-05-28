@@ -57,11 +57,16 @@ namespace ComputerStore_DataAccessLayer
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@OrderID", orderItemKey.OrderID);
                     command.Parameters.AddWithValue("@ProductID", orderItemKey.ProductID);
-
+                    SqlParameter existsParam = new SqlParameter("@Exists", SqlDbType.Bit)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    command.Parameters.Add(existsParam);
                     try
                     {
                         connection.Open();
-                        isExist = Convert.ToBoolean(command.ExecuteScalar());
+                        command.ExecuteNonQuery();
+                        isExist = Convert.ToBoolean(existsParam.Value);
                     }
                     catch (Exception ex)
                     {

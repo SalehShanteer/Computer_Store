@@ -35,7 +35,7 @@ namespace Computer_Store
             InitializeComponent();
         }
 
-        public async Task LoadProductInfo(ProductDto product, int userID)
+        public async Task LoadProductInfoAsync(ProductDto product, int userID)
         {
             // show product
             this.Visible = true;
@@ -48,7 +48,7 @@ namespace Computer_Store
             if (product != null)
             {
                 _Product = product;
-                await _DisplayProduct();
+                await _DisplayProductAsync();
             }
         }
 
@@ -58,7 +58,7 @@ namespace Computer_Store
             this.Visible = false;       
         }
 
-        private async Task _DisplayProductQuantity()
+        private async Task _DisplayProductQuantityAsync()
         {
             short? quantity = _Product.QuantityInStock;
 
@@ -85,7 +85,7 @@ namespace Computer_Store
             }           
         }
 
-        private async Task _DisplayProductImage()
+        private async Task _DisplayProductImageAsync()
         {
             int? productID = _Product.ID;
 
@@ -105,7 +105,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _DisplayProduct()
+        private async Task _DisplayProductAsync()
         {
             lblProductID.Text = _Product.ID.ToString();
             lblProductName.Text = _Product.Name;
@@ -114,7 +114,7 @@ namespace Computer_Store
             // Display product rating 
             ctrlStarsRating.DisplayRating(_Product.Rating);
 
-            await Task.WhenAll(_DisplayProductImage(),_DisplayProductQuantity());
+            await Task.WhenAll(_DisplayProductImageAsync(),_DisplayProductQuantityAsync());
         }
 
     }

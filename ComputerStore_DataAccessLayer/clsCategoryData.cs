@@ -116,7 +116,31 @@ namespace ComputerStore_DataAccessLayer
                     catch (Exception ex)
                     {
                         // Log the exception to the event log
-                        System.Diagnostics.EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, System.Diagnostics.EventLogEntryType.Error);
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+            return IsExists;
+        }
+
+        public static bool IsCategoryNameExist(string name)
+        {
+            bool IsExists = false;
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_IsCategoryNameExist", connection))
+                {
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Name", name);
+                    try
+                    {
+                        connection.Open();
+                        IsExists = Convert.ToBoolean(command.ExecuteScalar());
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log the exception to the event log
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
                     }
                 }
             }

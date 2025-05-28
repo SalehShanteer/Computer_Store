@@ -1,11 +1,5 @@
 ﻿using ApiClients;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ApiClients.Api_URLs;
@@ -32,10 +26,10 @@ namespace Computer_Store
 
         private async void frmPaymentPortal_Load(object sender, EventArgs e)
         {
-            await _LoadPaymentPage();
+            await _LoadPaymentPageAsync();
         }
 
-        private async Task _LoadPaymentMethods()
+        private async Task _LoadPaymentMethodsAsync()
         {
             // Load payment methods from the API
             var paymentMethods = await _PaymentMethodClient.GetAllAsync();
@@ -52,7 +46,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _LoadOrderPrice()
+        private async Task _LoadOrderPriceAsync()
         {
             // Load order price from the API
             var order = await _OrdersClient.FindAsync(_OrderID);
@@ -70,7 +64,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _LoadShippingCarriesrs()
+        private async Task _LoadShippingCarriesrsAsync()
         {
             // Load shipping carriers from the API
             var shippingCarriers = await _ShippingClient.GetAvailableCarriersAsync();
@@ -89,7 +83,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _LoadShippingCost()
+        private async Task _LoadShippingCostAsync()
         {
             decimal? shippingCost = 0;
             shippingCost = await _ShippingClient.GetShippingCostAsync(_OrderID);
@@ -120,7 +114,7 @@ namespace Computer_Store
             }
         }
 
-        public async Task _LoadEstimatedDeliveryDate()
+        public async Task _LoadEstimatedDeliveryDateAsync()
         {
             DateTime? estimatedDeliveryDate = null;
             estimatedDeliveryDate = await _ShippingClient.GetEstimatedDeliveryDateAsync(_OrderID);
@@ -134,7 +128,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _LoadPaymentPage()
+        private async Task _LoadPaymentPageAsync()
         {
             if (_OrderID == null)
             {
@@ -142,12 +136,12 @@ namespace Computer_Store
                 this.Close();
             }
 
-            await Task.WhenAll(_LoadPaymentMethods(), _LoadShippingCarriesrs(), _LoadShippingCost(), _LoadEstimatedDeliveryDate(), _LoadOrderPrice());
+            await Task.WhenAll(_LoadPaymentMethodsAsync(), _LoadShippingCarriesrsAsync(), _LoadShippingCostAsync(), _LoadEstimatedDeliveryDateAsync(), _LoadOrderPriceAsync());
 
             _LoadTotalPrice();
         }
 
-        private async void _Purchase()
+        private async Task _Purchase()
         {
             // Create a new shipping object
             var shipping = new ShippingDto
@@ -185,11 +179,11 @@ namespace Computer_Store
             }
         }
 
-        private void btnPurchase_Click(object sender, EventArgs e)
+        private async void btnPurchase_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to proceed with the payment?", "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _Purchase();
+                await _Purchase();
             }
         }
 

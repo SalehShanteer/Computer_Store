@@ -75,7 +75,6 @@ namespace ApiClients
             ValidateOrderItemKey(orderItemKey);
 
             string query = $"?OrderID={orderItemKey.OrderID}&ProductID={orderItemKey.ProductID}";
-
             var request = new HttpRequestMessage(HttpMethod.Delete, $"Delete{query}");
 
             return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
@@ -97,7 +96,6 @@ namespace ApiClients
             {
                 throw new ArgumentNullException(nameof(orderId));
             }
-
             var request = new HttpRequestMessage(HttpMethod.Get, $"GetByOrder/{orderId}");
 
             return await GenericClientMethods.SendRequestAsync<IEnumerable<OrderItemDto>>(request, _httpClient);

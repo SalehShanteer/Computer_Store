@@ -24,10 +24,10 @@ namespace Computer_Store
 
         private async void frmLogin_Load(object sender, EventArgs e)
         {
-           await _RetrieveSavedUser();
+           await _RetrieveSavedUserAsync();
         }
 
-        private async Task _RetrieveSavedUser()
+        private async Task _RetrieveSavedUserAsync()
         {
 
             if (clsUtility.ReadFromRegistry("SavedEmail") != string.Empty)
@@ -50,7 +50,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task<(bool success, string errorMessage)> _CheckLoginProccess(UserDto CurrentUser, LoginRecordDto LoginRecord)
+        private async Task<(bool success, string errorMessage)> _CheckLoginProccessAsync(UserDto CurrentUser, LoginRecordDto LoginRecord)
         {
             bool CanPass = false;
 
@@ -95,13 +95,12 @@ namespace Computer_Store
 
         private void _EnterMainScreen()
         {
-            //this.Hide(); // Hide the login form
             frmMain frm = new frmMain();
-            frm.Show(); // Block until the main form closes
-            //this.Close(); // Close the login form after the main form is closed
+            frm.FormClosed += (s, args) => this.Focus(); // Ensure the login form focus when the main form is closed
+            frm.Show(); 
         }
 
-        private async Task<(bool success, string errorMessage)> _RegisterCurrentUser(UserDto User)
+        private async Task<(bool success, string errorMessage)> _RegisterCurrentUserAsync(UserDto User)
         {
             UserSettingsDto CurrentUser = await _UserSettingsClient.FindAsync("Current User");
 
@@ -150,10 +149,10 @@ namespace Computer_Store
                 UserDto CurrentUser = await _UsersClient.FindAsync(txtEmail.Text);
                 LoginRecordDto LoginRecord = new LoginRecordDto();
 
-                var CheckLogin = await _CheckLoginProccess(CurrentUser, LoginRecord);
+                var CheckLogin = await _CheckLoginProccessAsync(CurrentUser, LoginRecord);
                 if (CheckLogin.success)
                 {
-                    CheckLogin = await _RegisterCurrentUser(CurrentUser);
+                    CheckLogin = await _RegisterCurrentUserAsync(CurrentUser);
                     if (CheckLogin.success)
                     {
                         await _SetSavedUserAsync(CurrentUser);
@@ -179,6 +178,7 @@ namespace Computer_Store
         private void _CreateNewAccount()
         {
             frmCreateNewAccount frm = new frmCreateNewAccount(null, enRole.Customer, 0);
+            frm.FormClosed += (s, args) => this.Focus(); // Ensure the login form regains focus after the create account form is closed
             frm.Show();
         }
 
@@ -189,7 +189,7 @@ namespace Computer_Store
 
         private void pbExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit(); // Exit the application
         }
 
         private void pbShowHidePassword_Click_1(object sender, EventArgs e)

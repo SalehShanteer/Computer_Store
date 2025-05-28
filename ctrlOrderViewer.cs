@@ -88,7 +88,7 @@ namespace Computer_Store
             }
         }
 
-        public void LoadOrderAsync(OrderDto order)
+        public void LoadOrder(OrderDto order)
         {
             if (order != null)
             {

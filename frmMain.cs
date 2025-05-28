@@ -40,27 +40,27 @@ namespace Computer_Store
 
         private async void frmMain_Load(object sender, EventArgs e)
         {
-            await _GetCurrentUserSettings();
-            await _LoadProducts();
+            await _GetCurrentUserSettingsAsync();
+            await _LoadProductsAsync();
 
-            await _LoadCategoriesCombobox();
-            await _LoadBrandsCombobox();
+            await _LoadCategoriesComboboxAsync();
+            await _LoadBrandsComboboxAsync();
         }
 
-        private async Task _LoadProducts()
+        private async Task _LoadProductsAsync()
         {
             // Load products
             _Products = (List<ProductDto>)await _ProductsClient.GetAllAsync();
             _UpdatePageNavigator();
-            await _DisplayProducts(1);
+            await _DisplayProductsAsync(1);
         }   
 
-        private async Task _LoadFilteredProducts(ProductFilterDto filter)
+        private async Task _LoadFilteredProductsAsync(ProductFilterDto filter)
         {
             // Load products
             _Products = (List<ProductDto>)await _ProductsClient.GetAllFilteredAsync(filter);
             _UpdatePageNavigator();
-            await _DisplayProducts(1);
+            await _DisplayProductsAsync(1);
         }
 
         private void _UpdatePageNavigator()
@@ -73,7 +73,7 @@ namespace Computer_Store
             ctrlPageNavigator1.UpdateNumberOfPages(productCount);
         }
 
-        private async Task _DisplayProducts(int pageNumber)
+        private async Task _DisplayProductsAsync(int pageNumber)
         {
             // Multiplier to to specify the product by page
             int multiplier = (pageNumber - 1) * 8;
@@ -85,12 +85,12 @@ namespace Computer_Store
             for (int i = multiplier; i < multiplier + 8; i++)
             {
                 // Load product one by one 
-                await _LoadOneProduct(i, products[count]);
+                await _LoadOneProductAsync(i, products[count]);
                 count++;
             }       
         }
 
-        private async Task _LoadOneProduct(int productNumber, ctrlProduct product)
+        private async Task _LoadOneProductAsync(int productNumber, ctrlProduct product)
         {
             int productsNumber = 0;
 
@@ -110,7 +110,7 @@ namespace Computer_Store
 
             if (productNumber < productsNumber)
             {
-                await product.LoadProductInfo(_Products[productNumber], (int)_CurrentUser.ID);
+                await product.LoadProductInfoAsync(_Products[productNumber], (int)_CurrentUser.ID);
             }
             else
             {
@@ -118,7 +118,7 @@ namespace Computer_Store
             }
         }
 
-        private async Task _GetCurrentUserSettings()
+        private async Task _GetCurrentUserSettingsAsync()
         {
             UserSettingsDto userSettings = await _UserSettingsClient.FindAsync("Current User");
             if (userSettings.UserInfo != null)
@@ -150,12 +150,20 @@ namespace Computer_Store
         private void _ShowAccountSettingsScreen()
         {
             frmCreateNewAccount frm = new frmCreateNewAccount(_CurrentUser.ID, _CurrentUser.Role, 0);
+            frm.FormClosed += (s, e) =>
+            {
+                this.Focus(); // Focus on close
+            };
             frm.Show();
         }
 
         private void _ShowChangePasswordScreen()
         {
             frmCreateNewAccount frm = new frmCreateNewAccount(_CurrentUser.ID, _CurrentUser.Role, 1);
+            frm.FormClosed += (s, e) =>
+            {
+                this.Focus(); // Focus on close
+            };
             frm.Show();
         }
 
@@ -165,12 +173,12 @@ namespace Computer_Store
             frm.FormClosed += async (s, e) =>
             {
                 this.Focus(); // Focus on close
-                await _LoadProducts(); // Refresh after form closes
+                await _LoadProductsAsync(); // Refresh after form closes
             };
             frm.Show(); // Non-blocking
         }
 
-        private async Task _LoadCategoriesCombobox()
+        private async Task _LoadCategoriesComboboxAsync()
         {
             // Load categories into the combobox
             List<CategoryDto> categories = (List<CategoryDto>)await _CategoriesClient.GetAllAsync();
@@ -189,7 +197,7 @@ namespace Computer_Store
             cbxCategory.ValueMember = "ID";
         }
 
-        private async Task _LoadBrandsCombobox()
+        private async Task _LoadBrandsComboboxAsync()
         {
             // Load brands into the combobox
             List<BrandDto> brands = (List<BrandDto>)await _BrandsClient.GetAllAsync();
@@ -207,7 +215,7 @@ namespace Computer_Store
             cbxBrand.ValueMember = "ID";
         }
 
-        private async Task _LoadSubcategoryCombobox(int? categoryID)
+        private async Task _LoadSubcategoryComboBoxAsync(int? categoryID)
         {
             // Load subcategories into the combobox based on the selected category
             List<SubcategoryDto> subcategories = (List<SubcategoryDto>)await _SubcategoriesClient.GetSubcategoriesByCategoryID(categoryID);
@@ -222,11 +230,11 @@ namespace Computer_Store
             cbxSubcategory.ValueMember = "ID";
         }
 
-        private async Task _MainFilter(int productCategoryID)
+        private async Task _MainFilterAsync(int productCategoryID)
         {
             ProductFilterDto productFilter = new ProductFilterDto();
             productFilter.CategoryID = productCategoryID;
-            await _LoadFilteredProducts(productFilter);
+            await _LoadFilteredProductsAsync(productFilter);
 
             // Load the category name into the combobox
             CategoryDto category = await _CategoriesClient.FindAsync(productCategoryID);
@@ -253,19 +261,19 @@ namespace Computer_Store
             return productFilter;
         }
 
-        private async Task _FilterProducts()
+        private async Task _FilterProductsAsync()
         {
             ProductFilterDto productFilter = _SetFilter();
-            await _LoadFilteredProducts(productFilter);
+            await _LoadFilteredProductsAsync(productFilter);
         }
 
         private void _ShowProductScreen(int? productID)
         {
             frmProductViewer frm = new frmProductViewer(productID);
-            //frm.FormClosed += (s, e) =>
-            //{
-            //    this.Focus(); // Focus on close
-            //};
+            frm.FormClosed += (s, e) =>
+            {
+                this.Focus(); // Focus on close
+            };
             frm.Show(); // Non-blocking
         }
 
@@ -309,7 +317,7 @@ namespace Computer_Store
         private async  void ctrlPageNavigator1_OnPageChange(object sender, int PageNumber)
         {
             _PageNumber = PageNumber;
-            await _DisplayProducts(_PageNumber);
+            await _DisplayProductsAsync(_PageNumber);
         }
 
         private void manageProductsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -319,37 +327,37 @@ namespace Computer_Store
 
         private async void tsbLaptop_Click(object sender, EventArgs e)
         {
-            await _MainFilter(1); // Laptop category id = 1
+            await _MainFilterAsync(1); // Laptop category id = 1
         }
 
         private async void tsbDesktop_Click(object sender, EventArgs e)
         {
-            await _MainFilter(13); // Desktop category id = 13
+            await _MainFilterAsync(13); // Desktop category id = 13
         }
 
         private async void tsbMonitor_Click(object sender, EventArgs e)
         {
-            await _MainFilter(3); // Monitor category id = 3
+            await _MainFilterAsync(3); // Monitor category id = 3
         }
 
         private async void tsbComponents_Click(object sender, EventArgs e)
         {
-            await _MainFilter(14); // Components category id = 14
+            await _MainFilterAsync(14); // Components category id = 14
         }
 
         private async void tsbStorage_Click(object sender, EventArgs e)
         {
-            await _MainFilter(17); // Storage category id = 17
+            await _MainFilterAsync(17); // Storage category id = 17
         }
 
         private async void tsbAccessories_Click(object sender, EventArgs e)
         {
-            await _MainFilter(16); // Accessories category id = 16
+            await _MainFilterAsync(16); // Accessories category id = 16
         }
 
         private async void tsbHeadset_Click(object sender, EventArgs e)
         {
-            await _MainFilter(15); // Headset category id = 15
+            await _MainFilterAsync(15); // Headset category id = 15
         }
 
         private void txtMinPrice_KeyPress(object sender, KeyPressEventArgs e)
@@ -401,18 +409,29 @@ namespace Computer_Store
             int selectedCategoryID = (int)selectedCategory.ID;
             if (selectedCategoryID > 0)
             {
-                await _LoadSubcategoryCombobox(selectedCategoryID);
+                await _LoadSubcategoryComboBoxAsync(selectedCategoryID);
             }
+        }
+
+        private void _ResetFilterControls()
+        {
+            txtSearch.Text = string.Empty;
+            cbxCategory.SelectedIndex = 0; // Reset to default item
+            cbxSubcategory.SelectedIndex = 0; // Reset to default item
+            cbxBrand.SelectedIndex = 0; // Reset to default item
+            txtMinPrice.Text = string.Empty;
+            txtMaxPrice.Text = string.Empty;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
-            await _FilterProducts();
+            await _FilterProductsAsync();
         }
 
         private async void btnShowAll_Click(object sender, EventArgs e)
         {
-            await _LoadProducts();
+            await _LoadProductsAsync();
+            _ResetFilterControls(); // Reset filter controls after search
         }
 
         private void ctrlProduct_Click(object sender, EventArgs e)
@@ -430,6 +449,7 @@ namespace Computer_Store
         {
             _ShowOrderCartScreen();
         }
+
     }
 }
    

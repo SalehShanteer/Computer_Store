@@ -99,6 +99,42 @@ namespace ComputerStoreApi.Controllers
             return Ok(order.OrderDto);
         }
 
+        [HttpPut("UpdateStatus", Name = "UpdateOrderStatus")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<bool> UpdateOrderStatus([FromQuery] OrderStatusDto orderStatus)
+        {
+            string errorMessage = string.Empty;
+            
+            if (orderStatus is null)
+            {
+                return BadRequest("OrderStatusDto is null");
+            }
+
+            if (orderStatus.ID < 1)
+            {
+                return BadRequest($"Not accepted ID = {orderStatus.ID}");
+            }
+
+            if (!OrderValidation.ValidateStatus(orderStatus.Status.Value, out errorMessage))
+            {
+                return BadRequest(errorMessage);
+            }
+
+            if (!clsOrder.IsExist(orderStatus.ID))
+            {
+                return NotFound($"Order with ID {orderStatus.ID} not found");
+            }
+            bool isUpdated = clsOrder.ChangeStatus(orderStatus);
+            if (!isUpdated)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Failed to update order status");
+            }
+            return Ok(isUpdated);
+
+        }
+
         [HttpDelete("Delete/{id}", Name = "DeleteOrder")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
