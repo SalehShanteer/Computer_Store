@@ -101,6 +101,12 @@ namespace ApiClients
             return await GenericClientMethods.SendRequestAsync<IEnumerable<OrderDto>>(request, _httpClient);
         }
 
+        public async Task<IEnumerable<OrderDetailsDto>> GetAllDetailsAsync()
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "GetAllDetails");
+            return await GenericClientMethods.SendRequestAsync<IEnumerable<OrderDetailsDto>>(request, _httpClient);
+        }
+
         public async Task<IEnumerable<OrderDto>> GetByUserAsync(int? userId)
         {
             if (!userId.HasValue)

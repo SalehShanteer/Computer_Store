@@ -296,6 +296,16 @@ namespace Computer_Store
             frm.Show();
         }
 
+        private void _ShowManageUsersOrdersScreen()
+        {
+            frmManageUsersOrders frm = new frmManageUsersOrders();
+            frm.FormClosed += (s, e) =>
+            {
+                this.Focus(); // Focus on close
+            };
+            frm.Show();
+        }
+
         private async void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             UserSettingsDto userSettings = new UserSettingsDto();
@@ -450,6 +460,10 @@ namespace Computer_Store
             _ShowOrderCartScreen();
         }
 
+        private void tsbManageUsersOrders_Click(object sender, EventArgs e)
+        {
+            _ShowManageUsersOrdersScreen();
+        }
     }
 }
    

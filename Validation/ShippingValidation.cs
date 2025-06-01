@@ -38,9 +38,14 @@ namespace Validation
             return true;
         }
 
-        public static bool ValidateStatus(byte status, out string errorMessage)
+        public static bool ValidateStatus(byte? status, out string errorMessage)
         {
-            if (status > 3) // 0: canceled, 1: pending, 2: processing, 3: delivered
+            if (!status.HasValue)
+            {
+                errorMessage = "Status is null.";
+                return false;
+            }
+            if (status > 3 || status < 0) // 0: canceled, 1: pending, 2: processing, 3: delivered
             {
                 errorMessage = "Status must be between 0 and 3.";
                 return false;
@@ -99,6 +104,27 @@ namespace Validation
 
             errorMessage = string.Empty;
             return true;
+        }
+
+        public static bool ValidateShippingStatusDto(ShippingStatusDto shippingStatus, out string errorMessage)
+        {
+            if (shippingStatus is null)
+            {
+                errorMessage = "Shipping status is null.";
+                return false;
+            }
+            if (!ValidateNotNull(shippingStatus.OrderID, out errorMessage))
+            {
+                errorMessage = "Order ID is null.";
+                return false;
+            }
+            if (!ValidateStatus(shippingStatus.Status, out errorMessage))
+            {
+                return false;
+            }
+            errorMessage = string.Empty;
+            return true;
+
         }
     }
 }

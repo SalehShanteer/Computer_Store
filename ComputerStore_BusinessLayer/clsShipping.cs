@@ -113,5 +113,8 @@ namespace ComputerStore_BusinessLayer
         public static DateTime? GetEstimatedDeliveryDate(int? orderID) => clsShippingData.GetEstimatedDeliveryDate(orderID);
 
         public static List<string> GetAvailableCarriers() => clsShippingData.GetAvailableCarriers();
+
+        public static bool ChangeShippingStatus(ShippingStatusDto shippingStatusDto) => clsShippingData.ChangeShippingStatus(shippingStatusDto);
+
     }
 }

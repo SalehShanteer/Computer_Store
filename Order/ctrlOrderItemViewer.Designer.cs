@@ -38,6 +38,7 @@
             this.pbSub = new System.Windows.Forms.PictureBox();
             this.pbAdd = new System.Windows.Forms.PictureBox();
             this.pbProductImage = new System.Windows.Forms.PictureBox();
+            this.lblQuantityLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbSub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProductImage)).BeginInit();
@@ -152,11 +153,23 @@
             this.pbProductImage.TabIndex = 1;
             this.pbProductImage.TabStop = false;
             // 
+            // lblQuantityLabel
+            // 
+            this.lblQuantityLabel.AutoSize = true;
+            this.lblQuantityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantityLabel.Location = new System.Drawing.Point(286, 93);
+            this.lblQuantityLabel.Name = "lblQuantityLabel";
+            this.lblQuantityLabel.Size = new System.Drawing.Size(81, 20);
+            this.lblQuantityLabel.TabIndex = 127;
+            this.lblQuantityLabel.Text = "Quantity:";
+            this.lblQuantityLabel.Visible = false;
+            // 
             // ctrlOrderItemViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lblQuantityLabel);
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.llblRemove);
@@ -191,5 +204,6 @@
         private System.Windows.Forms.LinkLabel llblRemove;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblProductID;
+        private System.Windows.Forms.Label lblQuantityLabel;
     }
 }

@@ -233,52 +233,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ctrlOrderItemViewer.cs">
+    <Compile Include="frmOrderDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrderDetails.Designer.cs">
+      <DependentUpon>frmOrderDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\ctrlOrderItemViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlOrderItemViewer.Designer.cs">
+    <Compile Include="Order\ctrlOrderItemViewer.Designer.cs">
       <DependentUpon>ctrlOrderItemViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrlOrderViewer.cs">
+    <Compile Include="Order\ctrlOrderViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlOrderViewer.Designer.cs">
+    <Compile Include="Order\ctrlOrderViewer.Designer.cs">
       <DependentUpon>ctrlOrderViewer.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrlPageNavigator.cs">
+    <Compile Include="Other Controls\ctrlPageNavigator.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlPageNavigator.Designer.cs">
+    <Compile Include="Other Controls\ctrlPageNavigator.Designer.cs">
       <DependentUpon>ctrlPageNavigator.cs</DependentUpon>
     </Compile>
-    <Compile Include="ctrlStarsRating.cs">
+    <Compile Include="Other Controls\ctrlStarsRating.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlStarsRating.Designer.cs">
+    <Compile Include="Other Controls\ctrlStarsRating.Designer.cs">
       <DependentUpon>ctrlStarsRating.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManageYourOrders.cs">
+    <Compile Include="Order\frmManageUsersOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManageYourOrders.Designer.cs">
+    <Compile Include="Order\frmManageUsersOrders.Designer.cs">
+      <DependentUpon>frmManageUsersOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order\frmManageYourOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order\frmManageYourOrders.Designer.cs">
       <DependentUpon>frmManageYourOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOrderCart.cs">
+    <Compile Include="Order\frmOrderCart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOrderCart.Designer.cs">
+    <Compile Include="Order\frmOrderCart.Designer.cs">
       <DependentUpon>frmOrderCart.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPaymentPortal.cs">
+    <Compile Include="Payments\frmPaymentPortal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPaymentPortal.Designer.cs">
+    <Compile Include="Payments\frmPaymentPortal.Designer.cs">
       <DependentUpon>frmPaymentPortal.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProductViewer.cs">
+    <Compile Include="Products\frmProductViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProductViewer.Designer.cs">
+    <Compile Include="Products\frmProductViewer.Designer.cs">
       <DependentUpon>frmProductViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\frmAddUpdateProduct.cs">
@@ -320,28 +332,34 @@
     <Compile Include="gvMessages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ctrlOrderItemViewer.resx">
+    <EmbeddedResource Include="frmOrderDetails.resx">
+      <DependentUpon>frmOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\ctrlOrderItemViewer.resx">
       <DependentUpon>ctrlOrderItemViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrlOrderViewer.resx">
+    <EmbeddedResource Include="Order\ctrlOrderViewer.resx">
       <DependentUpon>ctrlOrderViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrlPageNavigator.resx">
+    <EmbeddedResource Include="Other Controls\ctrlPageNavigator.resx">
       <DependentUpon>ctrlPageNavigator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ctrlStarsRating.resx">
+    <EmbeddedResource Include="Other Controls\ctrlStarsRating.resx">
       <DependentUpon>ctrlStarsRating.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManageYourOrders.resx">
+    <EmbeddedResource Include="Order\frmManageUsersOrders.resx">
+      <DependentUpon>frmManageUsersOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order\frmManageYourOrders.resx">
       <DependentUpon>frmManageYourOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOrderCart.resx">
+    <EmbeddedResource Include="Order\frmOrderCart.resx">
       <DependentUpon>frmOrderCart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPaymentPortal.resx">
+    <EmbeddedResource Include="Payments\frmPaymentPortal.resx">
       <DependentUpon>frmPaymentPortal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProductViewer.resx">
+    <EmbeddedResource Include="Products\frmProductViewer.resx">
       <DependentUpon>frmProductViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\frmAddUpdateProduct.resx">
@@ -400,6 +418,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="Resources\ManageOrders.png" />
     <None Include="Resources\cart.png" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\minus %281%29.png" />

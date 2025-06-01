@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstore_dataaccesslayer\\clssubcategorydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|solutionrelative:computerstore_dataaccesslayer\\clssubcategorydata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\subcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\subcategoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\shippingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\shippingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\apiclients\\api clients\\subcategoriesapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\api clients\\subcategoriesapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\products\\frmaddupdateproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:products\\frmaddupdateproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\products\\frmaddupdateproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:products\\frmaddupdateproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,103 +39,77 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmLogin.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
-              "RelativeDocumentMoniker": "frmLogin.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
-              "RelativeToolTip": "frmLogin.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAApwGQAAAAJAAAAAAAAAA==",
+              "Title": "frmOrderCart.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs",
+              "RelativeDocumentMoniker": "Order\\frmOrderCart.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs",
+              "RelativeToolTip": "Order\\frmOrderCart.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAMwJEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:26:05.074Z",
+              "WhenOpened": "2025-06-01T20:35:59.161Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmLogin.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs",
-              "RelativeDocumentMoniker": "frmLogin.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\frmLogin.cs [Design]",
-              "RelativeToolTip": "frmLogin.cs [Design]",
+              "Title": "frmOrderCart.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs",
+              "RelativeDocumentMoniker": "Order\\frmOrderCart.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs [Design]",
+              "RelativeToolTip": "Order\\frmOrderCart.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T11:26:02.19Z",
+              "WhenOpened": "2025-06-01T20:35:46.34Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SubcategoriesApiClient.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\Api Clients\\SubcategoriesApiClient.cs",
-              "RelativeDocumentMoniker": "ApiClients\\Api Clients\\SubcategoriesApiClient.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\Api Clients\\SubcategoriesApiClient.cs",
-              "RelativeToolTip": "ApiClients\\Api Clients\\SubcategoriesApiClient.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAA4wFMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T10:17:57.827Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "clsSubcategoryData.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "RelativeDocumentMoniker": "ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "RelativeToolTip": "ComputerStore_DataAccessLayer\\clsSubcategoryData.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAA7wJEAAAAQAAAAAAAAAA==",
+              "Title": "frmManageUsersOrders.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs",
+              "RelativeDocumentMoniker": "Order\\frmManageUsersOrders.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs",
+              "RelativeToolTip": "Order\\frmManageUsersOrders.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAIA0wKIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T10:33:46.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmAddUpdateProduct.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\frmAddUpdateProduct.cs",
-              "RelativeDocumentMoniker": "Products\\frmAddUpdateProduct.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\frmAddUpdateProduct.cs [Design]",
-              "RelativeToolTip": "Products\\frmAddUpdateProduct.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T10:20:09.479Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SubcategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\SubcategoriesController.cs",
-              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\SubcategoriesController.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\SubcategoriesController.cs",
-              "RelativeToolTip": "ComputerStoreApi\\Controllers\\SubcategoriesController.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAADwv5gAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T10:13:22.718Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "ComputerStoreApi\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAIAAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T10:13:05.228Z",
+              "WhenOpened": "2025-06-01T19:54:07.802Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "frmAddUpdateProduct.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\frmAddUpdateProduct.cs",
-              "RelativeDocumentMoniker": "Products\\frmAddUpdateProduct.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Products\\frmAddUpdateProduct.cs",
-              "RelativeToolTip": "Products\\frmAddUpdateProduct.cs",
-              "ViewState": "AgIAAKECAAAAAAAAAADwv7cCAAAMAAAAAAAAAA==",
+              "Title": "frmManageUsersOrders.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs",
+              "RelativeDocumentMoniker": "Order\\frmManageUsersOrders.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs [Design]",
+              "RelativeToolTip": "Order\\frmManageUsersOrders.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T04:19:02.341Z",
+              "WhenOpened": "2025-06-01T19:50:56.061Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\OrdersController.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "ComputerStoreApi\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAA7wGsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T18:55:47.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShippingsController.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ShippingsController.cs",
+              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\ShippingsController.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ShippingsController.cs",
+              "RelativeToolTip": "ComputerStoreApi\\Controllers\\ShippingsController.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAxwMwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T18:51:21.966Z",
               "EditorCaption": ""
             }
           ]

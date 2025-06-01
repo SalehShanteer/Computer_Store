@@ -298,6 +298,32 @@ namespace ComputerStore_DataAccessLayer
                  "Naqel Express"
              };
         }
+
+        public static bool ChangeShippingStatus(ShippingStatusDto shippingStatus)
+        {
+            bool result = false;
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_ChangeShippingStatus", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@OrderID", shippingStatus.OrderID ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Status", shippingStatus.Status ?? (object)DBNull.Value);
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        result = rowsAffected > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 
 

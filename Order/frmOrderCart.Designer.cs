@@ -44,7 +44,7 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblTitle.Location = new System.Drawing.Point(13, 60);
+            this.lblTitle.Location = new System.Drawing.Point(238, 44);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(341, 39);
@@ -65,12 +65,13 @@
             // 
             this.lblEmptyCart.AutoSize = true;
             this.lblEmptyCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
-            this.lblEmptyCart.Location = new System.Drawing.Point(484, 423);
+            this.lblEmptyCart.Location = new System.Drawing.Point(333, 423);
             this.lblEmptyCart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmptyCart.Name = "lblEmptyCart";
             this.lblEmptyCart.Size = new System.Drawing.Size(204, 26);
             this.lblEmptyCart.TabIndex = 144;
             this.lblEmptyCart.Text = "The Cart Is Empty";
+            this.lblEmptyCart.Click += new System.EventHandler(this.lblEmptyCart_Click);
             // 
             // btnContinueToPayment
             // 
@@ -79,7 +80,7 @@
             this.btnContinueToPayment.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnContinueToPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinueToPayment.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnContinueToPayment.Location = new System.Drawing.Point(938, 638);
+            this.btnContinueToPayment.Location = new System.Drawing.Point(599, 638);
             this.btnContinueToPayment.Name = "btnContinueToPayment";
             this.btnContinueToPayment.Size = new System.Drawing.Size(198, 31);
             this.btnContinueToPayment.TabIndex = 145;
@@ -91,7 +92,7 @@
             // 
             this.lblTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lblTotalPrice.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblTotalPrice.Location = new System.Drawing.Point(965, 567);
+            this.lblTotalPrice.Location = new System.Drawing.Point(626, 567);
             this.lblTotalPrice.Name = "lblTotalPrice";
             this.lblTotalPrice.Size = new System.Drawing.Size(146, 24);
             this.lblTotalPrice.TabIndex = 146;
@@ -102,7 +103,7 @@
             // 
             this.lblTotalAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
             this.lblTotalAmountLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblTotalAmountLabel.Location = new System.Drawing.Point(965, 531);
+            this.lblTotalAmountLabel.Location = new System.Drawing.Point(626, 531);
             this.lblTotalAmountLabel.Name = "lblTotalAmountLabel";
             this.lblTotalAmountLabel.Size = new System.Drawing.Size(153, 24);
             this.lblTotalAmountLabel.TabIndex = 147;
@@ -131,7 +132,7 @@
             this.btnManageYourOrders.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnManageYourOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageYourOrders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnManageYourOrders.Location = new System.Drawing.Point(571, 638);
+            this.btnManageYourOrders.Location = new System.Drawing.Point(364, 638);
             this.btnManageYourOrders.Name = "btnManageYourOrders";
             this.btnManageYourOrders.Size = new System.Drawing.Size(198, 31);
             this.btnManageYourOrders.TabIndex = 149;
@@ -142,25 +143,26 @@
             // pbEmptyCart
             // 
             this.pbEmptyCart.Image = global::Computer_Store.Properties.Resources.cart;
-            this.pbEmptyCart.Location = new System.Drawing.Point(501, 182);
+            this.pbEmptyCart.Location = new System.Drawing.Point(349, 265);
             this.pbEmptyCart.Name = "pbEmptyCart";
             this.pbEmptyCart.Size = new System.Drawing.Size(164, 134);
             this.pbEmptyCart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbEmptyCart.TabIndex = 117;
             this.pbEmptyCart.TabStop = false;
+            this.pbEmptyCart.Click += new System.EventHandler(this.pbEmptyCart_Click);
             // 
             // frmOrderCart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1148, 681);
+            this.ClientSize = new System.Drawing.Size(819, 681);
+            this.Controls.Add(this.pbEmptyCart);
+            this.Controls.Add(this.lblEmptyCart);
             this.Controls.Add(this.btnManageYourOrders);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblTotalAmountLabel);
             this.Controls.Add(this.lblTotalPrice);
             this.Controls.Add(this.btnContinueToPayment);
-            this.Controls.Add(this.lblEmptyCart);
-            this.Controls.Add(this.pbEmptyCart);
             this.Controls.Add(this.pnItemsContainer);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

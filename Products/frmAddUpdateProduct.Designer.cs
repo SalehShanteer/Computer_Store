@@ -197,7 +197,6 @@
             // 
             // rtxtDescription
             // 
-            this.rtxtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtxtDescription.Location = new System.Drawing.Point(43, 326);
             this.rtxtDescription.MaxLength = 2000;
             this.rtxtDescription.Name = "rtxtDescription";
@@ -773,8 +772,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1080, 662);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.ClientSize = new System.Drawing.Size(1068, 662);
             this.Controls.Add(this.btnCancelBrand);
             this.Controls.Add(this.btnSaveBrand);
             this.Controls.Add(this.btnCancelCategory);

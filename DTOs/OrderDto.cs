@@ -9,7 +9,7 @@ namespace DTOs
         public decimal? TotalAmount { get; set; }
         public DateTime? OrderDate { get; set; }
         public byte? Status { get; set; } // 0 => Canceled, 1 => Draft, 2 => Pending, 3 => Processing, 4 => Delivered
-
+         
         public OrderDto()
         {
             this.ID = null;

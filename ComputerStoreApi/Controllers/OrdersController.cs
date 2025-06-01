@@ -193,6 +193,21 @@ namespace ComputerStoreApi.Controllers
             return Ok(orders);
         }
 
+        [HttpGet("GetAllDetails", Name = "GetAllOrdersDetails")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public ActionResult<IEnumerable<OrderDetailsDto>> GetAllOrdersDetails()
+        {
+            var orderDetails = clsOrder.GetAllOrdersDetails();
+            if (!orderDetails.Any())
+            {
+                return NotFound("No order details found");
+            }
+            return Ok(orderDetails);
+        }
+
+
+
         [HttpGet("GetByUser/{userId}", Name = "GetOrdersByUserID")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

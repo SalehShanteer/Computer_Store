@@ -76,7 +76,7 @@ namespace Computer_Store
                 _dtProductsList.Rows.Add(product.ID, product.Name, product.Description, product.Price, product.QuantityInStock,
                     product.Category, product.Subcategory, product.Brand, product.Rating, product.ReleaseDate);
             }
-
+            // Set the DataGridView's data source to the DataTable
             dgvProductsList.DataSource = _dtProductsList;
 
         }

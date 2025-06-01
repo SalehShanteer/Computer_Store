@@ -180,7 +180,12 @@ namespace Computer_Store
         {
             if (_Order != null)
             {
-                var paymentPortal = new frmPaymentPortal(_Order.ID);
+                frmPaymentPortal paymentPortal = new frmPaymentPortal(_Order.ID);
+                paymentPortal.FormClosed += (s, e) =>
+                {
+                    this.Focus(); // Focus on close
+                    _ShowManageYourOrdersScreen(); // Show manage orders screen after payment portal is closed
+                };
                 paymentPortal.Show();
             }
             else
@@ -240,6 +245,16 @@ namespace Computer_Store
         private void btnManageYourOrders_Click(object sender, EventArgs e)
         {
             _ShowManageYourOrdersScreen();
+        }
+
+        private void lblEmptyCart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pbEmptyCart_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

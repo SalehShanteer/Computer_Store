@@ -39,6 +39,7 @@
             this.tsbAdminSettings = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbManageProducts = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbAddNewAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsbManageUsersOrders = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbAccount = new System.Windows.Forms.ToolStripDropDownButton();
             this.tsbLogoutSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbChangePassword = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,6 +177,7 @@
             this.tsbAdminSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tsbAdminSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbManageProducts,
+            this.tsbManageUsersOrders,
             this.tsbAddNewAdmin});
             this.tsbAdminSettings.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.tsbAdminSettings.Image = global::Computer_Store.Properties.Resources.system_administration;
@@ -190,7 +192,7 @@
             // 
             this.tsbManageProducts.Image = global::Computer_Store.Properties.Resources.products;
             this.tsbManageProducts.Name = "tsbManageProducts";
-            this.tsbManageProducts.Size = new System.Drawing.Size(241, 30);
+            this.tsbManageProducts.Size = new System.Drawing.Size(339, 88);
             this.tsbManageProducts.Text = "Manage Products";
             this.tsbManageProducts.Click += new System.EventHandler(this.manageProductsToolStripMenuItem_Click);
             // 
@@ -198,9 +200,17 @@
             // 
             this.tsbAddNewAdmin.Image = global::Computer_Store.Properties.Resources.Add_Admin;
             this.tsbAddNewAdmin.Name = "tsbAddNewAdmin";
-            this.tsbAddNewAdmin.Size = new System.Drawing.Size(241, 30);
+            this.tsbAddNewAdmin.Size = new System.Drawing.Size(339, 88);
             this.tsbAddNewAdmin.Text = "Add New Admin";
             this.tsbAddNewAdmin.Click += new System.EventHandler(this.tsbAddNewAdmin_Click);
+            // 
+            // tsbManageUsersOrders
+            // 
+            this.tsbManageUsersOrders.Image = global::Computer_Store.Properties.Resources.ManageOrders;
+            this.tsbManageUsersOrders.Name = "tsbManageUsersOrders";
+            this.tsbManageUsersOrders.Size = new System.Drawing.Size(339, 88);
+            this.tsbManageUsersOrders.Text = "Manage Users Orders";
+            this.tsbManageUsersOrders.Click += new System.EventHandler(this.tsbManageUsersOrders_Click);
             // 
             // tsbAccount
             // 
@@ -221,7 +231,7 @@
             // 
             this.tsbLogoutSettings.Image = global::Computer_Store.Properties.Resources.account_settings;
             this.tsbLogoutSettings.Name = "tsbLogoutSettings";
-            this.tsbLogoutSettings.Size = new System.Drawing.Size(241, 30);
+            this.tsbLogoutSettings.Size = new System.Drawing.Size(306, 88);
             this.tsbLogoutSettings.Text = "Account Settings";
             this.tsbLogoutSettings.Click += new System.EventHandler(this.tsbLogoutSettings_Click);
             // 
@@ -229,7 +239,7 @@
             // 
             this.tsbChangePassword.Image = global::Computer_Store.Properties.Resources.Change_Password;
             this.tsbChangePassword.Name = "tsbChangePassword";
-            this.tsbChangePassword.Size = new System.Drawing.Size(241, 30);
+            this.tsbChangePassword.Size = new System.Drawing.Size(306, 88);
             this.tsbChangePassword.Text = "Change Password";
             this.tsbChangePassword.Click += new System.EventHandler(this.tsbChangePassword_Click);
             // 
@@ -237,7 +247,7 @@
             // 
             this.tsbLogout.Image = global::Computer_Store.Properties.Resources.Logout;
             this.tsbLogout.Name = "tsbLogout";
-            this.tsbLogout.Size = new System.Drawing.Size(241, 30);
+            this.tsbLogout.Size = new System.Drawing.Size(306, 88);
             this.tsbLogout.Text = "Logout";
             this.tsbLogout.Click += new System.EventHandler(this.tsbLogout_Click);
             // 
@@ -627,5 +637,6 @@
         private System.Windows.Forms.Label lblNoResult;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.ToolStripMenuItem tsbAddNewAdmin;
+        private System.Windows.Forms.ToolStripMenuItem tsbManageUsersOrders;
     }
 }

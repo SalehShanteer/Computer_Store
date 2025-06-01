@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dgvProductsList = new System.Windows.Forms.DataGridView();
             this.cmsManageProducts = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addNewProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,23 +37,12 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsList)).BeginInit();
+            this.dgvProductsList = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cmsManageProducts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvProductsList
-            // 
-            this.dgvProductsList.AllowUserToAddRows = false;
-            this.dgvProductsList.AllowUserToDeleteRows = false;
-            this.dgvProductsList.AllowUserToOrderColumns = true;
-            this.dgvProductsList.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvProductsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductsList.ContextMenuStrip = this.cmsManageProducts;
-            this.dgvProductsList.Location = new System.Drawing.Point(15, 106);
-            this.dgvProductsList.Name = "dgvProductsList";
-            this.dgvProductsList.ReadOnly = true;
-            this.dgvProductsList.Size = new System.Drawing.Size(1044, 413);
-            this.dgvProductsList.TabIndex = 0;
             // 
             // cmsManageProducts
             // 
@@ -93,7 +81,7 @@
             this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddProduct.Location = new System.Drawing.Point(919, 526);
+            this.btnAddProduct.Location = new System.Drawing.Point(919, 673);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(122, 31);
             this.btnAddProduct.TabIndex = 109;
@@ -120,7 +108,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(359, 34);
+            this.label10.Location = new System.Drawing.Point(348, 191);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(348, 46);
             this.label10.TabIndex = 168;
@@ -133,7 +121,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(34, 526);
+            this.button1.Location = new System.Drawing.Point(34, 673);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 31);
             this.button1.TabIndex = 169;
@@ -141,12 +129,37 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dgvProductsList
+            // 
+            this.dgvProductsList.AllowUserToAddRows = false;
+            this.dgvProductsList.AllowUserToDeleteRows = false;
+            this.dgvProductsList.AllowUserToOrderColumns = true;
+            this.dgvProductsList.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvProductsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductsList.ContextMenuStrip = this.cmsManageProducts;
+            this.dgvProductsList.Location = new System.Drawing.Point(15, 253);
+            this.dgvProductsList.Name = "dgvProductsList";
+            this.dgvProductsList.ReadOnly = true;
+            this.dgvProductsList.Size = new System.Drawing.Size(1044, 413);
+            this.dgvProductsList.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Computer_Store.Properties.Resources.products;
+            this.pictureBox1.Location = new System.Drawing.Point(431, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(185, 171);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 171;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmManageProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1070, 565);
+            this.ClientSize = new System.Drawing.Size(1070, 711);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.btnClose);
@@ -157,16 +170,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Products";
             this.Load += new System.EventHandler(this.frmManageProducts_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsList)).EndInit();
             this.cmsManageProducts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductsList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvProductsList;
         private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ContextMenuStrip cmsManageProducts;
@@ -175,5 +187,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvProductsList;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

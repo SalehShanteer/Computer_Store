@@ -63,6 +63,8 @@ namespace Computer_Store
                 {
                     // Hide some UI
                     lblTitle.Text = "Update Your Account";
+                    // Disable email textbox because it is not allowed to change email in update mode
+                    txtEmail.Enabled = false;
                     _HidePasswordUI();
                 }
                 else
@@ -103,6 +105,8 @@ namespace Computer_Store
             lblConfirmPassword.Visible = false;
             txtPassword.Visible = false;
             txtConfirmPassword.Visible = false;
+            pbShowHideConfirmPassword.Visible = false;
+            pbShowHidePassword.Visible = false;
         }
 
         private async Task _LoadUserInfoAsync()
@@ -269,13 +273,18 @@ namespace Computer_Store
             isValid = isValid & _ValidateRequiredField(txtLastName, "last name");
             isValid = isValid & await _ValidateEmailAsync();
             isValid = isValid & _ValidateRequiredField(txtPhone, "phone");
-            isValid = isValid & _ValidatePassword();
+
+            // Validate password only if user is in add new mode
+            if (_Mode == enMode.AddNew)
+            {
+                isValid = isValid & _ValidatePassword();
+            }
 
             return isValid;
         }
 
         private async void btnSignIn_Click(object sender, EventArgs e)
-        {
+            {
 
             if (MessageBox.Show(gvMessages.askForSaveMessage("User"), "Save",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

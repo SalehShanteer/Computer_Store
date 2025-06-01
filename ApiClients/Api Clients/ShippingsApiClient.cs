@@ -103,5 +103,18 @@ namespace ApiClients
             var request = new HttpRequestMessage(HttpMethod.Get, "GetAvailableCarriers");
             return await GenericClientMethods.SendRequestAsync<List<string>>(request, _httpClient);
         }
+
+        public async Task<bool> ChangeShippingStatus(ShippingStatusDto shippingStatusDto)
+        {
+            if (shippingStatusDto is null)
+            {
+                throw new ArgumentNullException(nameof(shippingStatusDto));
+            }
+            string query = $"?OrderID={shippingStatusDto.OrderID}&Status={shippingStatusDto.Status}";
+            var request = new HttpRequestMessage(HttpMethod.Put, $"ChangeStatus{query}");
+            request.Content = null; // No content for PUT request
+
+            return await GenericClientMethods.SendRequestAsync<bool>(request, _httpClient);
+        }
     }
 }

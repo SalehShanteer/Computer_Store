@@ -12,7 +12,6 @@ namespace Computer_Store
 {
     public partial class frmLogin : Form
     {
-
         private UsersApiClient _UsersClient = new UsersApiClient(ApiUrls.UsersURL);
         private UserSettingsApiClient _UserSettingsClient = new UserSettingsApiClient(ApiUrls.UserSettingsURL);
         private LoginRecordsApiClient _LoginRecordsClient = new LoginRecordsApiClient(ApiUrls.LoginRecordsURL);

@@ -253,6 +253,48 @@ namespace ComputerStore_DataAccessLayer
             return orders;
         }
 
+        public static List<OrderDetailsDto> GetAllOrdersDetails()
+        {
+            List<OrderDetailsDto> detailedOrders = new List<OrderDetailsDto>();
+            using (SqlConnection connection = new SqlConnection(DatabaseConfiguration.GetConnectionString()))
+            {
+                using (SqlCommand command = new SqlCommand("SP_GetAllOrdersDetails", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                detailedOrders.Add(new OrderDetailsDto
+                                {
+                                    OrderID = reader["Order ID"] as int?,
+                                    UserID = reader["User ID"] as int?,
+                                    OrderCost = reader["Order Cost"] as decimal?,
+                                    ShippingCost = reader["Shipping Cost"] as decimal?,
+                                    TotalCost = reader["Total Cost"] as decimal?,
+                                    OrderDate = reader["Order Date"] as DateTime?,
+                                    OrderStatus = reader["Order Status"] as string,
+                                    ShippingAddress = reader["Shipping Address"] as string,
+                                    TrackingNumber = reader["Tracking Number"] as string,
+                                    EstimatedDeliveryDate = reader["Estimated Delivery Date"] as DateTime?,
+                                    ActualDeliveryDate = reader["Actual Delivery Date"] as DateTime?,
+                                    ShippingStatus = reader["Shipping Status"] as string
+                                });
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        EventLog.WriteEntry(DatabaseConfiguration.GetSourceName(), ex.Message, EventLogEntryType.Error);
+                    }
+                }
+            }
+            return detailedOrders;
+        }
+
         public static List<OrderDto> GetOrdersByUserID(int userId)
         {
             List<OrderDto> orders = new List<OrderDto>();

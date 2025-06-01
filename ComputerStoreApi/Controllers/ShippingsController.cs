@@ -196,5 +196,28 @@ namespace ComputerStoreApi.Controllers
             }
             return Ok(carriers);
         }
+
+        [HttpPut("ChangeStatus", Name = "ChangeShippingStatus")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult<bool> ChangeShippingStatus([FromQuery] ShippingStatusDto shippingStatusDto)
+        {
+            string errorMessage = string.Empty;
+            if (!ShippingValidation.ValidateShippingStatusDto(shippingStatusDto, out errorMessage))
+            {
+                return BadRequest(errorMessage);
+            }
+            if (!clsOrder.IsExist(shippingStatusDto.OrderID))
+            {
+                return NotFound($"Shipping with Order ID {shippingStatusDto.OrderID} not found");
+            }
+            bool isChanged = clsShipping.ChangeShippingStatus(shippingStatusDto);
+            if (!isChanged)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Failed to change shipping status");
+            }
+            return Ok(isChanged);
+        }
     }
 }

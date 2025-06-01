@@ -108,6 +108,8 @@ namespace ComputerStore_BusinessLayer
 
         public static List<OrderDto> GetAllOrders() => clsOrderData.GetAllOrders();
 
+        public static List<OrderDetailsDto> GetAllOrdersDetails() => clsOrderData.GetAllOrdersDetails();
+
         public static List<OrderDto> GetOrdersByUserID(int userId) => clsOrderData.GetOrdersByUserID(userId);
     }
 }

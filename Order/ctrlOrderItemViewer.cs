@@ -9,7 +9,14 @@ namespace Computer_Store
     public partial class ctrlOrderItemViewer : UserControl
     {
 
-      
+        public enum enumOrderItemViewerMode
+        {
+            View, // Read-only mode
+            Edit // Editable mode
+        }
+
+        private enumOrderItemViewerMode _Mode = enumOrderItemViewerMode.Edit;
+
         public class OrderItemInfo
         {
             public int? ProductID { get; set; }
@@ -99,7 +106,7 @@ namespace Computer_Store
             InitializeComponent();
         }
 
-        public async Task LoadOrderItemAsync(OrderItemDto orderItem)
+        public async Task LoadOrderItemAsync(OrderItemDto orderItem, enumOrderItemViewerMode mode = enumOrderItemViewerMode.Edit)
         {
             if (orderItem is null)
             {
@@ -109,7 +116,24 @@ namespace Computer_Store
 
             _OrderItem = orderItem;
 
+            if (mode == enumOrderItemViewerMode.View)
+            {
+                _ActivateViewMode();
+            }
+
             await _DisplayOrderItemAsync();
+        }
+
+        private void _ActivateViewMode()
+        {
+            // Set the control to read-only mode
+            pbAdd.Visible = false;
+            pbSub.Visible = false;
+            llblRemove.Visible = false;
+            lblQuantityLabel.Visible = true;
+
+            // change the location of the quantity label
+            lblQuantity.Location = new System.Drawing.Point(371, 93);
         }
 
         private async Task _DisplayOrderItemImageAsync()
@@ -153,7 +177,7 @@ namespace Computer_Store
                 _ProductQuantity = product.QuantityInStock;
             }
 
-            if (_SelectedQuantity > _ProductQuantity)
+            if (_Mode == enumOrderItemViewerMode.Edit && _SelectedQuantity > _ProductQuantity)
             {
                 // If the selected quantity is greater than the available quantity, set it to the maximum available
                 _SelectedQuantity = _ProductQuantity;
