@@ -427,7 +427,10 @@ namespace Computer_Store
         {
             txtSearch.Text = string.Empty;
             cbxCategory.SelectedIndex = 0; // Reset to default item
-            cbxSubcategory.SelectedIndex = 0; // Reset to default item
+            if (cbxCategory.SelectedIndex != 0)
+            {
+                cbxSubcategory.SelectedIndex = 0; // Reset to default item
+            }
             cbxBrand.SelectedIndex = 0; // Reset to default item
             txtMinPrice.Text = string.Empty;
             txtMaxPrice.Text = string.Empty;

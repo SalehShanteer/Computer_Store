@@ -99,7 +99,7 @@ namespace ApiClients
                     return false;
                 }
             }
-            return true;
+            return HasAt;
         }
 
 

@@ -53,6 +53,7 @@
             // 
             // pnlOrders
             // 
+            this.pnlOrders.AutoScroll = true;
             this.pnlOrders.BackColor = System.Drawing.Color.Transparent;
             this.pnlOrders.Location = new System.Drawing.Point(12, 12);
             this.pnlOrders.Name = "pnlOrders";

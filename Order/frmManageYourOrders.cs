@@ -130,7 +130,7 @@ namespace Computer_Store
         {
             try
             {
-                var paymentInfo = await _PaymentClient.FindAsync(orderID);
+                var paymentInfo = await _PaymentClient.FindByOrderAsync(orderID);
 
                 if (paymentInfo != null)
                 {

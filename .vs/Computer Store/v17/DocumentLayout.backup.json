@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmmanageyourorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmmanageyourorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmordercart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\apiclients\\api clients\\paymentsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77A58FFD-6B75-40D5-8C72-4B4C2FE2E05E}|ApiClients\\ApiClients.csproj|solutionrelative:apiclients\\api clients\\paymentsapiclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\shippingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\shippingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstore_dataaccesslayer\\clspaymentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD6FF14D-939B-4C23-BE0E-90A035083EAC}|ComputerStore_DataAccessLayer\\ComputerStore_DataAccessLayer.csproj|solutionrelative:computerstore_dataaccesslayer\\clspaymentdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\computerstoreapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{117A3666-9E6B-4559-8DED-42E92D1E4FE2}|ComputerStoreApi\\ComputerStoreApi.csproj|solutionrelative:computerstoreapi\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmmanageyourorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmmanageyourorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\frmmanageusersorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|c:\\users\\saleh\\desktop\\programming\\projects\\computer store\\order\\ctrlorderitemviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B3A89C9-AC4D-4159-9334-948897238FB2}|Computer Store.csproj|solutionrelative:order\\ctrlorderitemviewer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +34,83 @@
       "DocumentGroups": [
         {
           "DockedHeight": 573,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmOrderCart.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs",
-              "RelativeDocumentMoniker": "Order\\frmOrderCart.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs",
-              "RelativeToolTip": "Order\\frmOrderCart.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAMwJEAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "clsPaymentData.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsPaymentData.cs",
+              "RelativeDocumentMoniker": "ComputerStore_DataAccessLayer\\clsPaymentData.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStore_DataAccessLayer\\clsPaymentData.cs",
+              "RelativeToolTip": "ComputerStore_DataAccessLayer\\clsPaymentData.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAiwAcAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T20:35:59.161Z",
+              "WhenOpened": "2025-06-02T09:22:43.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaymentsController.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\PaymentsController.cs",
+              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\PaymentsController.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\PaymentsController.cs",
+              "RelativeToolTip": "ComputerStoreApi\\Controllers\\PaymentsController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA2wBgAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T09:21:54.101Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmOrderCart.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs",
-              "RelativeDocumentMoniker": "Order\\frmOrderCart.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmOrderCart.cs [Design]",
-              "RelativeToolTip": "Order\\frmOrderCart.cs [Design]",
+              "Title": "PaymentsApiClient.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\Api Clients\\PaymentsApiClient.cs",
+              "RelativeDocumentMoniker": "ApiClients\\Api Clients\\PaymentsApiClient.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ApiClients\\Api Clients\\PaymentsApiClient.cs",
+              "RelativeToolTip": "ApiClients\\Api Clients\\PaymentsApiClient.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA2wBMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T20:35:46.34Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmManageUsersOrders.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs",
-              "RelativeDocumentMoniker": "Order\\frmManageUsersOrders.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs",
-              "RelativeToolTip": "Order\\frmManageUsersOrders.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAIA0wKIAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T19:54:07.802Z",
+              "WhenOpened": "2025-06-02T09:20:44.097Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmManageUsersOrders.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs",
-              "RelativeDocumentMoniker": "Order\\frmManageUsersOrders.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageUsersOrders.cs [Design]",
-              "RelativeToolTip": "Order\\frmManageUsersOrders.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "frmManageYourOrders.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageYourOrders.cs",
+              "RelativeDocumentMoniker": "Order\\frmManageYourOrders.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageYourOrders.cs",
+              "RelativeToolTip": "Order\\frmManageYourOrders.cs",
+              "ViewState": "AgIAAIgAAAAAAAAAAAA0wJgAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T19:50:56.061Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-06-02T09:15:23.188Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\OrdersController.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "ComputerStoreApi\\Controllers\\OrdersController.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAA7wGsAAAAAAAAAAAAAAA==",
+              "Title": "frmManageYourOrders.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageYourOrders.cs",
+              "RelativeDocumentMoniker": "Order\\frmManageYourOrders.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\frmManageYourOrders.cs [Design]",
+              "RelativeToolTip": "Order\\frmManageYourOrders.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T18:55:47.935Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-02T09:11:26.721Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ShippingsController.cs",
-              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ShippingsController.cs",
-              "RelativeDocumentMoniker": "ComputerStoreApi\\Controllers\\ShippingsController.cs",
-              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\ComputerStoreApi\\Controllers\\ShippingsController.cs",
-              "RelativeToolTip": "ComputerStoreApi\\Controllers\\ShippingsController.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAAAxwMwAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ctrlOrderItemViewer.cs",
+              "DocumentMoniker": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\ctrlOrderItemViewer.cs",
+              "RelativeDocumentMoniker": "Order\\ctrlOrderItemViewer.cs",
+              "ToolTip": "C:\\Users\\saleh\\Desktop\\Programming\\Projects\\Computer Store\\Order\\ctrlOrderItemViewer.cs",
+              "RelativeToolTip": "Order\\ctrlOrderItemViewer.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAIA6wLQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T18:51:21.966Z",
+              "WhenOpened": "2025-06-02T09:02:04.134Z",
               "EditorCaption": ""
             }
           ]

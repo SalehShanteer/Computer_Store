@@ -115,8 +115,9 @@ namespace Computer_Store
             }
 
             _OrderItem = orderItem;
+            _Mode = mode;
 
-            if (mode == enumOrderItemViewerMode.View)
+            if (_Mode == enumOrderItemViewerMode.View)
             {
                 _ActivateViewMode();
             }
